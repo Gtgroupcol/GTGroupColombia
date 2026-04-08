@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_withholding_rate_tree" model="ir.ui.view">
+        <field name="name">withholding.rate.tree</field>
+        <field name="model">withholding.rate</field>
+        <field name="arch" type="xml">
+            <tree string="Tarifas de Retención" default_order="concept_id, date_from desc">
+                <field name="concept_id"/>
+                <field name="fiscal_year"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="rate_percent" invisible="calculation_type == 'by_contributor'"/>
+                <field name="rate_declarant" invisible="calculation_type != 'by_contributor'"/>
+                <field name="rate_non_declarant" invisible="calculation_type != 'by_contributor'"/>
+                <field name="min_base_uvt"/>
+                <field name="min_base_computed"/>
+                <field name="legal_reference" optional="hide"/>
+                <field name="calculation_type" column_invisible="1"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_withholding_rate_form" model="ir.ui.view">
+        <field name="name">withholding.rate.form</field>
+        <field name="model">withholding.rate</field>
+        <field name="arch" type="xml">
+            <form string="Tarifa de Retención">
+                <sheet>
+                    <group>
+                        <group string="Concepto">
+                            <field name="concept_id"/>
+                            <field name="concept_type" readonly="1"/>
+                            <field name="calculation_type" readonly="1"/>
+                        </group>
+                        <group string="Vigencia">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="fiscal_year" readonly="1"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Tarifas" invisible="calculation_type == 'by_contributor'">
+                            <field name="rate_percent"/>
+                        </group>
+                        <group string="Tarifas por Tipo de Contribuyente" invisible="calculation_type != 'by_contributor'">
+                            <field name="rate_declarant"/>
+                            <field name="rate_non_declarant"/>
+                        </group>
+                        <group string="Base Mínima">
+                            <field name="min_base_uvt"/>
+                            <field name="min_base_fixed"/>
+                            <field name="min_base_computed" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Referencia">
+                            <field name="legal_reference"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notas adicionales..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_withholding_rate_search" model="ir.ui.view">
+        <field name="name">withholding.rate.search</field>
+        <field name="model">withholding.rate</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tarifas">
+                <field name="concept_id"/>
+                <field name="fiscal_year"/>
+                <field name="legal_reference"/>
+                <separator/>
+                <filter string="Vigente" name="current" domain="[('date_from', '&lt;=', context_today()), '|', ('date_to', '&gt;=', context_today()), ('date_to', '=', False)]"/>
+                <filter string="Activo" name="active" domain="[('active', '=', True)]"/>
+                <separator/>
+                <filter string="2025" name="year_2025" domain="[('fiscal_year', '=', '2025')]"/>
+                <filter string="2024" name="year_2024" domain="[('fiscal_year', '=', '2024')]"/>
+                <filter string="2023" name="year_2023" domain="[('fiscal_year', '=', '2023')]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Concepto" name="group_concept" context="{'group_by': 'concept_id'}"/>
+                    <filter string="Año" name="group_year" context="{'group_by': 'fiscal_year'}"/>
+                    <filter string="Tipo" name="group_type" context="{'group_by': 'concept_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_withholding_rate" model="ir.actions.act_window">
+        <field name="name">Tarifas de Retención</field>
+        <field name="res_model">withholding.rate</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1, 'search_default_current': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nueva tarifa de retención
+            </p>
+            <p>
+                Configure las tarifas para cada concepto de retención por año.
+                Incluya bases mínimas en UVT y tarifas diferenciadas para declarantes/no declarantes.
+            </p>
+        </field>
+    </record>
+
+    <!-- Rangos Progresivos -->
+
+    <record id="view_withholding_bracket_tree" model="ir.ui.view">
+        <field name="name">withholding.bracket.tree</field>
+        <field name="model">withholding.bracket</field>
+        <field name="arch" type="xml">
+            <tree string="Rangos Progresivos" default_order="concept_id, date_from desc, from_uvt">
+                <field name="concept_id"/>
+                <field name="date_from"/>
+                <field name="bracket_number"/>
+                <field name="from_uvt"/>
+                <field name="to_uvt"/>
+                <field name="rate_percent"/>
+                <field name="subtract_uvt"/>
+                <field name="plus_uvt"/>
+                <field name="from_amount" optional="show"/>
+                <field name="to_amount" optional="show"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_withholding_bracket_form" model="ir.ui.view">
+        <field name="name">withholding.bracket.form</field>
+        <field name="model">withholding.bracket</field>
+        <field name="arch" type="xml">
+            <form string="Rango Progresivo">
+                <sheet>
+                    <group>
+                        <group string="Concepto">
+                            <field name="concept_id" domain="[('calculation_type', '=', 'progressive')]"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group string="Definición del Rango">
+                            <field name="bracket_number"/>
+                            <field name="from_uvt"/>
+                            <field name="to_uvt"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Fórmula de Cálculo">
+                        <div class="alert alert-info" role="alert">
+                            <p>Fórmula: <strong>(Base_UVT - Resta) x Tarifa% + Más UVT</strong></p>
+                        </div>
+                        <group>
+                            <field name="rate_percent"/>
+                            <field name="subtract_uvt"/>
+                            <field name="plus_uvt"/>
+                        </group>
+                        <group string="Valores Calculados (UVT Actual)">
+                            <field name="from_amount" readonly="1"/>
+                            <field name="to_amount" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_withholding_bracket_search" model="ir.ui.view">
+        <field name="name">withholding.bracket.search</field>
+        <field name="model">withholding.bracket</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Rangos">
+                <field name="concept_id"/>
+                <field name="bracket_number"/>
+                <separator/>
+                <filter string="Vigente" name="current" domain="[('date_from', '&lt;=', context_today()), '|', ('date_to', '&gt;=', context_today()), ('date_to', '=', False)]"/>
+                <filter string="Activo" name="active" domain="[('active', '=', True)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Concepto" name="group_concept" context="{'group_by': 'concept_id'}"/>
+                    <filter string="Año" name="group_year" context="{'group_by': 'date_from:year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_withholding_bracket" model="ir.actions.act_window">
+        <field name="name">Rangos Progresivos</field>
+        <field name="res_model">withholding.bracket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1, 'search_default_current': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear rangos progresivos de retención
+            </p>
+            <p>
+                Configure los rangos progresivos para retención salarial (Art. 383 E.T.)
+                Cada rango define: Intervalo (UVT), Tarifa %, Resta UVT, Más UVT.
+            </p>
+        </field>
+    </record>
+</odoo>

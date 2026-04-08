@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+    <record id="dian_1001" model="format.encab">
+            <field name="format_id">1001</field>
+            <field name="description">Pagos y abonos en cuenta y retenciones</field>
+        </record>
+        <record id="dian_1003" model="format.encab">
+            <field name="format_id">1003</field>
+            <field name="description">Retenciones en la fuente que le practicaron</field>
+        </record>
+        <record id="dian_1004" model="format.encab">
+            <field name="format_id">1004</field>
+            <field name="description">Descuentos Tributarios</field>
+        </record>
+        <record id="dian_1005" model="format.encab">
+            <field name="format_id">1005</field>
+            <field name="description">Impuesto a las ventas por pagar (Descontable)</field>
+        </record>
+        <record id="dian_1006" model="format.encab">
+            <field name="format_id">1006</field>
+            <field name="description">Impuesto a las ventas por pagar (Generado)</field>
+        </record>
+        <record id="dian_1007" model="format.encab">
+            <field name="format_id">1007</field>
+            <field name="description">Ingresos recibidos</field>
+        </record>
+        <record id="dian_1008" model="format.encab">
+            <field name="format_id">1008</field>
+            <field name="description">Saldo de cuentas por cobrar</field>
+        </record>
+        <record id="dian_1009" model="format.encab">
+            <field name="format_id">1009</field>
+            <field name="description">Saldo de cuentas por pagar</field>
+        </record>
+        <record id="dian_2276" model="format.encab">
+            <field name="format_id">2276</field>
+            <field name="description">Información de rentas de trabajo y pensiones</field>
+        </record>
+        <record id="dian_1012" model="format.encab">
+            <field name="format_id">1012</field>
+            <field name="description">Información de declaraciones tributarias, acciones y aportes, inversiones en bonos títulos valores y cuentas de ahorro y cuentas corrientes  V7</field>
+        </record>        
+        <record id="dian_1011" model="format.encab">
+            <field name="format_id">1011</field>
+            <field name="description"> Información de las declaraciones tributarias  V6 </field>
+        </record>
+        <!-- DISTRITALES -->
+        <record id="distrital_1" model="format.encab">
+            <field name="format_id">Art. 1</field>
+            <field name="description">Información de ingresos obtenidos por actividades excluidas o no sujetas y otros ingresos no gravados, deducciones o exenciones de los contribuyentes del ICA en Bogotá</field>
+        </record>
+        <record id="distrital_2" model="format.encab">
+            <field name="format_id">Art. 2</field>
+            <field name="description">Información de compras de bienes y/o servicios</field>
+        </record>
+        <record id="distrital_3" model="format.encab">
+            <field name="format_id">Art. 3</field>
+            <field name="description">Información de ventas de bienes</field>
+        </record>
+        <record id="distrital_4" model="format.encab">
+            <field name="format_id">Art. 4</field>
+            <field name="description">Información que deben reportar los agentes de retención del impuesto de Industria y Comercio</field>
+        </record>
+        <record id="distrital_6" model="format.encab">
+            <field name="format_id">Art. 6</field>
+            <field name="description">Información que deben reportar los sujetos de retención del impuesto de Industria y Comercio</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="lavish_account.payment_file_list">
+      <field name="name">lavish_account payment_file_list</field>
+      <field name="model">lavish.payment.file</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="description"/>
+          <field name="journal_id"/>
+          <field name="application"/>
+          <field name="payment_ids" widget="many2many_tags"/>          
+        </tree>
+      </field>
+    </record>
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="lavish_account.payment_file_form">
+      <field name="name">lavish_account payment_file_form</field>
+      <field name="model">lavish.payment.file</field>
+      <field name="arch" type="xml">        
+        <form string="Archivo de pago">
+          <sheet>
+            <group>
+              <group>
+                <field name="description"/>
+                <field name="payment_type"/>
+                <field name="type_file" widget="radio"/>
+                <field name="format_file" widget="radio" />
+                <field name="application"/>
+                <field name="sequence"/>
+              </group>  
+              <group>
+                <field name="payment_date"/>
+                <field name="journal_id"/>
+                <field name="vat_payer"/>
+                <field name="account_debit"/>
+                <field name="account_type_debit"/>
+              </group>  
+            </group>
+            <group>
+                <field name="payment_ids"/>                
+            </group>  
+            <button name="get_excel" type="object" string="Generar Archivo"/>
+          </sheet>
+        </form>        
+      </field>
+    </record>
+    <!-- action -->
+    <record model="ir.actions.act_window" id="lavish_account.action_payment_file">
+      <field name="name">Archivo de pago</field>
+      <field name="res_model">lavish.payment.file</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="report_oi_excel_export_page">
+		<div class="page">
+			<style>
+body {
+ font-family: Tahoma, sans-serif;
+ font-weight: normal;
+ font-style: normal;
+ font-size:11px;	
+}			
+.o_main_table th {
+	background-color:  #e9ecef !important;
+}
+.tr_title {
+  font-weight: bold;
+  border-bottom: double 3px black;
+  background-color: #fafafa;
+}
+.tr_empty {
+   border-bottom: none !important;
+}
+.tr_empty th, .tr_empty td {
+    padding:  0.75rem;    
+}
+.tr_summary {
+	font-weight: bold;
+}
+.tr_total {
+	background-color: #e6e6e6;
+}
+.tr_group {
+	font-weight: bold;
+	background-color: #f1f1f1;
+}
+.tr_header {
+	font-weight: bold;	
+}
+.o-text-right {
+    text-align:  right !important;
+}
+			
+			</style>
+			<h1 class="text-center" t-esc="report_title" t-if="report_title"></h1>		
+			<t t-if="wizard_ref">
+				<t t-set="wizard_ref" t-value="wizard_ref.split(',')" />
+				<t t-set="wizard" t-value="env[wizard_ref[0]].browse(int(wizard_ref[1]))" />
+			</t>
+			<table id="table1" class="table table-sm o_main_table">
+				<thead>
+					<tr t-foreach="enumerate(rows[:header_rows_count])" t-as="_row">
+						<t t-set="row_idx" t-value="_row[0]" />
+						<t t-set="row" t-value="_row[1]" />		
+						<t t-foreach="enumerate(row)" t-as="_cell">
+							<t t-set="col_idx" t-value="_cell[0]" />
+							<t t-set="value" t-value="_cell[1]" />
+							<t t-set="th_classes" t-value="[]" />
+							<t t-set="dummy" t-if="col_idx in number_columns" t-value="th_classes.append('o-text-right')" />
+							<t t-set="th_class" t-value="' '.join(th_classes)" />	
+							<th t-att-class="th_class">
+								<t t-raw="value" />
+							</th>						
+						</t>			
+					</tr>
+				</thead>
+				<tbody>
+					<t t-foreach="enumerate(rows[header_rows_count:])" t-as="_row">
+						<t t-set="row_idx" t-value="_row[0]+header_rows_count" />
+						<t t-set="row" t-value="_row[1]" />							
+						<t t-set="tr_classes" t-value="[]" />
+						<t t-set="dummy" t-if="title_rows and row_idx in title_rows" t-value="tr_classes.append('tr_title')" />
+						<t t-set="dummy" t-if="empty_rows and row_idx in empty_rows or not any(row)" t-value="tr_classes.append('tr_empty')" />
+						<t t-set="dummy" t-if="summary_rows and row_idx in summary_rows" t-value="tr_classes.append('tr_summary')" />
+						<t t-set="dummy" t-if="group_rows and row_idx in group_rows" t-value="tr_classes.append('tr_group')" />
+						<t t-set="dummy" t-if="total_rows and row_idx in total_rows" t-value="tr_classes.append('tr_total')" />
+						<t t-set="dummy" t-if="percentage_rows and row_idx in percentage_rows" t-value="tr_classes.append('tr_percentage')" />
+						<t t-set="dummy" t-if="not any(filter(lambda i : i is not None ,row)) or (hidden_rows and row_idx in hidden_rows)" t-value="tr_classes.append('oe_hidden')" />					
+						<t t-set="tr_class" t-value="' '.join(tr_classes)" />					
+						<tr  t-att-class="tr_class">
+							<t t-foreach="enumerate(row)" t-as="_cell">
+								<t t-set="col_idx" t-value="_cell[0]" />
+								<t t-set="value" t-value="_cell[1]" />
+								<t t-set="cell_id" t-value="'%s,%s' % (row_idx, col_idx)" />
+								<t t-if="cell_id in row_merge_cells_skip">
+								
+								</t>
+								<t t-elif="cell_id in row_merge_cells_vals">
+									<td t-att-colspan="row_merge_cells_vals[cell_id]">
+										<t t-raw="value" />
+									</td>	
+								</t>	
+								<t t-else="">
+									<t t-set="td_classes" t-value="[]" />
+									<t t-set="dummy" t-if="col_idx in number_columns" t-value="td_classes.append('o-text-right')" />
+									<t t-set="td_class" t-value="' '.join(td_classes)" />	
+								
+									<td t-att-class="td_class">
+										<t t-if="isinstance(value, (float,int))" t-esc="value" t-options="{'widget' : 'float', 'precision' : decimal_places or 2}" />
+										<t t-else="" t-raw="value" />
+									</td>		
+								</t>																							
+							</t>
+						</tr>								
+					</t>
+				</tbody>
+			</table>				
+		</div>
+	</template>
+
+	<template id="report_oi_excel_export">
+		<t t-call="web.html_container">
+			<t t-if="layout=='basic'" t-call="web.basic_layout">
+				<t t-call="oi_excel_export.report_oi_excel_export_page" />
+			</t>
+			<t t-if="layout=='internal'" t-call="web.internal_layout">
+				<t t-call="oi_excel_export.report_oi_excel_export_page" />
+			</t>		
+			<t t-if="layout=='external'" t-call="web.external_layout">
+				<t t-call="oi_excel_export.report_oi_excel_export_page" />
+			</t>							
+		</t>
+	</template>
+
+</odoo>

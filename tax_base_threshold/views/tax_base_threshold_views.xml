@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tax_base_threshold_tree" model="ir.ui.view">
+        <field name="name">tax.base.threshold.tree</field>
+        <field name="model">tax.base.threshold</field>
+        <field name="arch" type="xml">
+            <tree string="Umbrales de Base Tributaria" editable="top">
+                <field name="tax_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="base_amount"/>
+                <field name="base_uvt"/>
+                <field name="base_amount_from_uvt" readonly="1"/>
+                <field name="uvt_value" readonly="1" optional="hide"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tax_base_threshold_form" model="ir.ui.view">
+        <field name="name">tax.base.threshold.form</field>
+        <field name="model">tax.base.threshold</field>
+        <field name="arch" type="xml">
+            <form string="Umbral de Base Tributaria">
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="tax_id"/>
+                        <h1>
+                            <field name="tax_id" placeholder="Seleccione impuesto..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Período">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Configuración de Umbral">
+                            <field name="base_amount"/>
+                            <field name="currency_id"/>
+                            <separator string="o" colspan="2"/>
+                            <field name="base_uvt"/>
+                            <field name="uvt_value" readonly="1"/>
+                            <field name="base_amount_from_uvt" readonly="1" string="Monto Calculado"/>
+                        </group>
+                    </group>
+                    <group string="Ayuda" class="alert alert-info" role="alert">
+                        <div>
+                            <p>Configure el monto mínimo de base requerido para que este impuesto aplique.</p>
+                            <p>Puede especificar:</p>
+                            <ul>
+                                <li><b>Un monto fijo</b> en la moneda de la compañía</li>
+                                <li><b>Un monto en UVT</b> (Unidades de Valor Tributario) que se calculará automáticamente según el valor vigente de la UVT</li>
+                            </ul>
+                            <p>Si el monto base es menor que el umbral, el impuesto no se aplicará.</p>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tax_base_threshold_search" model="ir.ui.view">
+        <field name="name">tax.base.threshold.search</field>
+        <field name="model">tax.base.threshold</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Umbrales de Base Tributaria">
+                <field name="tax_id"/>
+                <field name="date_from"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <separator/>
+                <filter string="Activo" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Vigente" name="current"
+                        domain="[('date_from', '&lt;=', context_today()), '|', ('date_to', '&gt;=', context_today()), ('date_to', '=', False)]"/>
+                <filter string="Con UVT" name="with_uvt" domain="[('base_uvt', '>', 0)]"/>
+                <filter string="Monto Fijo" name="fixed_amount" domain="[('base_uvt', '=', 0)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Impuesto" name="group_tax" context="{'group_by': 'tax_id'}"/>
+                    <filter string="Compañía" name="group_company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                    <filter string="Año" name="group_year" context="{'group_by': 'date_from:year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tax_base_threshold" model="ir.actions.act_window">
+        <field name="name">Umbrales de Base Tributaria</field>
+        <field name="res_model">tax.base.threshold</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1, 'search_default_current': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo umbral de base tributaria
+            </p>
+            <p>
+                Defina los montos mínimos de base para que los impuestos apliquen.
+                Puede establecer umbrales en montos fijos o en unidades UVT.
+            </p>
+        </field>
+    </record>
+</odoo>

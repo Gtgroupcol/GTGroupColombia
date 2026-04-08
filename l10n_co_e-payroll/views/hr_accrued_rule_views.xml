@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Vista Tree -->
+    <record id="hr_accrued_rule_view_tree" model="ir.ui.view">
+        <field name="name">hr.accrued.rule.tree</field>
+        <field name="model">hr.accrued.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="display_name"/>
+                <field name="parent_id"/>
+                <field name="rule_type"/>
+                <field name="xml_structure"/>
+                <field name="is_nodo_text"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="hr_accrued_rule_view_form" model="ir.ui.view">
+        <field name="name">hr.accrued.rule.form</field>
+        <field name="model">hr.accrued.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Nombre de la regla"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="parent_id"/>
+                            <field name="rule_type"/>
+                            <field name="complete_name" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="display_name"/>
+                            <field name="xml_structure"/>
+                            <field name="xml_tag"/>
+                            <field name="xml_child_tag"/>
+                            <field name="xml_attributes"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Características de la Regla" name="rule_characteristics">
+                            <group>
+                                <group string="Control de Valores">
+                                    <field name="has_quantity"/>
+                                    <field name="has_dates"/>
+                                    <field name="has_times"/>
+                                    <field name="has_rate"/>
+                                    <field name="has_amount"/>
+                                    <field name="has_ns_value"/>
+                                    <field name="has_description"/>
+                                    <field name="has_extra_values"/>
+                                    <field name="is_nodo_text"/>
+                                </group>
+                                <group string="Valores Específicos">
+                                    <field name="overtime_percentage"/>
+                                    <field name="incapacity_type"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Reglas Hijas" name="child_rules">
+                            <field name="child_id">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="rule_type"/>
+                                    <field name="xml_structure"/>
+                                    <field name="active"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search -->
+    <record id="hr_accrued_rule_view_search" model="ir.ui.view">
+        <field name="name">hr.accrued.rule.search</field>
+        <field name="model">hr.accrued.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="parent_id"/>
+                <field name="rule_type"/>
+                <separator/>
+                <filter string="Activos" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archivados" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Con Nodo Texto" name="nodo_texto" domain="[('is_nodo_text', '=', True)]"/>
+                <filter string="Con Horas Extras" name="con_horas_extras" domain="[('overtime_percentage', '>', 0)]"/>
+                <filter string="Con Valor No Salarial" name="con_ns_value" domain="[('has_ns_value', '=', True)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Categoría Principal" name="parent" domain="[]" context="{'group_by': 'parent_id'}"/>
+                    <filter string="Tipo de Regla" name="rule_type" domain="[]" context="{'group_by': 'rule_type'}"/>
+                    <filter string="Estructura XML" name="xml_structure" domain="[]" context="{'group_by': 'xml_structure'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="hr_accrued_rule_action" model="ir.actions.act_window">
+        <field name="name">Tipos Devengado</field>
+        <field name="res_model">hr.accrued.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Cree un nuevo tipo de devengado
+            </p>
+            <p>
+                Los tipos de devengado definen las reglas para la nómina electrónica DIAN.
+            </p>
+        </field>
+    </record>
+</odoo>

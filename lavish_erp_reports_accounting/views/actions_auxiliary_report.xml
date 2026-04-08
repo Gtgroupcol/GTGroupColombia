@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- AUXILIAR -->
+        <record id="action_account_auxiliary_report_filters" model="ir.actions.act_window">
+            <field name="name">Generar Auxiliar</field>
+            <field name="res_model">account.auxiliary.report.filters</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="account_auxiliary_report_filters_form" model="ir.ui.view">
+            <field name="name">Reporte auxiliar contabilidad</field>
+            <field name="model">account.auxiliary.report.filters</field>
+            <field name="arch" type="xml">
+                <form string="Auxiliar">
+                    <group string="AUXILIAR" invisible="preview !=  False">
+                        <group>
+                            <field name="company_id" string="Compañia" readonly="1" force_save="1" />
+                        </group>
+                        <group>
+                            <field name="type_auxiliary" widget='radio' />
+                        </group>
+                    </group>
+                    <group string="PERIODO" invisible="preview !=  False">
+                        <group>
+                            <field name="date_start" />
+                        </group>
+                        <group>
+                            <field name="date_end" />
+                        </group>
+                        <div class="oe_grey" colspan="4">
+                            El auxiliar por generar tomara como saldo inicial todos los movimientos
+                            realizados antes
+                            de la fecha seleccionada.
+                        </div>
+                    </group>
+                    <group string="FILTROS" invisible="preview !=  False">
+                        <group string="Cuentas" colspan="4">
+                            <label for="account_code_from" string="Desde Codigo" />
+                            <div>
+                                <div class="o_row">
+                                    <field
+                                        name="account_code_from"
+                                        class="oe_inline"
+                                        options="{'no_create': True}"
+                                    />
+                                    <span class="oe_inline">Hasta</span>
+                                    <field
+                                        name="account_code_to"
+                                        class="oe_inline"
+                                        options="{'no_create': True}"
+                                    />
+                                </div>
+                            </div>
+                            <field name="filter_account_group_ids" widget="many2many_tags" />
+                            <field name="filter_account_ids" widget="many2many_tags" />
+                            <field name="filter_accounting_class" />
+                            <field name="filter_show_only_terminal_accounts" />
+                            <field name="filter_exclude_auxiliary_test" />
+                        </group>
+                        <group string="Terceros" colspan="4"
+                            invisible="type_auxiliary not in  ['2','2.1']">
+                            <field name="filter_partner_ids" widget="many2many_tags" />
+                        </group>
+                        <group string="Cuentas Analíticas" colspan="4"
+                            invisible="type_auxiliary not in ['3','3.1']">
+                            <!-- <field name="filter_higher_level_analytic"/> -->
+                            <!-- <field name="filter_account_analytic_group_ids"
+                            widget="many2many_tags"/> -->
+                            <field name="filter_account_analytic_ids" widget="many2many_tags" />
+                            <field name="filter_show_only_terminal_account_analytic" />
+                        </group>
+                        <group string="Diarios">
+                            <field name="filter_account_journal_ids" widget="many2many_tags" />
+                        </group>
+                        <group string="Cierre de año">
+                            <field name="filter_with_close" />
+                        </group>
+                    </group>
+                    <group invisible="preview ==  False">
+                        <field name="preview" readonly="1" nolabel="1" />
+                    </group>
+                    <footer invisible="preview !=  False">
+                        <button name="generate_report_html" string="Ver en Pantalla" type="object"
+                            class="oe_highlight" />
+                        <button name="generate_report" string="Generar Excel" type="object"
+                            class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

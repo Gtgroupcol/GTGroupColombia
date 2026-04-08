@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Template for myfatoorah redirect form   -->
+    <template id="redirect_form">
+        <form t-att-action="api_url" method="get">
+            <input type="hidden" name="data_set" t-att-data-action-url="tx_url" data-remove-me=""/>
+            <input type="hidden" name="public-key" t-att-value="publickey"/>
+            <input type="hidden" name="signature:integrity" t-att-value="signature"/>
+            <input type="hidden" name="currency" t-att-value="currency"/>
+            <input type="hidden" name="amount-in-cents" t-att-value="amountcents"/>
+            <input type="hidden" name="reference" t-att-value="referenceCode"/>
+            <input type="hidden" name="redirect-url" t-att-value="redirectUrl"/>
+        </form>
+    </template>
+</odoo>

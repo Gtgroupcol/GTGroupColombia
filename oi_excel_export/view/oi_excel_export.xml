@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="oi_excel_export_form" model="ir.ui.view">
+		<field name="name">oi_excel_export.form</field>
+		<field name="model">oi_excel_export</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="datas" readonly="1"  filename="filename" widget="binary" />
+                        <field name="filename" invisible="1" />
+					</group>
+				</sheet>
+
+			</form>
+		</field>
+	</record>
+
+</odoo>

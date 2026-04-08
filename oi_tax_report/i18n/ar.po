@@ -1,0 +1,210 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* oi_tax_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20210208\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-25 06:58+0000\n"
+"PO-Revision-Date: 2021-02-25 10:08+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar_SA\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Analytic Tags"
+msgstr "الوسوم التحليلية"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Base Amount"
+msgstr "المبلغ الأساسي"
+
+#. module: oi_tax_report
+#: model_terms:ir.ui.view,arch_db:oi_tax_report.view_tax_report_wizard_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__date_from
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__date_to
+msgid "Date To"
+msgstr "التاريخ إلى"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Document No"
+msgstr "رقم المستند"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Document Type"
+msgstr "نوع المستند"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__move_state_ids
+msgid "Entry Status"
+msgstr "حالة القيد"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__move_type_ids
+msgid "Entry Type"
+msgstr "نوع القيد"
+
+#. module: oi_tax_report
+#: model_terms:ir.ui.view,arch_db:oi_tax_report.view_tax_report_wizard_form
+msgid "Excel"
+msgstr "اكسل"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Grand Total"
+msgstr "الإجمالي"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__journal_ids
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Partner Tax ID"
+msgstr "الرقم الضريبي"
+
+#. module: oi_tax_report
+#: model_terms:ir.ui.view,arch_db:oi_tax_report.view_tax_report_wizard_form
+msgid "Preview"
+msgstr "معاينة"
+
+#. module: oi_tax_report
+#: model_terms:ir.ui.view,arch_db:oi_tax_report.view_tax_report_wizard_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__tag_ids
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__tax_ids
+#, python-format
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Tax Amount"
+msgstr "قيمة الضريبة"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__tax_group_ids
+msgid "Tax Group"
+msgstr "تجميع الضريبة"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#: model:ir.actions.act_window,name:oi_tax_report.act_tax_report_wizard
+#: model:ir.ui.menu,name:oi_tax_report.menu_tax_report_wizard
+#, python-format
+msgid "Tax Report"
+msgstr "تقرير الضريبة"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Tax Report %s - %s"
+msgstr "تقرير الضريبة %s - %s"
+
+#. module: oi_tax_report
+#: model:ir.model.fields,field_description:oi_tax_report.field_tax_report_wizard__type_tax_use_ids
+msgid "Tax Scope"
+msgstr "نطاق الضريبة"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Total Amount"
+msgstr "إجمالي المبلغ"
+
+#. module: oi_tax_report
+#: code:addons/oi_tax_report/wizard/tax_report_wizard.py:0
+#, python-format
+msgid "Total For %s"
+msgstr "إجمالي %s"
+
+#. module: oi_tax_report
+#: model:ir.model,name:oi_tax_report.model_tax_report_wizard
+msgid "tax.report.wizard"
+msgstr ""

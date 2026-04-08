@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Herencia de la vista tree -->
+    <record id="view_patient_tree_inherit" model="ir.ui.view">
+        <field name="name">patient.tree.inherit</field>
+        <field name="model">hms.patient</field>
+        <field name="inherit_id" ref="acs_hms_base.view_patient_tree"/>
+        <field name="arch" type="xml">
+            <!-- Agregar campos después del nombre -->
+            <field name="name" position="after">
+                <field name="l10n_latam_identification_type_id" optional="show"/>
+                <field name="vat" optional="show"/>
+            </field>
+            <!-- Reemplazar age por age_description -->
+            <field name="age" position="replace">
+                <field name="age_description" optional="show"/>
+            </field>
+            <!-- Agregar EPS después de mobile -->
+            <field name="mobile" position="after">
+                <field name="eps_id" optional="show"/>
+                <field name="health_type" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Herencia de la vista form -->
+    <record id="view_patient_form_inherit" model="ir.ui.view">
+        <field name="name">patient.form.inherit</field>
+        <field name="model">hms.patient</field>
+        <field name="inherit_id" ref="acs_hms_base.view_patient_form"/>
+        <field name="arch" type="xml">
+            <!-- Reemplazar el campo name en el título con los campos de nombres -->
+            <field name="name" position="replace">
+                <group colspan="4" col="4">
+                    <field name="firs_name" placeholder="Primer Nombre" required="1"/>
+                    <field name="second_name" placeholder="Segundo Nombre"/>
+                    <field name="first_lastname" placeholder="Primer Apellido" required="1"/>
+                    <field name="second_lastname" placeholder="Segundo Apellido"/>
+                </group>
+                <field name="name" readonly="1" force_save="1"/>
+            </field>
+
+            <field name="code" position="after">
+                <field name="l10n_latam_identification_type_id" string="Tipo de documento" required="1"/>
+                <field name="vat" required="1"/>
+                <field name="zona_territorial"/>
+            </field>
+
+            <field name="age" position="replace">
+                <field name="age_description"/>
+                <field name="age" invisible="1"/>
+                <field name="age_type" invisible="1"/>
+            </field>
+
+            <field name="birthday" position="after">
+                <field name="eps_id" context="{'default_is_company': True}" domain="[('is_company', '=', True)]"/>
+                <field name="health_type" required="1"/>
+            </field>
+
+            <!-- Agregar dirección con city_id antes de street -->
+            <field name="street" position="before">
+                <field name="city_id" placeholder="Municipio" 
+                       options='{"no_open": True}'
+                       context="{'default_country_id': country_id}"/>
+            </field>
+
+            <xpath expr="//page[@name='hospital_info']//group[@name='basic_medical']" position="inside">
+                <field name="saltar_validacion" groups="base.group_system"/>
+            </xpath>
+
+            <xpath expr="//page[@name='hospital_info']//group[1]" position="inside">
+                <field name="user_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Herencia de la vista search -->
+    <record id="view_patient_filter_inherit" model="ir.ui.view">
+        <field name="name">patient.filter.inherit</field>
+        <field name="model">hms.patient</field>
+        <field name="inherit_id" ref="acs_hms_base.view_patient_filter"/>
+        <field name="arch" type="xml">
+            <!-- Agregar búsqueda por vat en el campo name -->
+            <field name="name" position="attributes">
+                <attribute name="filter_domain">['|', '|', '|', '|', '|', ('name', 'ilike', self), ('gov_code', 'ilike', self), ('code', 'ilike', self), ('email', 'ilike', self), ('mobile', 'ilike', self), ('vat', 'ilike', self)]</attribute>
+            </field>
+
+            <!-- Agregar campos de búsqueda después de primary_physician_id -->
+            <field name="primary_physician_id" position="after">
+                <field name="l10n_latam_identification_type_id"/>
+                <field name="vat"/>
+                <field name="eps_id"/>
+                <field name="health_type"/>
+                <field name="zona_territorial"/>
+            </field>
+
+            <!-- Modificar filtros de género -->
+            <filter name="gender" domain="[('gender','=','male')]" position="replace">
+                <filter string="Hombre" name="gender_male" domain="[('gender','=','H')]"/>
+            </filter>
+            <filter name="gender" domain="[('gender','=','female')]" position="replace">
+                <filter string="Mujer" name="gender_female" domain="[('gender','=','M')]"/>
+                <filter string="Indeterminado" name="gender_other" domain="[('gender','=','I')]"/>
+            </filter>
+
+            <!-- Agregar filtros por zona territorial -->
+            <filter name="all" position="before">
+                <separator/>
+                <filter string="Zona Rural" name="zona_rural" domain="[('zona_territorial','=','01')]"/>
+                <filter string="Zona Urbana" name="zona_urbana" domain="[('zona_territorial','=','02')]"/>
+            </filter>
+
+            <!-- Agregar filtros por tipo de usuario -->
+            <filter name="all" position="before">
+                <separator/>
+                <filter string="Contributivo Cotizante" name="contributivo_cotizante" domain="[('health_type','=','01')]"/>
+                <filter string="Subsidiado" name="subsidiado" domain="[('health_type','=','04')]"/>
+                <filter string="Sin Régimen" name="sin_regimen" domain="[('health_type','=','05')]"/>
+            </filter>
+
+            <!-- Agregar agrupaciones -->
+            <filter name="corpo_company_id" position="after">
+                <filter string="EPS/Aseguradora" name="eps_group" domain="[]" context="{'group_by':'eps_id'}"/>
+                <filter string="Tipo de Usuario" name="health_type_group" domain="[]" context="{'group_by':'health_type'}"/>
+                <filter string="Zona Territorial" name="zona_group" domain="[]" context="{'group_by':'zona_territorial'}"/>
+                <filter string="Tipo de Identificación" name="id_type_group" domain="[]" context="{'group_by':'l10n_latam_identification_type_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+
+</odoo>

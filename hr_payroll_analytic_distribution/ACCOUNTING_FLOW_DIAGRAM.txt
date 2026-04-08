@@ -1,0 +1,146 @@
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                     FLUJO DE GENERACIÓN DE ASIENTOS CONTABLES                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+📋 RECIBO DE NÓMINA
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ Empleado: Juan Pérez                          Estado: Confirmado               │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │ LÍNEAS DE NÓMINA                                                            │ │
+│ │ ├── Salario Básico     │ $1,000,000 │ Regla: BASIC                        │ │
+│ │ ├── Aux. Transporte    │   $162,000  │ Regla: AUXTRANSP                   │ │
+│ │ ├── Salud (4%)         │   -$40,000  │ Regla: SSOCIAL001                  │ │
+│ │ ├── Pensión (4%)       │   -$40,000  │ Regla: SSOCIAL002                  │ │
+│ │ └── NETO               │ $1,082,000  │ Regla: NET                         │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+🧮 PROCESAMIENTO DE CADA LÍNEA
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ Para cada línea del recibo:                                                     │
+│                                                                                 │
+│ 1️⃣ OBTENER MONTO                                                               │
+│    amount = line.total (ej: $1,000,000)                                        │
+│                                                                                 │
+│ 2️⃣ BUSCAR CONFIGURACIÓN CONTABLE                                               │
+│    ┌─────────────────────────────────────────────────────────────────────────┐ │
+│    │ Regla Salarial: BASIC (Salario Básico)                                 │ │
+│    │ ├── account_debit:  5105 (Salarios)                                    │ │
+│    │ ├── account_credit: 2105 (Nómina por Pagar)                           │ │
+│    │ └── salary_rule_accounting: [Configuraciones especiales]              │ │
+│    └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                 │
+│ 3️⃣ APLICAR LÓGICA PERSONALIZADA                                                │
+│    ┌─────────────────────────────────────────────────────────────────────────┐ │
+│    │ ¿Empleado está en Departamento Ventas?        ✅ SÍ                    │ │
+│    │ ¿Empresa es Lavish S.A.S?                     ✅ SÍ                    │ │
+│    │ ¿Ubicación es Sede Principal?                 ✅ SÍ                    │ │
+│    │ ENTONCES: Usar cuentas específicas del departamento                    │ │
+│    │ ├── debit_account:  5105001 (Salarios Ventas)                         │ │
+│    │ └── credit_account: 2105001 (Nómina Ventas)                           │ │
+│    └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                 │
+│ 4️⃣ DETERMINAR TERCEROS                                                         │
+│    ├── debit_third:  Compañía (Lavish S.A.S)                                  │ │
+│    └── credit_third: Empleado (Juan Pérez)                                    │ │
+│                                                                                 │
+│ 5️⃣ DETERMINAR CUENTA ANALÍTICA                                                 │
+│    ├── ¿Cuenta inicia con 5? (Gasto) → SÍ → Usar analítica                   │ │
+│    └── analytic_account_id: Departamento Ventas                               │ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+📊 CREACIÓN DE LÍNEAS CONTABLES
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ LÍNEA DÉBITO                                                                    │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │ name: "Salario Básico"                                                      │ │
+│ │ account_id: 5105001 (Salarios Ventas)                                      │ │
+│ │ partner_id: Lavish S.A.S                                                   │ │
+│ │ debit: $1,000,000                                                          │ │
+│ │ credit: $0                                                                 │ │
+│ │ analytic_distribution: {Dept_Ventas: 100%}                                │ │
+│ │ hr_salary_rule_id: BASIC                                                   │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                 │
+│ LÍNEA CRÉDITO                                                                   │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │ name: "Salario Básico"                                                      │ │
+│ │ account_id: 2105001 (Nómina Ventas)                                        │ │
+│ │ partner_id: Juan Pérez                                                     │ │
+│ │ debit: $0                                                                  │ │
+│ │ credit: $1,000,000                                                         │ │
+│ │ analytic_distribution: {} (Pasivo sin analítica)                          │ │
+│ │ hr_salary_rule_id: BASIC                                                   │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+🔄 CONSOLIDACIÓN Y OPTIMIZACIÓN
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ ¿Ya existe línea con misma cuenta + tercero + naturaleza?                      │
+│                                                                                 │
+│ SI EXISTE:                          │ SI NO EXISTE:                            │
+│ ├── Sumar montos                    │ ├── Crear nueva línea                   │
+│ ├── Concatenar nombres              │ └── Agregar a line_ids[]                │
+│ └── Mantener una sola línea         │                                          │
+│                                                                                 │
+│ EJEMPLO:                                                                        │
+│ Línea 1: Salario Básico    $1M     →  Línea Consolidada:                      │
+│ Línea 2: Prima Semestral   $500K   →  "Salario Básico, Prima Semestral"       │
+│                                     →  $1.5M en cuenta 5105001                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+⚖️ BALANCEO Y AJUSTES
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 1. SUMAR TOTALES                                                                │
+│    ├── Total Débitos:  $1,242,000                                              │
+│    └── Total Créditos: $1,242,001                                              │
+│                                                                                 │
+│ 2. ¿ESTÁN BALANCEADOS?                                                          │
+│    ❌ NO (Diferencia: $1)                                                       │
+│                                                                                 │
+│ 3. CREAR AJUSTE AL PESO                                                         │
+│    ┌─────────────────────────────────────────────────────────────────────────┐ │
+│    │ name: "Ajuste al peso"                                                  │ │
+│    │ account_id: 1105 (Cuenta por defecto del diario)                       │ │
+│    │ partner_id: Juan Pérez                                                 │ │
+│    │ debit: $1                                                              │ │
+│    │ credit: $0                                                             │ │
+│    └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                 │
+│ 4. VERIFICAR BALANCE FINAL                                                      │
+│    ✅ Total Débitos: $1,242,001 = Total Créditos: $1,242,001                   │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                       │
+                                       ▼
+💾 CREACIÓN DEL ASIENTO CONTABLE
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ ASIENTO CONTABLE #JV001234                                                      │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │ Fecha: 31/01/2025                                                          │ │
+│ │ Diario: Nómina Empleados                                                   │ │
+│ │ Referencia: Enero 2025                                                     │ │
+│ │ Estado: Borrador                                                           │ │
+│ │                                                                            │ │
+│ │ LÍNEAS:                                                                    │ │
+│ │ ┌────────────────────────────────────────────────────────────────────────┐ │ │
+│ │ │ Cuenta        │ Tercero     │ Débito      │ Crédito     │ Analítica   │ │ │
+│ │ ├────────────────────────────────────────────────────────────────────────┤ │ │
+│ │ │ 5105001       │ Lavish SAS  │ $1,000,000  │         $0  │ Dpto Ventas │ │ │
+│ │ │ 5120001       │ Lavish SAS  │   $162,000  │         $0  │ Dpto Ventas │ │ │
+│ │ │ 2367001       │ EPS Sura    │    $40,000  │         $0  │             │ │ │
+│ │ │ 2370001       │ Protección  │    $40,000  │         $0  │             │ │ │
+│ │ │ 2105001       │ Juan Pérez  │         $0  │ $1,082,000  │             │ │ │
+│ │ │ 2367001       │ EPS Sura    │         $0  │    $40,000  │             │ │ │
+│ │ │ 2370001       │ Protección  │         $0  │    $40,000  │             │ │ │
+│ │ │ 1105          │ Juan Pérez  │        $1  │         $0  │             │ │ │
+│ │ └────────────────────────────────────────────────────────────────────────┘ │ │
+│ │                                                                            │ │
+│ │ TOTALES:                      $1,242,001   $1,242,001                     │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="dian_claim_concept_view_tree" model="ir.ui.view">
+            <field name="name">dian.claim.concept.tree</field>
+            <field name="model">dian.claim.concept</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="dian_code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="dian_claim_concept_view_form" model="ir.ui.view">
+            <field name="name">dian.claim.concept.form</field>
+            <field name="model">dian.claim.concept</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="dian_code"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_dian_claim_concept" model="ir.actions.act_window">
+            <field name="name">Claim concepts</field>
+            <field name="res_model">dian.claim.concept</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

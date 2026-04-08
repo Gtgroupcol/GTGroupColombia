@@ -1,0 +1,235 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Dynamic Excel Generation</h2>
+     </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#882C76;">"Easily Create Excel Report from Python Code"</h2>
+        <h3 class="oe_slogan">This module allows users to generate excel reports from a few lines of code.</h3>
+    </div>
+</section>
+
+<section class="oe_container">
+     <div class="oe_row oe_spaced">
+     	<div class="oe_row" >
+     		<h3 style="color:#882C76;">Description</h3>
+     		<p style="line-height: 1.6;">This module is the core and base engine for generating reports in Excel formats. &ldquo;<strong>Dynamic Excel Generation</strong>&rdquo; module allows users to easily create excel reports from a few lines of Python code.</p>
+     	</div>
+	</div>
+</section>
+
+<section class="oe_container">
+     <div class="oe_row oe_spaced">
+     	<div class="oe_row" >
+     		<h3 style="color:#882C76;">Dependencies</h3>
+     		<ul style="margin-left: -10px;line-height: 1.6;">
+     			<li><p>Web</p></li>
+				<li><p>Base</p></li>
+				<li><p>Oi_action_file</p></li>
+				<li><p>Base_import</p></li>   				
+     		</ul>
+     	</div>
+	</div>
+</section>
+
+<section class="oe_container">
+     <div class="oe_row oe_spaced">
+     	<div class="oe_row" >
+     		<h3 style="color:#882C76;">Demonstration</h3>
+     	</div>
+	</div>
+</section>
+
+<div class="oe_styling_v8">
+                
+
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+    	<div class="oe_row text-center" >          
+	     	<h4 class="oe_slogan oe_spaced">Sample Code</h4>	     	
+        </div>
+        <div class="oe_centered" style="width:800px">
+<!-- HTML generated using hilite.me --><div style="width:auto; border:solid gray; border-width:.1em .1em .1em .8em; padding:.2em .6em"><pre style="margin:0; line-height:125%">rows <span style="color:#666666">=</span> [
+  [<span style="color:#4070a0">'Order Number'</span>, <span style="color:#4070a0">'Customer'</span>,<span style="color:#4070a0">'Salesperson'</span>, <span style="color:#4070a0">'Amount'</span>]
+  ]
+
+<span style="color:#007020; font-weight:bold">for</span> record <span style="color:#007020; font-weight:bold">in</span> records<span style="color:#666666">.</span>sorted(<span style="color:#007020; font-weight:bold">lambda</span> record: record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name):
+  row <span style="color:#666666">=</span> [record<span style="color:#666666">.</span>name, record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name, record<span style="color:#666666">.</span>user_id<span style="color:#666666">.</span>name, record<span style="color:#666666">.</span>amount_total]
+  rows<span style="color:#666666">.</span>append(row)
+  
+action <span style="color:#666666">=</span> env[<span style="color:#4070a0">'oi_excel_export'</span>]<span style="color:#666666">.</span>export(rows)
+</pre></div>
+        
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+	
+     	<div class="oe_row text-center" >          
+	     	<h4 class="oe_slogan oe_spaced">An illustration of the generated report</h4>	     	
+        </div>
+             
+        <div class="oe_screenshot oe_centeralign" style="max-width:900px; margin-left:auto; margin-right:auto">
+            <img src="screen2.gif" style="max-width:900px; margin-left:auto; margin-right:auto">
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_row text-center" >          
+	     	<h4 class="oe_slogan oe_spaced">Group Example</h4>	     	
+        </div>
+        <div class="oe_centered" style="width:800px">
+<!-- HTML generated using hilite.me --><div style="width:auto; border:solid gray; border-width:.1em .1em .1em .8em; padding:.2em .6em"><pre style="margin:0; line-height:125%">rows <span style="color:#666666">=</span> [
+  [<span style="color:#4070a0">'Order Number'</span>, <span style="color:#4070a0">'Customer'</span>,<span style="color:#4070a0">'Salesperson'</span>, <span style="color:#4070a0">'Amount'</span>]
+  ]
+
+group_rows <span style="color:#666666">=</span> []
+last_partner <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>
+
+<span style="color:#007020; font-weight:bold">for</span> record <span style="color:#007020; font-weight:bold">in</span> records<span style="color:#666666">.</span>sorted(<span style="color:#007020; font-weight:bold">lambda</span> record: record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name):
+  <span style="color:#007020; font-weight:bold">if</span> last_partner <span style="color:#007020; font-weight:bold">is</span> <span style="color:#007020; font-weight:bold">None</span> <span style="color:#007020; font-weight:bold">or</span> last_partner <span style="color:#666666">!=</span> record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name:
+    group_rows<span style="color:#666666">.</span>append(<span style="color:#007020">len</span>(rows))
+    rows<span style="color:#666666">.</span>append([record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name])
+    last_partner <span style="color:#666666">=</span> record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name
+    
+  row <span style="color:#666666">=</span> [record<span style="color:#666666">.</span>name, record<span style="color:#666666">.</span>partner_id<span style="color:#666666">.</span>name, record<span style="color:#666666">.</span>user_id<span style="color:#666666">.</span>name, record<span style="color:#666666">.</span>amount_total]
+  rows<span style="color:#666666">.</span>append(row)
+  
+action <span style="color:#666666">=</span> env[<span style="color:#4070a0">'oi_excel_export'</span>]<span style="color:#666666">.</span>export(rows, group_rows <span style="color:#666666">=</span> group_rows)
+</pre></div>        
+        </div>
+    </div>
+</section>  
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+		
+		<div class="oe_row text-center" >          
+	     	<h4 class="oe_slogan oe_spaced">An illustration of the generated report</h4>	     	
+        </div>
+		
+        <div class="oe_screenshot oe_centeralign" style="max-width:900px; margin-left:auto; margin-right:auto">
+            <img src="screen2.png" style="max-width:900px; margin-left:auto; margin-right:auto">
+        </div>
+    </div>
+</section>
+
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_row text-center" >          
+	     	<h4 class="oe_slogan oe_spaced">Available method parameters</h4>	     	
+        </div>
+        <div class="oe_centered" style="width:600px">
+<!-- HTML generated using hilite.me --><div style="width:auto; border:solid gray; border-width:.1em .1em .1em .8em; padding:.2em .6em"><pre style="margin:0; line-height:125%">decimal_places<span style="color:#666666">=</span><span style="color:#40a070">2</span>, 
+row_color1<span style="color:#666666">=</span><span style="color:#4070a0">'white'</span>, 
+row_color2<span style="color:#666666">=</span><span style="color:#4070a0">'#f8f9f9'</span>, 
+summary_color<span style="color:#666666">=</span><span style="color:#4070a0">'#ebedef'</span>, 
+header_color<span style="color:#666666">=</span><span style="color:#4070a0">'#ebedef'</span>, 
+group_color <span style="color:#666666">=</span><span style="color:#4070a0">'#B0D1F7'</span>,
+title_color <span style="color:#666666">=</span> <span style="color:#4070a0">'#B0C4DE'</span>,
+date_format<span style="color:#666666">=</span><span style="color:#4070a0">'yyyy-MM-dd'</span>,
+filename<span style="color:#666666">=</span><span style="color:#4070a0">'report'</span>,
+add_row_total <span style="color:#666666">=</span> <span style="color:#4070a0">'SUM'</span>,
+add_column_total <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>,
+header_rows_count <span style="color:#666666">=</span> <span style="color:#40a070">1</span>,
+header_columns_count <span style="color:#666666">=</span> <span style="color:#40a070">0</span>,
+date_cols <span style="color:#666666">=</span> [],
+summary_rows <span style="color:#666666">=</span> [],
+group_rows <span style="color:#666666">=</span> [],
+total_rows<span style="color:#666666">=</span>[],
+total_columns<span style="color:#666666">=</span>[],
+percentage_columns<span style="color:#666666">=</span>[],
+percentage_rows<span style="color:#666666">=</span>[],
+row_merge_cells<span style="color:#666666">=</span>[],
+worksheet_name <span style="color:#666666">=</span><span style="color:#4070a0">'data'</span>,
+pdf <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">False</span>,
+empty_rows <span style="color:#666666">=</span> [],
+title_rows <span style="color:#666666">=</span> [],
+action <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">True</span>,
+outlines_row <span style="color:#666666">=</span> [],
+outline_on<span style="color:#666666">=</span><span style="color:#007020; font-weight:bold">True</span>, 
+outline_below<span style="color:#666666">=</span><span style="color:#007020; font-weight:bold">True</span>, 
+outline_right<span style="color:#666666">=</span><span style="color:#007020; font-weight:bold">True</span>, 
+auto_style <span style="color:#666666">=</span><span style="color:#007020; font-weight:bold">False</span>,
+images <span style="color:#666666">=</span> [],
+after_func <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>,               
+openpyxl_func <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>,
+freeze_panes <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">True</span>,
+formats <span style="color:#666666">=</span> {},
+char_width <span style="color:#666666">=</span> <span style="color:#40a070">1.0</span>,
+min_width <span style="color:#666666">=</span> <span style="color:#40a070">10</span>,
+max_width <span style="color:#666666">=</span> <span style="color:#40a070">100</span>,
+landscape <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>,
+html <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">False</span>,
+font_size <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>,
+data_source <span style="color:#666666">=</span> <span style="color:#007020; font-weight:bold">None</span>
+</pre></div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#882C76;">Other applications that use this tools</h2>
+        <div class="oe_centeralign">
+			<a href="https://apps.odoo.com/apps/modules/13.0/oi_excel_export_dynamic" target="_blank">
+	        	<span style="font-size:22px; color:#21B799">Dynamic Excel Report</span>
+	        </a>     
+	        <br>
+			<a href="https://apps.odoo.com/apps/modules/13.0/oi_account_asset_register_report" target="_blank">
+	        	<span style="font-size:22px; color:#21B799">Asset Register Report</span>
+	        </a>     
+	        <br>	       
+			<a href="https://apps.odoo.com/apps/modules/13.0/oi_financial_report" target="_blank">
+	        	<span style="font-size:22px; color:#21B799">Dynamic Financial Report</span>
+	        </a>     
+	        <br>	
+			<a href="https://apps.odoo.com/apps/modules/13.0/oi_users_groups_crosstab_report" target="_blank">
+	        	<span style="font-size:22px; color:#21B799">User/Groups Crosstab Report</span>
+	        </a>     
+	        <br>	         	                 
+        </div>          
+    </div>
+</section>
+  
+
+<section class="oe_container">
+    <div class="oe_mt16 oe_mb16">
+        <h2 class="oe_slogan">Need Any Help?</h2>
+    </div>
+    <div class="oe_slogan">
+        <a class="btn btn-primary btn-md mt8" style="color: rgb(255, 255, 255) !important; position: relative; overflow: hidden;" href="mailto:odoo@open-inside.com" target="_blank">
+        	<i class="fa fa-envelope"></i>
+         	Email 
+        </a>
+        <span class="btn btn-primary btn-md mt8" style="color: rgb(255, 255, 255) !important; position: relative; overflow: hidden;" href="https://www.open-inside.com/page/contactus" target="_blank">
+	        <i class="fa fa-phone"></i> 
+	        Contact Us 
+        </span>
+        <span class="btn btn-primary btn-md mt8" style="color: rgb(255, 255, 255) !important; position: relative; overflow: hidden;" href="https://www.open-inside.com/openinside/products/" target="_blank">
+	        <i class="fa fa-suitcase"></i>
+	        Our Products 
+        </span>
+        
+        <span href="https://www.open-inside.com/" target="_blank">
+            <img src="logo.png" style="width:150px; margin-top:25px" class="center-block">
+        </span>
+    </div>
+</section>
+            </div>
+
+
+
+
+
+
+
+

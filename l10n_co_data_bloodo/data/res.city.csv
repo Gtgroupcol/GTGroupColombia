@@ -1,0 +1,1124 @@
+id,name,dian_code,state_id:id,country_id:id,code,zipcode
+lavish_erp.state_co_201,MEDELLÍN,05001,base.state_co_01,base.co,05001,050032
+lavish_erp.state_co_202,ABEJORRAL,05002,base.state_co_01,base.co,05002,055030
+lavish_erp.state_co_203,ABRIAQUÍ,05004,base.state_co_01,base.co,05004,057467
+lavish_erp.state_co_204,ALEJANDRÍA,05021,base.state_co_01,base.co,05021,053820
+lavish_erp.state_co_205,AMAGÁ,05030,base.state_co_01,base.co,05030,055840
+lavish_erp.state_co_206,AMALFI,05031,base.state_co_01,base.co,05031,052848
+lavish_erp.state_co_207,ANDES,05034,base.state_co_01,base.co,05034,056067
+lavish_erp.state_co_208,ANGELÓPOLIS,05036,base.state_co_01,base.co,05036,055837
+lavish_erp.state_co_209,ANGOSTURA,05038,base.state_co_01,base.co,05038,051818
+lavish_erp.state_co_210,ANORÍ,05040,base.state_co_01,base.co,05040,052850
+lavish_erp.state_co_211,SANTA FÉ DE ANTIOQUIA,05042,base.state_co_01,base.co,05042,057050
+lavish_erp.state_co_212,ANZÁ,05044,base.state_co_01,base.co,05044,056850
+lavish_erp.state_co_213,APARTADÓ,05045,base.state_co_01,base.co,05045,057840
+lavish_erp.state_co_214,ARBOLETES,05051,base.state_co_01,base.co,05051,057829
+lavish_erp.state_co_215,ARGELIA,05055,base.state_co_01,base.co,05055,054838
+lavish_erp.state_co_216,ARMENIA,05059,base.state_co_01,base.co,05059,055867
+lavish_erp.state_co_217,BARBOSA,05079,base.state_co_01,base.co,05079,051020
+lavish_erp.state_co_218,BELMIRA,05086,base.state_co_01,base.co,05086,051427
+lavish_erp.state_co_219,BELLO,05088,base.state_co_01,base.co,05088,051054
+lavish_erp.state_co_220,BETANIA,05091,base.state_co_01,base.co,05091,056077
+lavish_erp.state_co_221,BETULIA,05093,base.state_co_01,base.co,05093,056860
+lavish_erp.state_co_222,CIUDAD BOLÍVAR,05101,base.state_co_01,base.co,05101,056467
+lavish_erp.state_co_223,BRICEÑO,05107,base.state_co_01,base.co,05107,052060
+lavish_erp.state_co_224,BURITICÁ,05113,base.state_co_01,base.co,05113,057030
+lavish_erp.state_co_225,CÁCERES,05120,base.state_co_01,base.co,05120,052458
+lavish_erp.state_co_226,CAICEDO,05125,base.state_co_01,base.co,05125,056847
+lavish_erp.state_co_227,CALDAS,05129,base.state_co_01,base.co,05129,055440
+lavish_erp.state_co_228,CAMPAMENTO,05134,base.state_co_01,base.co,05134,052020
+lavish_erp.state_co_229,CAÑASGORDAS,05138,base.state_co_01,base.co,05138,057067
+lavish_erp.state_co_230,CARACOLÍ,05142,base.state_co_01,base.co,05142,053457
+lavish_erp.state_co_231,CARAMANTA,05145,base.state_co_01,base.co,05145,056040
+lavish_erp.state_co_232,CAREPA,05147,base.state_co_01,base.co,05147,057857
+lavish_erp.state_co_233,EL CARMEN DE VIBORAL,05148,base.state_co_01,base.co,05148,054038
+lavish_erp.state_co_234,CAROLINA,05150,base.state_co_01,base.co,05150,051847
+lavish_erp.state_co_235,CAUCASIA,05154,base.state_co_01,base.co,05154,052418
+lavish_erp.state_co_236,CHIGORODÓ,05172,base.state_co_01,base.co,05172,057418
+lavish_erp.state_co_237,CISNEROS,05190,base.state_co_01,base.co,05190,053050
+lavish_erp.state_co_238,COCORNÁ,05197,base.state_co_01,base.co,05197,054448
+lavish_erp.state_co_239,CONCEPCIÓN,05206,base.state_co_01,base.co,05206,053810
+lavish_erp.state_co_240,CONCORDIA,05209,base.state_co_01,base.co,05209,056417
+lavish_erp.state_co_241,COPACABANA,05212,base.state_co_01,base.co,05212,051048
+lavish_erp.state_co_242,DABEIBA,05234,base.state_co_01,base.co,05234,057438
+lavish_erp.state_co_243,DONMATÍAS,05237,base.state_co_01,base.co,05237,051857
+lavish_erp.state_co_244,EBÉJICO,05240,base.state_co_01,base.co,05240,055817
+lavish_erp.state_co_245,EL BAGRE,05250,base.state_co_01,base.co,05250,052438
+lavish_erp.state_co_246,ENTRERRÍOS,05264,base.state_co_01,base.co,05264,051437
+lavish_erp.state_co_247,ENVIGADO,05266,base.state_co_01,base.co,05266,055420
+lavish_erp.state_co_248,FREDONIA,05282,base.state_co_01,base.co,05282,055070
+lavish_erp.state_co_249,FRONTINO,05284,base.state_co_01,base.co,05284,057457
+lavish_erp.state_co_250,GIRALDO,05306,base.state_co_01,base.co,05306,057040
+lavish_erp.state_co_251,GIRARDOTA,05308,base.state_co_01,base.co,05308,051037
+lavish_erp.state_co_252,GÓMEZ PLATA,05310,base.state_co_01,base.co,05310,051837
+lavish_erp.state_co_253,GRANADA,05313,base.state_co_01,base.co,05313,054410
+lavish_erp.state_co_254,GUADALUPE,05315,base.state_co_01,base.co,05315,051820
+lavish_erp.state_co_255,GUARNE,05318,base.state_co_01,base.co,05318,054057
+lavish_erp.state_co_256,GUATAPÉ,05321,base.state_co_01,base.co,05321,053847
+lavish_erp.state_co_257,HELICONIA,05347,base.state_co_01,base.co,05347,055827
+lavish_erp.state_co_258,HISPANIA,05353,base.state_co_01,base.co,05353,056457
+lavish_erp.state_co_259,ITAGÜÍ,05360,base.state_co_01,base.co,05360,055411
+lavish_erp.state_co_260,ITUANGO,05361,base.state_co_01,base.co,05361,052079
+lavish_erp.state_co_261,JARDÍN,05364,base.state_co_01,base.co,05364,056057
+lavish_erp.state_co_262,JERICÓ,05368,base.state_co_01,base.co,05368,056017
+lavish_erp.state_co_263,LA CEJA,05376,base.state_co_01,base.co,05376,055018
+lavish_erp.state_co_264,LA ESTRELLA,05380,base.state_co_01,base.co,05380,055460
+lavish_erp.state_co_265,LA PINTADA,05390,base.state_co_01,base.co,05390,055068
+lavish_erp.state_co_266,LA UNIÓN,05400,base.state_co_01,base.co,05400,055020
+lavish_erp.state_co_267,LIBORINA,05411,base.state_co_01,base.co,05411,051460
+lavish_erp.state_co_268,MACEO,05425,base.state_co_01,base.co,05425,053467
+lavish_erp.state_co_269,MARINILLA,05440,base.state_co_01,base.co,05440,054020
+lavish_erp.state_co_270,MONTEBELLO,05467,base.state_co_01,base.co,05467,055048
+lavish_erp.state_co_271,MURINDÓ,05475,base.state_co_01,base.co,05475,056818
+lavish_erp.state_co_272,MUTATÁ,05480,base.state_co_01,base.co,05480,057420
+lavish_erp.state_co_273,NARIÑO,05483,base.state_co_01,base.co,05483,054848
+lavish_erp.state_co_274,NECOCLÍ,05490,base.state_co_01,base.co,05490,057878
+lavish_erp.state_co_275,NECHÍ,05495,base.state_co_01,base.co,05495,052428
+lavish_erp.state_co_276,OLAYA,05501,base.state_co_01,base.co,05501,051450
+lavish_erp.state_co_277,PEÑOL,05541,base.state_co_01,base.co,05541,053857
+lavish_erp.state_co_278,PEQUE,05543,base.state_co_01,base.co,05543,057017
+lavish_erp.state_co_279,PUEBLORRICO,05576,base.state_co_01,base.co,05576,056447
+lavish_erp.state_co_280,PUERTO BERRÍO,05579,base.state_co_01,base.co,05579,053420
+lavish_erp.state_co_281,PUERTO NARE,05585,base.state_co_01,base.co,05585,053430
+lavish_erp.state_co_282,PUERTO TRIUNFO,05591,base.state_co_01,base.co,05591,053447
+lavish_erp.state_co_283,REMEDIOS,05604,base.state_co_01,base.co,05604,052820
+lavish_erp.state_co_284,RETIRO,05607,base.state_co_01,base.co,05607,055430
+lavish_erp.state_co_285,RIONEGRO,05615,base.state_co_01,base.co,05615,054048
+lavish_erp.state_co_286,SABANALARGA,05628,base.state_co_01,base.co,05628,057028
+lavish_erp.state_co_287,SABANETA,05631,base.state_co_01,base.co,05631,055450
+lavish_erp.state_co_288,SALGAR,05642,base.state_co_01,base.co,05642,056470
+lavish_erp.state_co_289,SAN ANDRÉS DE CUERQUÍA,05647,base.state_co_01,base.co,05647,052047
+lavish_erp.state_co_290,SAN CARLOS,05649,base.state_co_01,base.co,05649,054428
+lavish_erp.state_co_291,SAN FRANCISCO,05652,base.state_co_01,base.co,05652,054817
+lavish_erp.state_co_292,SAN JERÓNIMO,05656,base.state_co_01,base.co,05656,051070
+lavish_erp.state_co_293,SAN JOSÉ DE LA MONTAÑA,05658,base.state_co_01,base.co,05658,051417
+lavish_erp.state_co_294,SAN JUAN DE URABÁ,05659,base.state_co_01,base.co,05659,057817
+lavish_erp.state_co_295,SAN LUIS,05660,base.state_co_01,base.co,05660,054438
+lavish_erp.state_co_296,SAN PEDRO DE LOS MILAGROS,05664,base.state_co_01,base.co,05664,051010
+lavish_erp.state_co_297,SAN PEDRO DE URABÁ,05665,base.state_co_01,base.co,05665,057837
+lavish_erp.state_co_298,SAN RAFAEL,05667,base.state_co_01,base.co,05667,053838
+lavish_erp.state_co_299,SAN ROQUE,05670,base.state_co_01,base.co,05670,053037
+lavish_erp.state_co_300,SAN VICENTE FERRER,05674,base.state_co_01,base.co,05674,054018
+lavish_erp.state_co_301,SANTA BÁRBARA,05679,base.state_co_01,base.co,05679,055057
+lavish_erp.state_co_302,SANTA ROSA DE OSOS,05686,base.state_co_01,base.co,05686,051860
+lavish_erp.state_co_303,SANTO DOMINGO,05690,base.state_co_01,base.co,05690,053048
+lavish_erp.state_co_304,EL SANTUARIO,05697,base.state_co_01,base.co,05697,054450
+lavish_erp.state_co_305,SEGOVIA,05736,base.state_co_01,base.co,05736,052810
+lavish_erp.state_co_306,SONSÓN,05756,base.state_co_01,base.co,05756,054828
+lavish_erp.state_co_307,SOPETRÁN,05761,base.state_co_01,base.co,05761,051448
+lavish_erp.state_co_308,TÁMESIS,05789,base.state_co_01,base.co,05789,056027
+lavish_erp.state_co_309,TARAZÁ,05790,base.state_co_01,base.co,05790,052468
+lavish_erp.state_co_310,TARSO,05792,base.state_co_01,base.co,05792,056438
+lavish_erp.state_co_311,TITIRIBÍ,05809,base.state_co_01,base.co,05809,055858
+lavish_erp.state_co_312,TOLEDO,05819,base.state_co_01,base.co,05819,052050
+lavish_erp.state_co_313,TURBO,05837,base.state_co_01,base.co,05837,057868
+lavish_erp.state_co_314,URAMITA,05842,base.state_co_01,base.co,05842,057440
+lavish_erp.state_co_315,URRAO,05847,base.state_co_01,base.co,05847,056838
+lavish_erp.state_co_316,VALDIVIA,05854,base.state_co_01,base.co,05854,052018
+lavish_erp.state_co_317,VALPARAÍSO,05856,base.state_co_01,base.co,05856,056037
+lavish_erp.state_co_318,VEGACHÍ,05858,base.state_co_01,base.co,05858,052837
+lavish_erp.state_co_319,VENECIA,05861,base.state_co_01,base.co,05861,056427
+lavish_erp.state_co_319,VENECIA,05861,base.state_co_01,base.co,05861,056427
+lavish_erp.state_co_320,VIGÍA DEL FUERTE,05873,base.state_co_01,base.co,05873,056820
+lavish_erp.state_co_321,YALÍ,05885,base.state_co_01,base.co,05885,053010
+lavish_erp.state_co_322,YARUMAL,05887,base.state_co_01,base.co,05887,052030
+lavish_erp.state_co_323,YOLOMBÓ,05890,base.state_co_01,base.co,05890,053020
+lavish_erp.state_co_324,YONDÓ,05893,base.state_co_01,base.co,05893,053410
+lavish_erp.state_co_325,ZARAGOZA,05895,base.state_co_01,base.co,05895,052448
+lavish_erp.state_co_326,BARRANQUILLA,08001,base.state_co_02,base.co,08001,080006
+lavish_erp.state_co_327,BARANOA,08078,base.state_co_02,base.co,08078,082020
+lavish_erp.state_co_328,CAMPO DE LA CRUZ,08137,base.state_co_02,base.co,08137,084047
+lavish_erp.state_co_329,CANDELARIA,08141,base.state_co_02,base.co,08141,084027
+lavish_erp.state_co_330,GALAPA,08296,base.state_co_02,base.co,08296,082001
+lavish_erp.state_co_331,JUAN DE ACOSTA,08372,base.state_co_02,base.co,08372,081047
+lavish_erp.state_co_332,LURUACO,08421,base.state_co_02,base.co,08421,085067
+lavish_erp.state_co_333,MALAMBO,08433,base.state_co_02,base.co,08433,083027
+lavish_erp.state_co_334,MANATÍ,08436,base.state_co_02,base.co,08436,085020
+lavish_erp.state_co_335,PALMAR DE VARELA,08520,base.state_co_02,base.co,08520,083080
+lavish_erp.state_co_336,PIOJÓ,08549,base.state_co_02,base.co,08549,081067
+lavish_erp.state_co_337,POLONUEVO,08558,base.state_co_02,base.co,08558,082040
+lavish_erp.state_co_338,PONEDERA,08560,base.state_co_02,base.co,08560,084001
+lavish_erp.state_co_339,PUERTO COLOMBIA,08573,base.state_co_02,base.co,08573,081007
+lavish_erp.state_co_340,REPELÓN,08606,base.state_co_02,base.co,08606,085040
+lavish_erp.state_co_341,SABANAGRANDE,08634,base.state_co_02,base.co,08634,083040
+lavish_erp.state_co_342,SABANALARGA,08638,base.state_co_02,base.co,08638,085001
+lavish_erp.state_co_343,SANTA LUCÍA,08675,base.state_co_02,base.co,08675,084087
+lavish_erp.state_co_344,SANTO TOMÁS,08685,base.state_co_02,base.co,08685,083060
+lavish_erp.state_co_345,SOLEDAD,08758,base.state_co_02,base.co,08758,083005
+lavish_erp.state_co_346,SUAN,08770,base.state_co_02,base.co,08770,084067
+lavish_erp.state_co_347,TUBARÁ,08832,base.state_co_02,base.co,08832,081028
+lavish_erp.state_co_348,USIACURÍ,08849,base.state_co_02,base.co,08849,082067
+lavish_erp.state_co_349,"Bogotá, D.C.",11001,base.state_co_03,base.co,11001,111321
+lavish_erp.state_co_350,CARTAGENA DE INDIAS,13001,base.state_co_04,base.co,13001,130015
+lavish_erp.state_co_351,ACHÍ,13006,base.state_co_04,base.co,13006,134027
+lavish_erp.state_co_352,ALTOS DEL ROSARIO,13030,base.state_co_04,base.co,13030,133508
+lavish_erp.state_co_353,ARENAL,13042,base.state_co_04,base.co,13042,134527
+lavish_erp.state_co_354,ARJONA,13052,base.state_co_04,base.co,13052,131028
+lavish_erp.state_co_355,ARROYOHONDO,13062,base.state_co_04,base.co,13062,131567
+lavish_erp.state_co_356,BARRANCO DE LOBA,13074,base.state_co_04,base.co,13074,133518
+lavish_erp.state_co_357,CALAMAR,13140,base.state_co_04,base.co,13140,131547
+lavish_erp.state_co_358,CANTAGALLO,13160,base.state_co_04,base.co,13160,135060
+lavish_erp.state_co_359,CICUCO,13188,base.state_co_04,base.co,13188,132557
+lavish_erp.state_co_360,CÓRDOBA,13212,base.state_co_04,base.co,13212,132501
+lavish_erp.state_co_361,CLEMENCIA,13222,base.state_co_04,base.co,13222,130510
+lavish_erp.state_co_362,EL CARMEN DE BOLÍVAR,13244,base.state_co_04,base.co,13244,132057
+lavish_erp.state_co_363,EL GUAMO,13248,base.state_co_04,base.co,13248,132001
+lavish_erp.state_co_364,EL PEÑÓN,13268,base.state_co_04,base.co,13268,133550
+lavish_erp.state_co_365,HATILLO DE LOBA,13300,base.state_co_04,base.co,13300,133040
+lavish_erp.state_co_366,MAGANGUÉ,13430,base.state_co_04,base.co,13430,132527
+lavish_erp.state_co_367,MAHATES,13433,base.state_co_04,base.co,13433,131040
+lavish_erp.state_co_368,MARGARITA,13440,base.state_co_04,base.co,13440,133028
+lavish_erp.state_co_369,MARÍA LA BAJA,13442,base.state_co_04,base.co,13442,131077
+lavish_erp.state_co_370,MONTECRISTO,13458,base.state_co_04,base.co,13458,134077
+lavish_erp.state_co_371,MOMPÓS,13468,base.state_co_04,base.co,13468,132567
+lavish_erp.state_co_372,MORALES,13473,base.state_co_04,base.co,13473,134548
+lavish_erp.state_co_373,PINILLOS,13549,base.state_co_04,base.co,13549,134008
+lavish_erp.state_co_374,REGIDOR,13580,base.state_co_04,base.co,13580,133567
+lavish_erp.state_co_374,REGIDOR,13580,base.state_co_04,base.co,13580,133567
+lavish_erp.state_co_375,RÍO VIEJO,13600,base.state_co_04,base.co,13600,134501
+lavish_erp.state_co_376,SAN CRISTÓBAL,13620,base.state_co_04,base.co,13620,131520
+lavish_erp.state_co_377,SAN ESTANISLAO,13647,base.state_co_04,base.co,13647,130547
+lavish_erp.state_co_378,SAN FERNANDO,13650,base.state_co_04,base.co,13650,133007
+lavish_erp.state_co_379,SAN JACINTO,13654,base.state_co_04,base.co,13654,132030
+lavish_erp.state_co_380,SAN JACINTO DEL CAUCA,13655,base.state_co_04,base.co,13655,134068
+lavish_erp.state_co_381,SAN JUAN NEPOMUCENO,13657,base.state_co_04,base.co,13657,132018
+lavish_erp.state_co_382,SAN MARTÍN DE LOBA,13667,base.state_co_04,base.co,13667,133537
+lavish_erp.state_co_383,SAN PABLO,13670,base.state_co_04,base.co,13670,135048
+lavish_erp.state_co_384,SANTA CATALINA,13673,base.state_co_04,base.co,13673,130501
+lavish_erp.state_co_385,SANTA ROSA,13683,base.state_co_04,base.co,13683,130528
+lavish_erp.state_co_386,SANTA ROSA DEL SUR,13688,base.state_co_04,base.co,13688,135008
+lavish_erp.state_co_387,SIMITÍ,13744,base.state_co_04,base.co,13744,135027
+lavish_erp.state_co_388,SOPLAVIENTO,13760,base.state_co_04,base.co,13760,131507
+lavish_erp.state_co_389,TALAIGUA NUEVO,13780,base.state_co_04,base.co,13780,132547
+lavish_erp.state_co_390,TIQUISIO,13810,base.state_co_04,base.co,13810,134040
+lavish_erp.state_co_391,TURBACO,13836,base.state_co_04,base.co,13836,131007
+lavish_erp.state_co_392,TURBANÁ,13838,base.state_co_04,base.co,13838,131017
+lavish_erp.state_co_393,VILLANUEVA,13873,base.state_co_04,base.co,13873,130530
+lavish_erp.state_co_394,ZAMBRANO,13894,base.state_co_04,base.co,13894,132047
+lavish_erp.state_co_395,TUNJA,15001,base.state_co_05,base.co,15001,150008
+lavish_erp.state_co_396,ALMEIDA,15022,base.state_co_05,base.co,15022,153020
+lavish_erp.state_co_397,AQUITANIA,15047,base.state_co_05,base.co,15047,152429
+lavish_erp.state_co_398,ARCABUCO,15051,base.state_co_05,base.co,15051,154201
+lavish_erp.state_co_399,BELÉN,15087,base.state_co_05,base.co,15087,150640
+lavish_erp.state_co_400,BERBEO,15090,base.state_co_05,base.co,15090,152617
+lavish_erp.state_co_401,BETÉITIVA,15092,base.state_co_05,base.co,15092,150617
+lavish_erp.state_co_402,BOAVITA,15097,base.state_co_05,base.co,15097,151067
+lavish_erp.state_co_403,BOYACÁ,15104,base.state_co_05,base.co,15104,153617
+lavish_erp.state_co_404,BRICEÑO,15106,base.state_co_05,base.co,15106,154677
+lavish_erp.state_co_405,BUENAVISTA,15109,base.state_co_05,base.co,15109,154847
+lavish_erp.state_co_406,BUSBANZÁ,15114,base.state_co_05,base.co,15114,152080
+lavish_erp.state_co_407,CALDAS,15131,base.state_co_05,base.co,15131,154667
+lavish_erp.state_co_408,CAMPOHERMOSO,15135,base.state_co_05,base.co,15135,152647
+lavish_erp.state_co_409,CERINZA,15162,base.state_co_05,base.co,15162,150620
+lavish_erp.state_co_410,CHINAVITA,15172,base.state_co_05,base.co,15172,153287
+lavish_erp.state_co_411,CHIQUINQUIRÁ,15176,base.state_co_05,base.co,15176,154640
+lavish_erp.state_co_412,CHISCAS,15180,base.state_co_05,base.co,15180,151407
+lavish_erp.state_co_413,CHITA,15183,base.state_co_05,base.co,15183,151608
+lavish_erp.state_co_414,CHITARAQUE,15185,base.state_co_05,base.co,15185,154427
+lavish_erp.state_co_415,CHIVATÁ,15187,base.state_co_05,base.co,15187,150247
+lavish_erp.state_co_416,CIÉNEGA,15189,base.state_co_05,base.co,15189,153440
+lavish_erp.state_co_417,CÓMBITA,15204,base.state_co_05,base.co,15204,150207
+lavish_erp.state_co_418,COPER,15212,base.state_co_05,base.co,15212,154860
+lavish_erp.state_co_419,CORRALES,15215,base.state_co_05,base.co,15215,152060
+lavish_erp.state_co_420,COVARACHÍA,15218,base.state_co_05,base.co,15218,151047
+lavish_erp.state_co_421,CUBARÁ,15223,base.state_co_05,base.co,15223,151427
+lavish_erp.state_co_422,CUCAITA,15224,base.state_co_05,base.co,15224,154060
+lavish_erp.state_co_423,CUÍTIVA,15226,base.state_co_05,base.co,15226,152237
+lavish_erp.state_co_424,CHÍQUIZA,15232,base.state_co_05,base.co,15232,154020
+lavish_erp.state_co_425,CHIVOR,15236,base.state_co_05,base.co,15236,153001
+lavish_erp.state_co_426,DUITAMA,15238,base.state_co_05,base.co,15238,150462
+lavish_erp.state_co_427,EL COCUY,15244,base.state_co_05,base.co,15244,151287
+lavish_erp.state_co_428,EL ESPINO,15248,base.state_co_05,base.co,15248,151240
+lavish_erp.state_co_429,FIRAVITOBA,15272,base.state_co_05,base.co,15272,152250
+lavish_erp.state_co_430,FLORESTA,15276,base.state_co_05,base.co,15276,150607
+lavish_erp.state_co_431,GACHANTIVÁ,15293,base.state_co_05,base.co,15293,154220
+lavish_erp.state_co_432,GÁMEZA,15296,base.state_co_05,base.co,15296,152020
+lavish_erp.state_co_433,GARAGOA,15299,base.state_co_05,base.co,15299,152867
+lavish_erp.state_co_434,GUACAMAYAS,15317,base.state_co_05,base.co,15317,151220
+lavish_erp.state_co_435,GUATEQUE,15322,base.state_co_05,base.co,15322,153057
+lavish_erp.state_co_436,GUAYATÁ,15325,base.state_co_05,base.co,15325,153047
+lavish_erp.state_co_437,GÜICÁN DE LA SIERRA,15332,base.state_co_05,base.co,15332,151447
+lavish_erp.state_co_438,IZA,15362,base.state_co_05,base.co,15362,152240
+lavish_erp.state_co_439,JENESANO,15367,base.state_co_05,base.co,15367,153608
+lavish_erp.state_co_440,JERICÓ,15368,base.state_co_05,base.co,15368,150840
+lavish_erp.state_co_441,LABRANZAGRANDE,15377,base.state_co_05,base.co,15377,151840
+lavish_erp.state_co_442,LA CAPILLA,15380,base.state_co_05,base.co,15380,153227
+lavish_erp.state_co_443,LA VICTORIA,15401,base.state_co_05,base.co,15401,155001
+lavish_erp.state_co_444,LA UVITA,15403,base.state_co_05,base.co,15403,150860
+lavish_erp.state_co_445,VILLA DE LEYVA,15407,base.state_co_05,base.co,15407,154001
+lavish_erp.state_co_446,MACANAL,15425,base.state_co_05,base.co,15425,152847
+lavish_erp.state_co_447,MARIPÍ,15442,base.state_co_05,base.co,15442,154827
+lavish_erp.state_co_448,MIRAFLORES,15455,base.state_co_05,base.co,15455,152667
+lavish_erp.state_co_449,MONGUA,15464,base.state_co_05,base.co,15464,152001
+lavish_erp.state_co_450,MONGUÍ,15466,base.state_co_05,base.co,15466,152207
+lavish_erp.state_co_451,MONIQUIRÁ,15469,base.state_co_05,base.co,15469,154269
+lavish_erp.state_co_452,MOTAVITA,15476,base.state_co_05,base.co,15476,154080
+lavish_erp.state_co_453,MUZO,15480,base.state_co_05,base.co,15480,154887
+lavish_erp.state_co_454,NOBSA,15491,base.state_co_05,base.co,15491,152280
+lavish_erp.state_co_455,NUEVO COLÓN,15494,base.state_co_05,base.co,15494,153620
+lavish_erp.state_co_456,OICATÁ,15500,base.state_co_05,base.co,15500,150220
+lavish_erp.state_co_457,OTANCHE,15507,base.state_co_05,base.co,15507,155060
+lavish_erp.state_co_458,PACHAVITA,15511,base.state_co_05,base.co,15511,153217
+lavish_erp.state_co_459,PÁEZ,15514,base.state_co_05,base.co,15514,152627
+lavish_erp.state_co_460,PAIPA,15516,base.state_co_05,base.co,15516,150448
+lavish_erp.state_co_461,PAJARITO,15518,base.state_co_05,base.co,15518,152401
+lavish_erp.state_co_462,PANQUEBA,15522,base.state_co_05,base.co,15522,151267
+lavish_erp.state_co_463,PAUNA,15531,base.state_co_05,base.co,15531,154808
+lavish_erp.state_co_464,PAYA,15533,base.state_co_05,base.co,15533,151827
+lavish_erp.state_co_465,PAZ DE RÍO,15537,base.state_co_05,base.co,15537,150680
+lavish_erp.state_co_466,PESCA,15542,base.state_co_05,base.co,15542,152468
+lavish_erp.state_co_467,PISBA,15550,base.state_co_05,base.co,15550,151801
+lavish_erp.state_co_468,PUERTO BOYACÁ,15572,base.state_co_05,base.co,15572,155218
+lavish_erp.state_co_469,QUÍPAMA,15580,base.state_co_05,base.co,15580,155027
+lavish_erp.state_co_470,RAMIRIQUÍ,15599,base.state_co_05,base.co,15599,153407
+lavish_erp.state_co_471,RÁQUIRA,15600,base.state_co_05,base.co,15600,153801
+lavish_erp.state_co_472,RONDÓN,15621,base.state_co_05,base.co,15621,153420
+lavish_erp.state_co_473,SABOYÁ,15632,base.state_co_05,base.co,15632,154601
+lavish_erp.state_co_474,SÁCHICA,15638,base.state_co_05,base.co,15638,153880
+lavish_erp.state_co_475,SAMACÁ,15646,base.state_co_05,base.co,15646,153667
+lavish_erp.state_co_476,SAN EDUARDO,15660,base.state_co_05,base.co,15660,152601
+lavish_erp.state_co_477,SAN JOSÉ DE PARE,15664,base.state_co_05,base.co,15664,154460
+lavish_erp.state_co_478,SAN LUIS DE GACENO,15667,base.state_co_05,base.co,15667,152807
+lavish_erp.state_co_479,SAN MATEO,15673,base.state_co_05,base.co,15673,151201
+lavish_erp.state_co_480,SAN MIGUEL DE SEMA,15676,base.state_co_05,base.co,15676,153827
+lavish_erp.state_co_481,SAN PABLO DE BORBUR,15681,base.state_co_05,base.co,15681,155047
+lavish_erp.state_co_482,SANTANA,15686,base.state_co_05,base.co,15686,154448
+lavish_erp.state_co_483,SANTA MARÍA,15690,base.state_co_05,base.co,15690,152820
+lavish_erp.state_co_484,SANTA ROSA DE VITERBO,15693,base.state_co_05,base.co,15693,150487
+lavish_erp.state_co_485,SANTA SOFÍA,15696,base.state_co_05,base.co,15696,154240
+lavish_erp.state_co_486,SATIVANORTE,15720,base.state_co_05,base.co,15720,150820
+lavish_erp.state_co_487,SATIVASUR,15723,base.state_co_05,base.co,15723,150807
+lavish_erp.state_co_488,SIACHOQUE,15740,base.state_co_05,base.co,15740,153468
+lavish_erp.state_co_489,SOATÁ,15753,base.state_co_05,base.co,15753,151007
+lavish_erp.state_co_490,SOCOTÁ,15755,base.state_co_05,base.co,15755,151627
+lavish_erp.state_co_491,SOCHA,15757,base.state_co_05,base.co,15757,151647
+lavish_erp.state_co_492,SOGAMOSO,15759,base.state_co_05,base.co,15759,152211
+lavish_erp.state_co_493,SOMONDOCO,15761,base.state_co_05,base.co,15761,153037
+lavish_erp.state_co_494,SORA,15762,base.state_co_05,base.co,15762,154040
+lavish_erp.state_co_495,SOTAQUIRÁ,15763,base.state_co_05,base.co,15763,150427
+lavish_erp.state_co_496,SORACÁ,15764,base.state_co_05,base.co,15764,153487
+lavish_erp.state_co_497,SUSACÓN,15774,base.state_co_05,base.co,15774,150887
+lavish_erp.state_co_498,SUTAMARCHÁN,15776,base.state_co_05,base.co,15776,153867
+lavish_erp.state_co_499,SUTATENZA,15778,base.state_co_05,base.co,15778,153067
+lavish_erp.state_co_500,TASCO,15790,base.state_co_05,base.co,15790,151660
+lavish_erp.state_co_501,TENZA,15798,base.state_co_05,base.co,15798,153207
+lavish_erp.state_co_502,TIBANÁ,15804,base.state_co_05,base.co,15804,153260
+lavish_erp.state_co_503,TIBASOSA,15806,base.state_co_05,base.co,15806,152268
+lavish_erp.state_co_504,TINJACÁ,15808,base.state_co_05,base.co,15808,153847
+lavish_erp.state_co_505,TIPACOQUE,15810,base.state_co_05,base.co,15810,151027
+lavish_erp.state_co_506,TOCA,15814,base.state_co_05,base.co,15814,150267
+lavish_erp.state_co_507,TOGÜÍ,15816,base.state_co_05,base.co,15816,154407
+lavish_erp.state_co_508,TÓPAGA,15820,base.state_co_05,base.co,15820,152047
+lavish_erp.state_co_509,TOTA,15822,base.state_co_05,base.co,15822,152447
+lavish_erp.state_co_510,TUNUNGUÁ,15832,base.state_co_05,base.co,15832,154687
+lavish_erp.state_co_511,TURMEQUÉ,15835,base.state_co_05,base.co,15835,153637
+lavish_erp.state_co_512,TUTA,15837,base.state_co_05,base.co,15837,150408
+lavish_erp.state_co_513,TUTAZÁ,15839,base.state_co_05,base.co,15839,150660
+lavish_erp.state_co_514,ÚMBITA,15842,base.state_co_05,base.co,15842,153240
+lavish_erp.state_co_515,VENTAQUEMADA,15861,base.state_co_05,base.co,15861,153647
+lavish_erp.state_co_516,VIRACACHÁ,15879,base.state_co_05,base.co,15879,153450
+lavish_erp.state_co_517,ZETAQUIRA,15897,base.state_co_05,base.co,15897,152680
+lavish_erp.state_co_518,MANIZALES,17001,base.state_co_06,base.co,17001,170003
+lavish_erp.state_co_519,AGUADAS,17013,base.state_co_06,base.co,17013,172027
+lavish_erp.state_co_520,ANSERMA,17042,base.state_co_06,base.co,17042,177087
+lavish_erp.state_co_521,ARANZAZU,17050,base.state_co_06,base.co,17050,171047
+lavish_erp.state_co_522,BELALCÁZAR,17088,base.state_co_06,base.co,17088,177007
+lavish_erp.state_co_523,CHINCHINÁ,17174,base.state_co_06,base.co,17174,176028
+lavish_erp.state_co_524,FILADELFIA,17272,base.state_co_06,base.co,17272,171020
+lavish_erp.state_co_525,LA DORADA,17380,base.state_co_06,base.co,17380,175037
+lavish_erp.state_co_526,LA MERCED,17388,base.state_co_06,base.co,17388,172060
+lavish_erp.state_co_527,MANZANARES,17433,base.state_co_06,base.co,17433,173020
+lavish_erp.state_co_528,MARMATO,17442,base.state_co_06,base.co,17442,178001
+lavish_erp.state_co_529,MARQUETALIA,17444,base.state_co_06,base.co,17444,173047
+lavish_erp.state_co_530,MARULANDA,17446,base.state_co_06,base.co,17446,173001
+lavish_erp.state_co_531,NEIRA,17486,base.state_co_06,base.co,17486,171008
+lavish_erp.state_co_532,NORCASIA,17495,base.state_co_06,base.co,17495,175001
+lavish_erp.state_co_533,PÁCORA,17513,base.state_co_06,base.co,17513,172048
+lavish_erp.state_co_534,PALESTINA,17524,base.state_co_06,base.co,17524,176048
+lavish_erp.state_co_535,PENSILVANIA,17541,base.state_co_06,base.co,17541,173060
+lavish_erp.state_co_536,RIOSUCIO,17614,base.state_co_06,base.co,17614,178047
+lavish_erp.state_co_537,RISARALDA,17616,base.state_co_06,base.co,17616,177060
+lavish_erp.state_co_538,SALAMINA,17653,base.state_co_06,base.co,17653,172001
+lavish_erp.state_co_539,SAMANÁ,17662,base.state_co_06,base.co,17662,174008
+lavish_erp.state_co_540,SAN JOSÉ,17665,base.state_co_06,base.co,17665,177040
+lavish_erp.state_co_541,SUPÍA,17777,base.state_co_06,base.co,17777,178020
+lavish_erp.state_co_542,VICTORIA,17867,base.state_co_06,base.co,17867,174037
+lavish_erp.state_co_543,VILLAMARÍA,17873,base.state_co_06,base.co,17873,176001
+lavish_erp.state_co_544,VITERBO,17877,base.state_co_06,base.co,17877,177020
+lavish_erp.state_co_545,FLORENCIA,18001,base.state_co_07,base.co,18001,180017
+lavish_erp.state_co_546,ALBANIA,18029,base.state_co_07,base.co,18029,186037
+lavish_erp.state_co_547,BELÉN DE LOS ANDAQUÍES,18094,base.state_co_07,base.co,18094,186017
+lavish_erp.state_co_548,CARTAGENA DEL CHAIRÁ,18150,base.state_co_07,base.co,18150,183010
+lavish_erp.state_co_549,CURILLO,18205,base.state_co_07,base.co,18205,186058
+lavish_erp.state_co_550,EL DONCELLO,18247,base.state_co_07,base.co,18247,181017
+lavish_erp.state_co_551,EL PAUJÍL,18256,base.state_co_07,base.co,18256,181037
+lavish_erp.state_co_552,LA MONTAÑITA,18410,base.state_co_07,base.co,18410,181059
+lavish_erp.state_co_553,MILÁN,18460,base.state_co_07,base.co,18460,185037
+lavish_erp.state_co_554,MORELIA,18479,base.state_co_07,base.co,18479,185017
+lavish_erp.state_co_555,PUERTO RICO,18592,base.state_co_07,base.co,18592,182058
+lavish_erp.state_co_556,SAN JOSÉ DEL FRAGUA,18610,base.state_co_07,base.co,18610,186077
+lavish_erp.state_co_557,SAN VICENTE DEL CAGUÁN,18753,base.state_co_07,base.co,18753,182017
+lavish_erp.state_co_558,SOLANO,18756,base.state_co_07,base.co,18756,184010
+lavish_erp.state_co_559,SOLITA,18785,base.state_co_07,base.co,18785,185077
+lavish_erp.state_co_560,VALPARAÍSO,18860,base.state_co_07,base.co,18860,185057
+lavish_erp.state_co_561,POPAYÁN,19001,base.state_co_08,base.co,19001,190009
+lavish_erp.state_co_562,ALMAGUER,19022,base.state_co_08,base.co,19022,194080
+lavish_erp.state_co_563,ARGELIA,19050,base.state_co_08,base.co,19050,195567
+lavish_erp.state_co_564,BALBOA,19075,base.state_co_08,base.co,19075,195539
+lavish_erp.state_co_565,BOLÍVAR,19100,base.state_co_08,base.co,19100,195008
+lavish_erp.state_co_566,BUENOS AIRES,19110,base.state_co_08,base.co,19110,191007
+lavish_erp.state_co_567,CAJIBÍO,19130,base.state_co_08,base.co,19130,190509
+lavish_erp.state_co_568,CALDONO,19137,base.state_co_08,base.co,19137,192048
+lavish_erp.state_co_569,CALOTO,19142,base.state_co_08,base.co,19142,191077
+lavish_erp.state_co_570,CORINTO,19212,base.state_co_08,base.co,19212,191568
+lavish_erp.state_co_571,EL TAMBO,19256,base.state_co_08,base.co,19256,193588
+lavish_erp.state_co_572,FLORENCIA,19290,base.state_co_08,base.co,19290,195040
+lavish_erp.state_co_573,GUAPÍ,19318,base.state_co_08,base.co,19318,196009
+lavish_erp.state_co_574,INZÁ,19355,base.state_co_08,base.co,19355,192547
+lavish_erp.state_co_575,JAMBALÓ,19364,base.state_co_08,base.co,19364,192027
+lavish_erp.state_co_576,LA SIERRA,19392,base.state_co_08,base.co,19392,194007
+lavish_erp.state_co_577,LA VEGA,19397,base.state_co_08,base.co,19397,194028
+lavish_erp.state_co_578,LÓPEZ DE MICAY,19418,base.state_co_08,base.co,19418,196060
+lavish_erp.state_co_579,MERCADERES,19450,base.state_co_08,base.co,19450,195067
+lavish_erp.state_co_580,MIRANDA,19455,base.state_co_08,base.co,19455,191528
+lavish_erp.state_co_581,MORALES,19473,base.state_co_08,base.co,19473,190567
+lavish_erp.state_co_582,PADILLA,19513,base.state_co_08,base.co,19513,191540
+lavish_erp.state_co_583,PÁEZ,19517,base.state_co_08,base.co,19517,192508
+lavish_erp.state_co_584,PATÍA,19532,base.state_co_08,base.co,19532,195507
+lavish_erp.state_co_585,PIAMONTE,19533,base.state_co_08,base.co,19533,194558
+lavish_erp.state_co_586,PIENDAMÓ – TUNÍA,19548,base.state_co_08,base.co,19548,190547
+lavish_erp.state_co_587,PUERTO TEJADA,19573,base.state_co_08,base.co,19573,191501
+lavish_erp.state_co_588,PURACÉ,19585,base.state_co_08,base.co,19585,193001
+lavish_erp.state_co_589,ROSAS,19622,base.state_co_08,base.co,19622,193550
+lavish_erp.state_co_590,SAN SEBASTIÁN,19693,base.state_co_08,base.co,19693,194508
+lavish_erp.state_co_591,SANTANDER DE QUILICHAO,19698,base.state_co_08,base.co,19698,191048
+lavish_erp.state_co_592,SANTA ROSA,19701,base.state_co_08,base.co,19701,194528
+lavish_erp.state_co_593,SILVIA,19743,base.state_co_08,base.co,19743,192077
+lavish_erp.state_co_594,SOTARA,19760,base.state_co_08,base.co,19760,193507
+lavish_erp.state_co_595,SUÁREZ,19780,base.state_co_08,base.co,19780,190589
+lavish_erp.state_co_596,SUCRE,19785,base.state_co_08,base.co,19785,194068
+lavish_erp.state_co_597,TIMBÍO,19807,base.state_co_08,base.co,19807,193537
+lavish_erp.state_co_598,TIMBIQUÍ,19809,base.state_co_08,base.co,19809,196038
+lavish_erp.state_co_599,TORIBÍO,19821,base.state_co_08,base.co,19821,192008
+lavish_erp.state_co_600,TOTORÓ,19824,base.state_co_08,base.co,19824,192579
+lavish_erp.state_co_601,VILLA RICA,19845,base.state_co_08,base.co,19845,191067
+lavish_erp.state_co_602,VALLEDUPAR,20001,base.state_co_09,base.co,20001,200009
+lavish_erp.state_co_603,AGUACHICA,20011,base.state_co_09,base.co,20011,205010
+lavish_erp.state_co_604,AGUSTÍN CODAZZI,20013,base.state_co_09,base.co,20013,202050
+lavish_erp.state_co_605,ASTREA,20032,base.state_co_09,base.co,20032,201048
+lavish_erp.state_co_606,BECERRIL,20045,base.state_co_09,base.co,20045,203001
+lavish_erp.state_co_607,BOSCONIA,20060,base.state_co_09,base.co,20060,201027
+lavish_erp.state_co_608,CHIMICHAGUA,20175,base.state_co_09,base.co,20175,201057
+lavish_erp.state_co_609,CHIRIGUANÁ,20178,base.state_co_09,base.co,20178,203048
+lavish_erp.state_co_610,CURUMANÍ,20228,base.state_co_09,base.co,20228,203067
+lavish_erp.state_co_611,EL COPEY,20238,base.state_co_09,base.co,20238,201010
+lavish_erp.state_co_612,EL PASO,20250,base.state_co_09,base.co,20250,201038
+lavish_erp.state_co_613,GAMARRA,20295,base.state_co_09,base.co,20295,205008
+lavish_erp.state_co_614,GONZÁLEZ,20310,base.state_co_09,base.co,20310,205037
+lavish_erp.state_co_615,LA GLORIA,20383,base.state_co_09,base.co,20383,204067
+lavish_erp.state_co_616,LA JAGUA DE IBIRICO,20400,base.state_co_09,base.co,20400,203020
+lavish_erp.state_co_617,MANAURE BALCÓN DEL CESAR,20443,base.state_co_09,base.co,20443,202001
+lavish_erp.state_co_618,PAILITAS,20517,base.state_co_09,base.co,20517,204001
+lavish_erp.state_co_619,PELAYA,20550,base.state_co_09,base.co,20550,204047
+lavish_erp.state_co_620,PUEBLO BELLO,20570,base.state_co_09,base.co,20570,201001
+lavish_erp.state_co_621,RÍO DE ORO,20614,base.state_co_09,base.co,20614,205040
+lavish_erp.state_co_622,LA PAZ,20621,base.state_co_09,base.co,20621,202017
+lavish_erp.state_co_623,SAN ALBERTO,20710,base.state_co_09,base.co,20710,205078
+lavish_erp.state_co_624,SAN DIEGO,20750,base.state_co_09,base.co,20750,202037
+lavish_erp.state_co_625,SAN MARTÍN,20770,base.state_co_09,base.co,20770,205050
+lavish_erp.state_co_626,TAMALAMEQUE,20787,base.state_co_09,base.co,20787,204020
+lavish_erp.state_co_627,MONTERÍA,23001,base.state_co_10,base.co,23001,230017
+lavish_erp.state_co_628,AYAPEL,23068,base.state_co_10,base.co,23068,233538
+lavish_erp.state_co_629,BUENAVISTA,23079,base.state_co_10,base.co,23079,233020
+lavish_erp.state_co_630,CANALETE,23090,base.state_co_10,base.co,23090,235048
+lavish_erp.state_co_631,CERETÉ,23162,base.state_co_10,base.co,23162,230558
+lavish_erp.state_co_632,CHIMÁ,23168,base.state_co_10,base.co,23168,232017
+lavish_erp.state_co_633,CHINÚ,23182,base.state_co_10,base.co,23182,232050
+lavish_erp.state_co_634,CIÉNAGA DE ORO,23189,base.state_co_10,base.co,23189,232537
+lavish_erp.state_co_635,COTORRA,23300,base.state_co_10,base.co,23300,230507
+lavish_erp.state_co_636,LA APARTADA,23350,base.state_co_10,base.co,23350,233501
+lavish_erp.state_co_637,LORICA,23417,base.state_co_10,base.co,23417,231048
+lavish_erp.state_co_638,LOS CÓRDOBAS,23419,base.state_co_10,base.co,23419,235020
+lavish_erp.state_co_639,MOMIL,23464,base.state_co_10,base.co,23464,232008
+lavish_erp.state_co_640,MONTELÍBANO,23466,base.state_co_10,base.co,23466,234007
+lavish_erp.state_co_641,MOÑITOS,23500,base.state_co_10,base.co,23500,231007
+lavish_erp.state_co_642,PLANETA RICA,23555,base.state_co_10,base.co,23555,233049
+lavish_erp.state_co_643,PUEBLO NUEVO,23570,base.state_co_10,base.co,23570,233001
+lavish_erp.state_co_644,PUERTO ESCONDIDO,23574,base.state_co_10,base.co,23574,235008
+lavish_erp.state_co_645,PUERTO LIBERTADOR,23580,base.state_co_10,base.co,23580,234030
+lavish_erp.state_co_646,PURÍSIMA DE LA CONCEPCIÓN,23586,base.state_co_10,base.co,23586,231540
+lavish_erp.state_co_647,SAHAGÚN,23660,base.state_co_10,base.co,23660,232557
+lavish_erp.state_co_648,SAN ANDRÉS DE SOTAVENTO,23670,base.state_co_10,base.co,23670,232039
+lavish_erp.state_co_649,SAN ANTERO,23672,base.state_co_10,base.co,23672,231520
+lavish_erp.state_co_650,SAN BERNARDO DEL VIENTO,23675,base.state_co_10,base.co,23675,231507
+lavish_erp.state_co_651,SAN CARLOS,23678,base.state_co_10,base.co,23678,232508
+lavish_erp.state_co_652,SAN PELAYO,23686,base.state_co_10,base.co,23686,230520
+lavish_erp.state_co_653,TIERRALTA,23807,base.state_co_10,base.co,23807,234517
+lavish_erp.state_co_654,VALENCIA,23855,base.state_co_10,base.co,23855,234538
+lavish_erp.state_co_655,AGUA DE DIOS,25001,base.state_co_11,base.co,25001,252850
+lavish_erp.state_co_656,ALBÁN,25019,base.state_co_11,base.co,25019,253201
+lavish_erp.state_co_657,ANAPOIMA,25035,base.state_co_11,base.co,25035,252640
+lavish_erp.state_co_658,ANOLAIMA,25040,base.state_co_11,base.co,25040,253047
+lavish_erp.state_co_659,ARBELÁEZ,25053,base.state_co_11,base.co,25053,252008
+lavish_erp.state_co_660,BELTRÁN,25086,base.state_co_11,base.co,25086,253260
+lavish_erp.state_co_661,BITUIMA,25095,base.state_co_11,base.co,25095,253227
+lavish_erp.state_co_662,BOJACÁ,25099,base.state_co_11,base.co,25099,253007
+lavish_erp.state_co_663,CABRERA,25120,base.state_co_11,base.co,25120,252040
+lavish_erp.state_co_664,CACHIPAY,25123,base.state_co_11,base.co,25123,253020
+lavish_erp.state_co_665,CAJICÁ,25126,base.state_co_11,base.co,25126,250247
+lavish_erp.state_co_666,CAPARRAPÍ,25148,base.state_co_11,base.co,25148,253460
+lavish_erp.state_co_667,CÁQUEZA,25151,base.state_co_11,base.co,25151,251820
+lavish_erp.state_co_668,CARMEN DE CARUPA,25154,base.state_co_11,base.co,25154,250428
+lavish_erp.state_co_669,CHAGUANÍ,25168,base.state_co_11,base.co,25168,253240
+lavish_erp.state_co_670,CHÍA,25175,base.state_co_11,base.co,25175,250002
+lavish_erp.state_co_671,CHIPAQUE,25178,base.state_co_11,base.co,25178,251808
+lavish_erp.state_co_672,CHOACHÍ,25181,base.state_co_11,base.co,25181,251628
+lavish_erp.state_co_673,CHOCONTÁ,25183,base.state_co_11,base.co,25183,250801
+lavish_erp.state_co_674,COGUA,25200,base.state_co_11,base.co,25200,250407
+lavish_erp.state_co_675,COTA,25214,base.state_co_11,base.co,25214,250010
+lavish_erp.state_co_676,CUCUNUBÁ,25224,base.state_co_11,base.co,25224,250450
+lavish_erp.state_co_677,EL COLEGIO,25245,base.state_co_11,base.co,25245,252638
+lavish_erp.state_co_678,EL PEÑÓN,25258,base.state_co_11,base.co,25258,254020
+lavish_erp.state_co_679,EL ROSAL,25260,base.state_co_11,base.co,25260,250217
+lavish_erp.state_co_680,FACATATIVÁ,25269,base.state_co_11,base.co,25269,253052
+lavish_erp.state_co_681,FÓMEQUE,25279,base.state_co_11,base.co,25279,251648
+lavish_erp.state_co_682,FOSCA,25281,base.state_co_11,base.co,25281,251830
+lavish_erp.state_co_683,FUNZA,25286,base.state_co_11,base.co,25286,250020
+lavish_erp.state_co_684,FÚQUENE,25288,base.state_co_11,base.co,25288,250620
+lavish_erp.state_co_685,FUSAGASUGÁ,25290,base.state_co_11,base.co,25290,252212
+lavish_erp.state_co_686,GACHALÁ,25293,base.state_co_11,base.co,25293,251257
+lavish_erp.state_co_687,GACHANCIPÁ,25295,base.state_co_11,base.co,25295,251020
+lavish_erp.state_co_688,GACHETÁ,25297,base.state_co_11,base.co,25297,251230
+lavish_erp.state_co_689,GAMA,25299,base.state_co_11,base.co,25299,251240
+lavish_erp.state_co_690,GIRARDOT,25307,base.state_co_11,base.co,25307,252431
+lavish_erp.state_co_691,GRANADA,25312,base.state_co_11,base.co,25312,252257
+lavish_erp.state_co_692,GUACHETÁ,25317,base.state_co_11,base.co,25317,250617
+lavish_erp.state_co_693,GUADUAS,25320,base.state_co_11,base.co,25320,253440
+lavish_erp.state_co_694,GUASCA,25322,base.state_co_11,base.co,25322,251217
+lavish_erp.state_co_695,GUATAQUÍ,25324,base.state_co_11,base.co,25324,252820
+lavish_erp.state_co_696,GUATAVITA,25326,base.state_co_11,base.co,25326,251067
+lavish_erp.state_co_697,GUAYABAL DE SÍQUIMA,25328,base.state_co_11,base.co,25328,253217
+lavish_erp.state_co_698,GUAYABETAL,25335,base.state_co_11,base.co,25335,251850
+lavish_erp.state_co_699,GUTIÉRREZ,25339,base.state_co_11,base.co,25339,251860
+lavish_erp.state_co_700,JERUSALÉN,25368,base.state_co_11,base.co,25368,252810
+lavish_erp.state_co_701,JUNÍN,25372,base.state_co_11,base.co,25372,251227
+lavish_erp.state_co_702,LA CALERA,25377,base.state_co_11,base.co,25377,251208
+lavish_erp.state_co_703,LA MESA,25386,base.state_co_11,base.co,25386,252607
+lavish_erp.state_co_704,LA PALMA,25394,base.state_co_11,base.co,25394,253807
+lavish_erp.state_co_705,LA PEÑA,25398,base.state_co_11,base.co,25398,253647
+lavish_erp.state_co_706,LA VEGA,25402,base.state_co_11,base.co,25402,253610
+lavish_erp.state_co_707,LENGUAZAQUE,25407,base.state_co_11,base.co,25407,250601
+lavish_erp.state_co_708,MACHETÁ,25426,base.state_co_11,base.co,25426,250847
+lavish_erp.state_co_709,MADRID,25430,base.state_co_11,base.co,25430,250030
+lavish_erp.state_co_710,MANTA,25436,base.state_co_11,base.co,25436,250830
+lavish_erp.state_co_711,MEDINA,25438,base.state_co_11,base.co,25438,251428
+lavish_erp.state_co_712,MOSQUERA,25473,base.state_co_11,base.co,25473,250047
+lavish_erp.state_co_713,NARIÑO,25483,base.state_co_11,base.co,25483,252830
+lavish_erp.state_co_714,NEMOCÓN,25486,base.state_co_11,base.co,25486,251038
+lavish_erp.state_co_715,NILO,25488,base.state_co_11,base.co,25488,252401
+lavish_erp.state_co_716,NIMAIMA,25489,base.state_co_11,base.co,25489,253637
+lavish_erp.state_co_717,NOCAIMA,25491,base.state_co_11,base.co,25491,253627
+lavish_erp.state_co_718,VENECIA,25506,base.state_co_11,base.co,25506,252030
+lavish_erp.state_co_719,PACHO,25513,base.state_co_11,base.co,25513,254007
+lavish_erp.state_co_720,PAIME,25518,base.state_co_11,base.co,25518,254040
+lavish_erp.state_co_721,PANDI,25524,base.state_co_11,base.co,25524,252010
+lavish_erp.state_co_722,PARATEBUENO,25530,base.state_co_11,base.co,25530,251407
+lavish_erp.state_co_723,PASCA,25535,base.state_co_11,base.co,25535,252201
+lavish_erp.state_co_724,PUERTO SALGAR,25572,base.state_co_11,base.co,25572,253480
+lavish_erp.state_co_725,PULÍ,25580,base.state_co_11,base.co,25580,252801
+lavish_erp.state_co_726,QUEBRADANEGRA,25592,base.state_co_11,base.co,25592,253427
+lavish_erp.state_co_727,QUETAME,25594,base.state_co_11,base.co,25594,251847
+lavish_erp.state_co_728,QUIPILE,25596,base.state_co_11,base.co,25596,253030
+lavish_erp.state_co_729,APULO,25599,base.state_co_11,base.co,25599,252657
+lavish_erp.state_co_730,RICAURTE,25612,base.state_co_11,base.co,25612,252417
+lavish_erp.state_co_731,SAN ANTONIO DEL TEQUENDAMA,25645,base.state_co_11,base.co,25645,252627
+lavish_erp.state_co_732,SAN BERNARDO,25649,base.state_co_11,base.co,25649,252020
+lavish_erp.state_co_733,SAN CAYETANO,25653,base.state_co_11,base.co,25653,254050
+lavish_erp.state_co_734,SAN FRANCISCO,25658,base.state_co_11,base.co,25658,253607
+lavish_erp.state_co_735,SAN JUAN DE RIOSECO,25662,base.state_co_11,base.co,25662,253257
+lavish_erp.state_co_736,SASAIMA,25718,base.state_co_11,base.co,25718,253407
+lavish_erp.state_co_737,SESQUILÉ,25736,base.state_co_11,base.co,25736,251057
+lavish_erp.state_co_738,SIBATÉ,25740,base.state_co_11,base.co,25740,250078
+lavish_erp.state_co_739,SILVANIA,25743,base.state_co_11,base.co,25743,252247
+lavish_erp.state_co_740,SIMIJACA,25745,base.state_co_11,base.co,25745,250640
+lavish_erp.state_co_741,SOACHA,25754,base.state_co_11,base.co,25754,250051
+lavish_erp.state_co_742,SOPÓ,25758,base.state_co_11,base.co,25758,251001
+lavish_erp.state_co_743,SUBACHOQUE,25769,base.state_co_11,base.co,25769,250220
+lavish_erp.state_co_744,SUESCA,25772,base.state_co_11,base.co,25772,251047
+lavish_erp.state_co_745,SUPATÁ,25777,base.state_co_11,base.co,25777,253660
+lavish_erp.state_co_746,SUSA,25779,base.state_co_11,base.co,25779,250630
+lavish_erp.state_co_747,SUTATAUSA,25781,base.state_co_11,base.co,25781,250440
+lavish_erp.state_co_748,TABIO,25785,base.state_co_11,base.co,25785,250237
+lavish_erp.state_co_749,TAUSA,25793,base.state_co_11,base.co,25793,250418
+lavish_erp.state_co_750,TENA,25797,base.state_co_11,base.co,25797,252610
+lavish_erp.state_co_751,TENJO,25799,base.state_co_11,base.co,25799,250207
+lavish_erp.state_co_752,TIBACUY,25805,base.state_co_11,base.co,25805,252237
+lavish_erp.state_co_753,TIBIRITA,25807,base.state_co_11,base.co,25807,250827
+lavish_erp.state_co_754,TOCAIMA,25815,base.state_co_11,base.co,25815,252848
+lavish_erp.state_co_755,TOCANCIPÁ,25817,base.state_co_11,base.co,25817,251010
+lavish_erp.state_co_756,TOPAIPÍ,25823,base.state_co_11,base.co,25823,253827
+lavish_erp.state_co_757,UBALÁ,25839,base.state_co_11,base.co,25839,251267
+lavish_erp.state_co_758,UBAQUE,25841,base.state_co_11,base.co,25841,251607
+lavish_erp.state_co_759,VILLA DE SAN DIEGO DE UBATÉ,25843,base.state_co_11,base.co,25843,250430
+lavish_erp.state_co_760,UNE,25845,base.state_co_11,base.co,25845,251810
+lavish_erp.state_co_761,ÚTICA,25851,base.state_co_11,base.co,25851,253437
+lavish_erp.state_co_762,VERGARA,25862,base.state_co_11,base.co,25862,253650
+lavish_erp.state_co_763,VIANÍ,25867,base.state_co_11,base.co,25867,253230
+lavish_erp.state_co_764,VILLAGÓMEZ,25871,base.state_co_11,base.co,25871,254030
+lavish_erp.state_co_765,VILLAPINZÓN,25873,base.state_co_11,base.co,25873,250818
+lavish_erp.state_co_766,VILLETA,25875,base.state_co_11,base.co,25875,253410
+lavish_erp.state_co_767,VIOTÁ,25878,base.state_co_11,base.co,25878,252667
+lavish_erp.state_co_768,YACOPÍ,25885,base.state_co_11,base.co,25885,253840
+lavish_erp.state_co_769,ZIPACÓN,25898,base.state_co_11,base.co,25898,253010
+lavish_erp.state_co_770,ZIPAQUIRÁ,25899,base.state_co_11,base.co,25899,250257
+lavish_erp.state_co_771,QUIBDÓ,27001,base.state_co_12,base.co,27001,270007
+lavish_erp.state_co_772,ACANDÍ,27006,base.state_co_12,base.co,27006,278010
+lavish_erp.state_co_773,ALTO BAUDÓ,27025,base.state_co_12,base.co,27025,276078
+lavish_erp.state_co_774,ATRATO,27050,base.state_co_12,base.co,27050,272017
+lavish_erp.state_co_775,BAGADÓ,27073,base.state_co_12,base.co,27073,271050
+lavish_erp.state_co_776,BAHÍA SOLANO,27075,base.state_co_12,base.co,27075,276030
+lavish_erp.state_co_777,BAJO BAUDÓ,27077,base.state_co_12,base.co,27077,275038
+lavish_erp.state_co_779,BOJAYÁ,27099,base.state_co_12,base.co,27099,277050
+lavish_erp.state_co_780,EL CANTÓN DEL SAN PABLO,27135,base.state_co_12,base.co,27135,272048
+lavish_erp.state_co_781,CARMEN DEL DARIÉN,27150,base.state_co_12,base.co,27150,277038
+lavish_erp.state_co_782,CÉRTEGUI,27160,base.state_co_12,base.co,27160,272020
+lavish_erp.state_co_783,CONDOTO,27205,base.state_co_12,base.co,27205,273037
+lavish_erp.state_co_784,EL CARMEN DE ATRATO,27245,base.state_co_12,base.co,27245,271017
+lavish_erp.state_co_785,EL LITORAL DEL SAN JUAN,27250,base.state_co_12,base.co,27250,275058
+lavish_erp.state_co_786,ISTMINA,27361,base.state_co_12,base.co,27361,274017
+lavish_erp.state_co_787,JURADÓ,27372,base.state_co_12,base.co,27372,276018
+lavish_erp.state_co_788,LLORÓ,27413,base.state_co_12,base.co,27413,271037
+lavish_erp.state_co_789,MEDIO ATRATO,27425,base.state_co_12,base.co,27425,270070
+lavish_erp.state_co_790,MEDIO BAUDÓ,27430,base.state_co_12,base.co,27430,275010
+lavish_erp.state_co_791,MEDIO SAN JUAN,27450,base.state_co_12,base.co,27450,274039
+lavish_erp.state_co_792,NÓVITA,27491,base.state_co_12,base.co,27491,273058
+lavish_erp.state_co_793,NUQUÍ,27495,base.state_co_12,base.co,27495,276050
+lavish_erp.state_co_794,RÍO IRÓ,27580,base.state_co_12,base.co,27580,273010
+lavish_erp.state_co_795,RÍO QUITO,27600,base.state_co_12,base.co,27600,272050
+lavish_erp.state_co_796,RIOSUCIO,27615,base.state_co_12,base.co,27615,277010
+lavish_erp.state_co_797,SAN JOSÉ DEL PALMAR,27660,base.state_co_12,base.co,27660,273077
+lavish_erp.state_co_798,SIPÍ,27745,base.state_co_12,base.co,27745,274050
+lavish_erp.state_co_799,TADÓ,27787,base.state_co_12,base.co,27787,271077
+lavish_erp.state_co_800,UNGUÍA,27800,base.state_co_12,base.co,27800,278037
+lavish_erp.state_co_801,UNIÓN PANAMERICANA,27810,base.state_co_12,base.co,27810,272037
+lavish_erp.state_co_802,NEIVA,41001,base.state_co_13,base.co,41001,410003
+lavish_erp.state_co_803,ACEVEDO,41006,base.state_co_13,base.co,41006,417079
+lavish_erp.state_co_804,AGRADO,41013,base.state_co_13,base.co,41013,414040
+lavish_erp.state_co_805,AIPE,41016,base.state_co_13,base.co,41016,411007
+lavish_erp.state_co_806,ALGECIRAS,41020,base.state_co_13,base.co,41020,413040
+lavish_erp.state_co_807,ALTAMIRA,41026,base.state_co_13,base.co,41026,416027
+lavish_erp.state_co_808,BARAYA,41078,base.state_co_13,base.co,41078,411060
+lavish_erp.state_co_809,CAMPOALEGRE,41132,base.state_co_13,base.co,41132,413028
+lavish_erp.state_co_810,COLOMBIA,41206,base.state_co_13,base.co,41206,411087
+lavish_erp.state_co_811,ELÍAS,41244,base.state_co_13,base.co,41244,417007
+lavish_erp.state_co_812,GARZÓN,41298,base.state_co_13,base.co,41298,414027
+lavish_erp.state_co_813,GIGANTE,41306,base.state_co_13,base.co,41306,414008
+lavish_erp.state_co_814,GUADALUPE,41319,base.state_co_13,base.co,41319,416048
+lavish_erp.state_co_815,HOBO,41349,base.state_co_13,base.co,41349,413067
+lavish_erp.state_co_816,ÍQUIRA,41357,base.state_co_13,base.co,41357,412060
+lavish_erp.state_co_817,ISNOS,41359,base.state_co_13,base.co,41359,418049
+lavish_erp.state_co_818,LA ARGENTINA,41378,base.state_co_13,base.co,41378,415080
+lavish_erp.state_co_819,LA PLATA,41396,base.state_co_13,base.co,41396,416067
+lavish_erp.state_co_820,NÁTAGA,41483,base.state_co_13,base.co,41483,415027
+lavish_erp.state_co_821,OPORAPA,41503,base.state_co_13,base.co,41503,418007
+lavish_erp.state_co_822,PAICOL,41518,base.state_co_13,base.co,41518,415047
+lavish_erp.state_co_823,PALERMO,41524,base.state_co_13,base.co,41524,412008
+lavish_erp.state_co_824,PALESTINA,41530,base.state_co_13,base.co,41530,417060
+lavish_erp.state_co_825,PITAL,41548,base.state_co_13,base.co,41548,414068
+lavish_erp.state_co_826,PITALITO,41551,base.state_co_13,base.co,41551,417038
+lavish_erp.state_co_827,RIVERA,41615,base.state_co_13,base.co,41615,413008
+lavish_erp.state_co_828,SALADOBLANCO,41660,base.state_co_13,base.co,41660,418028
+lavish_erp.state_co_829,SAN AGUSTÍN,41668,base.state_co_13,base.co,41668,418077
+lavish_erp.state_co_830,SANTA MARÍA,41676,base.state_co_13,base.co,41676,412020
+lavish_erp.state_co_831,SUAZA,41770,base.state_co_13,base.co,41770,416087
+lavish_erp.state_co_832,TARQUI,41791,base.state_co_13,base.co,41791,416001
+lavish_erp.state_co_833,TESALIA,41797,base.state_co_13,base.co,41797,415008
+lavish_erp.state_co_834,TELLO,41799,base.state_co_13,base.co,41799,411048
+lavish_erp.state_co_835,TERUEL,41801,base.state_co_13,base.co,41801,412047
+lavish_erp.state_co_836,TIMANÁ,41807,base.state_co_13,base.co,41807,417018
+lavish_erp.state_co_837,VILLAVIEJA,41872,base.state_co_13,base.co,41872,411027
+lavish_erp.state_co_838,YAGUARÁ,41885,base.state_co_13,base.co,41885,412080
+lavish_erp.state_co_839,RIOHACHA,44001,base.state_co_14,base.co,44001,440007
+lavish_erp.state_co_840,ALBANIA,44035,base.state_co_14,base.co,44035,443007
+lavish_erp.state_co_841,BARRANCAS,44078,base.state_co_14,base.co,44078,443049
+lavish_erp.state_co_842,DIBULLA,44090,base.state_co_14,base.co,44090,446007
+lavish_erp.state_co_843,DISTRACCIÓN,44098,base.state_co_14,base.co,44098,444008
+lavish_erp.state_co_844,EL MOLINO,44110,base.state_co_14,base.co,44110,444057
+lavish_erp.state_co_845,FONSECA,44279,base.state_co_14,base.co,44279,444010
+lavish_erp.state_co_846,HATONUEVO,44378,base.state_co_14,base.co,44378,443027
+lavish_erp.state_co_847,LA JAGUA DEL PILAR,44420,base.state_co_14,base.co,44420,445040
+lavish_erp.state_co_848,MAICAO,44430,base.state_co_14,base.co,44430,442009
+lavish_erp.state_co_849,MANAURE,44560,base.state_co_14,base.co,44560,441009
+lavish_erp.state_co_850,SAN JUAN DEL CESAR,44650,base.state_co_14,base.co,44650,444037
+lavish_erp.state_co_851,URIBIA,44847,base.state_co_14,base.co,44847,441048
+lavish_erp.state_co_852,URUMITA,44855,base.state_co_14,base.co,44855,445027
+lavish_erp.state_co_853,VILLANUEVA,44874,base.state_co_14,base.co,44874,445007
+lavish_erp.state_co_854,SANTA MARTA,47001,base.state_co_15,base.co,47001,470009
+lavish_erp.state_co_855,ALGARROBO,47030,base.state_co_15,base.co,47030,472047
+lavish_erp.state_co_856,ARACATACA,47053,base.state_co_15,base.co,47053,472007
+lavish_erp.state_co_857,ARIGUANÍ,47058,base.state_co_15,base.co,47058,475017
+lavish_erp.state_co_858,CERRO DE SAN ANTONIO,47161,base.state_co_15,base.co,47161,476020
+lavish_erp.state_co_859,CHIVOLO,47170,base.state_co_15,base.co,47170,476067
+lavish_erp.state_co_860,CIÉNAGA,47189,base.state_co_15,base.co,47189,478007
+lavish_erp.state_co_861,CONCORDIA,47205,base.state_co_15,base.co,47205,476037
+lavish_erp.state_co_862,EL BANCO,47245,base.state_co_15,base.co,47245,473047
+lavish_erp.state_co_863,EL PIÑÓN,47258,base.state_co_15,base.co,47258,476007
+lavish_erp.state_co_864,EL RETÉN,47268,base.state_co_15,base.co,47268,478067
+lavish_erp.state_co_865,FUNDACIÓN,47288,base.state_co_15,base.co,47288,472028
+lavish_erp.state_co_866,GUAMAL,47318,base.state_co_15,base.co,47318,473029
+lavish_erp.state_co_867,NUEVA GRANADA,47460,base.state_co_15,base.co,47460,475020
+lavish_erp.state_co_868,PEDRAZA,47541,base.state_co_15,base.co,47541,476047
+lavish_erp.state_co_869,PIJIÑO DEL CARMEN,47545,base.state_co_15,base.co,47545,474048
+lavish_erp.state_co_870,PIVIJAY,47551,base.state_co_15,base.co,47551,477050
+lavish_erp.state_co_871,PLATO,47555,base.state_co_15,base.co,47555,475030
+lavish_erp.state_co_872,PUEBLOVIEJO,47570,base.state_co_15,base.co,47570,478048
+lavish_erp.state_co_873,REMOLINO,47605,base.state_co_15,base.co,47605,477020
+lavish_erp.state_co_874,SABANAS DE SAN ÁNGEL,47660,base.state_co_15,base.co,47660,475008
+lavish_erp.state_co_875,SALAMINA,47675,base.state_co_15,base.co,47675,477047
+lavish_erp.state_co_876,SAN SEBASTIÁN DE BUENAVISTA,47692,base.state_co_15,base.co,47692,473001
+lavish_erp.state_co_877,SAN ZENÓN,47703,base.state_co_15,base.co,47703,474067
+lavish_erp.state_co_878,SANTA ANA,47707,base.state_co_15,base.co,47707,474028
+lavish_erp.state_co_879,SANTA BÁRBARA DE PINTO,47720,base.state_co_15,base.co,47720,474007
+lavish_erp.state_co_880,SITIONUEVO,47745,base.state_co_15,base.co,47745,477009
+lavish_erp.state_co_881,TENERIFE,47798,base.state_co_15,base.co,47798,475057
+lavish_erp.state_co_882,ZAPAYÁN,47960,base.state_co_15,base.co,47960,476058
+lavish_erp.state_co_883,ZONA BANANERA,47980,base.state_co_15,base.co,47980,478020
+lavish_erp.state_co_884,VILLAVICENCIO,50001,base.state_co_16,base.co,50001,500004
+lavish_erp.state_co_885,ACACÍAS,50006,base.state_co_16,base.co,50006,507008
+lavish_erp.state_co_886,BARRANCA DE UPÍA,50110,base.state_co_16,base.co,50110,501001
+lavish_erp.state_co_887,CABUYARO,50124,base.state_co_16,base.co,50124,501017
+lavish_erp.state_co_888,CASTILLA LA NUEVA,50150,base.state_co_16,base.co,50150,507048
+lavish_erp.state_co_889,CUBARRAL,50223,base.state_co_16,base.co,50223,506001
+lavish_erp.state_co_890,CUMARAL,50226,base.state_co_16,base.co,50226,501028
+lavish_erp.state_co_891,EL CALVARIO,50245,base.state_co_16,base.co,50245,501041
+lavish_erp.state_co_892,EL CASTILLO,50251,base.state_co_16,base.co,50251,506047
+lavish_erp.state_co_893,EL DORADO,50270,base.state_co_16,base.co,50270,506027
+lavish_erp.state_co_894,FUENTEDEORO,50287,base.state_co_16,base.co,50287,504027
+lavish_erp.state_co_895,GRANADA,50313,base.state_co_16,base.co,50313,504001
+lavish_erp.state_co_896,GUAMAL,50318,base.state_co_16,base.co,50318,507051
+lavish_erp.state_co_897,MAPIRIPÁN,50325,base.state_co_16,base.co,50325,503021
+lavish_erp.state_co_898,MESETAS,50330,base.state_co_16,base.co,50330,505008
+lavish_erp.state_co_899,LA MACARENA,50350,base.state_co_16,base.co,50350,505021
+lavish_erp.state_co_900,URIBE,50370,base.state_co_16,base.co,50370,505048
+lavish_erp.state_co_901,LEJANÍAS,50400,base.state_co_16,base.co,50400,506068
+lavish_erp.state_co_902,PUERTO CONCORDIA,50450,base.state_co_16,base.co,50450,503041
+lavish_erp.state_co_903,PUERTO GAITÁN,50568,base.state_co_16,base.co,50568,502048
+lavish_erp.state_co_904,PUERTO LÓPEZ,50573,base.state_co_16,base.co,50573,502008
+lavish_erp.state_co_905,PUERTO LLERAS,50577,base.state_co_16,base.co,50577,503008
+lavish_erp.state_co_906,PUERTO RICO,50590,base.state_co_16,base.co,50590,503061
+lavish_erp.state_co_907,RESTREPO,50606,base.state_co_16,base.co,50606,501038
+lavish_erp.state_co_908,SAN CARLOS DE GUAROA,50680,base.state_co_16,base.co,50680,507019
+lavish_erp.state_co_909,SAN JUAN DE ARAMA,50683,base.state_co_16,base.co,50683,504047
+lavish_erp.state_co_910,SAN JUANITO,50686,base.state_co_16,base.co,50686,501057
+lavish_erp.state_co_911,SAN MARTÍN,50689,base.state_co_16,base.co,50689,507028
+lavish_erp.state_co_912,VISTAHERMOSA,50711,base.state_co_16,base.co,50711,504068
+lavish_erp.state_co_913,PASTO,52001,base.state_co_17,base.co,52001,520004
+lavish_erp.state_co_914,ALBÁN,52019,base.state_co_17,base.co,52019,520557
+lavish_erp.state_co_915,ALDANA,52022,base.state_co_17,base.co,52022,524540
+lavish_erp.state_co_916,ANCUYÁ,52036,base.state_co_17,base.co,52036,526001
+lavish_erp.state_co_917,ARBOLEDA,52051,base.state_co_17,base.co,52051,520577
+lavish_erp.state_co_918,BARBACOAS,52079,base.state_co_17,base.co,52079,528078
+lavish_erp.state_co_919,BELÉN,52083,base.state_co_17,base.co,52083,521080
+lavish_erp.state_co_920,BUESACO,52110,base.state_co_17,base.co,52110,520509
+lavish_erp.state_co_921,COLÓN,52203,base.state_co_17,base.co,52203,521060
+lavish_erp.state_co_922,CONSACÁ,52207,base.state_co_17,base.co,52207,522547
+lavish_erp.state_co_923,CONTADERO,52210,base.state_co_17,base.co,52210,523087
+lavish_erp.state_co_924,CÓRDOBA,52215,base.state_co_17,base.co,52215,524009
+lavish_erp.state_co_925,CUASPÚD,52224,base.state_co_17,base.co,52224,524567
+lavish_erp.state_co_926,CUMBAL,52227,base.state_co_17,base.co,52227,525001
+lavish_erp.state_co_927,CUMBITARA,52233,base.state_co_17,base.co,52233,526560
+lavish_erp.state_co_928,CHACHAGÜÍ,52240,base.state_co_17,base.co,52240,522007
+lavish_erp.state_co_929,EL CHARCO,52250,base.state_co_17,base.co,52250,527529
+lavish_erp.state_co_930,EL PEÑOL,52254,base.state_co_17,base.co,52254,522088
+lavish_erp.state_co_931,EL ROSARIO,52256,base.state_co_17,base.co,52256,527039
+lavish_erp.state_co_932,EL TABLÓN DE GÓMEZ,52258,base.state_co_17,base.co,52258,520530
+lavish_erp.state_co_933,EL TAMBO,52260,base.state_co_17,base.co,52260,522068
+lavish_erp.state_co_934,FUNES,52287,base.state_co_17,base.co,52287,523527
+lavish_erp.state_co_935,GUACHUCAL,52317,base.state_co_17,base.co,52317,524587
+lavish_erp.state_co_936,GUAITARILLA,52320,base.state_co_17,base.co,52320,525501
+lavish_erp.state_co_937,GUALMATÁN,52323,base.state_co_17,base.co,52323,524507
+lavish_erp.state_co_938,ILES,52352,base.state_co_17,base.co,52352,523067
+lavish_erp.state_co_939,IMUÉS,52354,base.state_co_17,base.co,52354,523027
+lavish_erp.state_co_940,IPIALES,52356,base.state_co_17,base.co,52356,524069
+lavish_erp.state_co_941,LA CRUZ,52378,base.state_co_17,base.co,52378,521020
+lavish_erp.state_co_942,LA FLORIDA,52381,base.state_co_17,base.co,52381,522048
+lavish_erp.state_co_943,LA LLANADA,52385,base.state_co_17,base.co,52385,526507
+lavish_erp.state_co_944,LA TOLA,52390,base.state_co_17,base.co,52390,527547
+lavish_erp.state_co_945,LA UNIÓN,52399,base.state_co_17,base.co,52399,521520
+lavish_erp.state_co_946,LEIVA,52405,base.state_co_17,base.co,52405,527060
+lavish_erp.state_co_947,LINARES,52411,base.state_co_17,base.co,52411,522501
+lavish_erp.state_co_948,LOS ANDES,52418,base.state_co_17,base.co,52418,526520
+lavish_erp.state_co_949,MAGÜÍ,52427,base.state_co_17,base.co,52427,528008
+lavish_erp.state_co_950,MALLAMA,52435,base.state_co_17,base.co,52435,525068
+lavish_erp.state_co_951,MOSQUERA,52473,base.state_co_17,base.co,52473,527580
+lavish_erp.state_co_952,NARIÑO,52480,base.state_co_17,base.co,52480,522027
+lavish_erp.state_co_953,OLAYA HERRERA,52490,base.state_co_17,base.co,52490,527567
+lavish_erp.state_co_954,OSPINA,52506,base.state_co_17,base.co,52506,523040
+lavish_erp.state_co_955,FRANCISCO PIZARRO,52520,base.state_co_17,base.co,52520,528560
+lavish_erp.state_co_956,POLICARPA,52540,base.state_co_17,base.co,52540,527007
+lavish_erp.state_co_957,POTOSÍ,52560,base.state_co_17,base.co,52560,524038
+lavish_erp.state_co_958,PROVIDENCIA,52565,base.state_co_17,base.co,52565,526027
+lavish_erp.state_co_959,PUERRES,52573,base.state_co_17,base.co,52573,523540
+lavish_erp.state_co_960,PUPIALES,52585,base.state_co_17,base.co,52585,524527
+lavish_erp.state_co_961,RICAURTE,52612,base.state_co_17,base.co,52612,525038
+lavish_erp.state_co_962,ROBERTO PAYÁN,52621,base.state_co_17,base.co,52621,528039
+lavish_erp.state_co_963,SAMANIEGO,52678,base.state_co_17,base.co,52678,526057
+lavish_erp.state_co_964,SANDONÁ,52683,base.state_co_17,base.co,52683,522520
+lavish_erp.state_co_965,SAN BERNARDO,52685,base.state_co_17,base.co,52685,521001
+lavish_erp.state_co_966,SAN LORENZO,52687,base.state_co_17,base.co,52687,521548
+lavish_erp.state_co_967,SAN PABLO,52693,base.state_co_17,base.co,52693,521048
+lavish_erp.state_co_968,SAN PEDRO DE CARTAGO,52694,base.state_co_17,base.co,52694,521501
+lavish_erp.state_co_969,SANTA BÁRBARA,52696,base.state_co_17,base.co,52696,527508
+lavish_erp.state_co_970,SANTACRUZ,52699,base.state_co_17,base.co,52699,525579
+lavish_erp.state_co_971,SAPUYES,52720,base.state_co_17,base.co,52720,525550
+lavish_erp.state_co_972,TAMINANGO,52786,base.state_co_17,base.co,52786,521569
+lavish_erp.state_co_973,TANGUA,52788,base.state_co_17,base.co,52788,523507
+lavish_erp.state_co_974,SAN ANDRÉS DE TUMACO,52835,base.state_co_17,base.co,52835,528538
+lavish_erp.state_co_975,TÚQUERRES,52838,base.state_co_17,base.co,52838,525529
+lavish_erp.state_co_976,YACUANQUER,52885,base.state_co_17,base.co,52885,523007
+lavish_erp.state_co_977,CÚCUTA,54001,base.state_co_18,base.co,54001,540004
+lavish_erp.state_co_978,ÁBREGO,54003,base.state_co_18,base.co,54003,546077
+lavish_erp.state_co_979,ARBOLEDAS,54051,base.state_co_18,base.co,54051,544557
+lavish_erp.state_co_980,BOCHALEMA,54099,base.state_co_18,base.co,54099,543010
+lavish_erp.state_co_981,BUCARASICA,54109,base.state_co_18,base.co,54109,545557
+lavish_erp.state_co_982,CÁCOTA,54125,base.state_co_18,base.co,54125,544017
+lavish_erp.state_co_983,CÁCHIRA,54128,base.state_co_18,base.co,54128,546038
+lavish_erp.state_co_984,CHINÁCOTA,54172,base.state_co_18,base.co,54172,541070
+lavish_erp.state_co_985,CHITAGÁ,54174,base.state_co_18,base.co,54174,544037
+lavish_erp.state_co_986,CONVENCIÓN,54206,base.state_co_18,base.co,54206,547050
+lavish_erp.state_co_987,CUCUTILLA,54223,base.state_co_18,base.co,54223,544527
+lavish_erp.state_co_988,DURANIA,54239,base.state_co_18,base.co,54239,544517
+lavish_erp.state_co_989,EL CARMEN,54245,base.state_co_18,base.co,54245,547077
+lavish_erp.state_co_990,EL TARRA,54250,base.state_co_18,base.co,54250,548050
+lavish_erp.state_co_991,EL ZULIA,54261,base.state_co_18,base.co,54261,545518
+lavish_erp.state_co_992,GRAMALOTE,54313,base.state_co_18,base.co,54313,545050
+lavish_erp.state_co_993,HACARÍ,54344,base.state_co_18,base.co,54344,546510
+lavish_erp.state_co_994,HERRÁN,54347,base.state_co_18,base.co,54347,542017
+lavish_erp.state_co_995,LABATECA,54377,base.state_co_18,base.co,54377,542050
+lavish_erp.state_co_996,LA ESPERANZA,54385,base.state_co_18,base.co,54385,546058
+lavish_erp.state_co_997,LA PLAYA,54398,base.state_co_18,base.co,54398,546537
+lavish_erp.state_co_998,LOS PATIOS,54405,base.state_co_18,base.co,54405,541017
+lavish_erp.state_co_999,LOURDES,54418,base.state_co_18,base.co,54418,545077
+lavish_erp.state_co_1000,MUTISCUA,54480,base.state_co_18,base.co,54480,544070
+lavish_erp.state_co_1001,OCAÑA,54498,base.state_co_18,base.co,54498,546551
+lavish_erp.state_co_1002,PAMPLONA,54518,base.state_co_18,base.co,54518,543050
+lavish_erp.state_co_1003,PAMPLONITA,54520,base.state_co_18,base.co,54520,543037
+lavish_erp.state_co_1004,PUERTO SANTANDER,54553,base.state_co_18,base.co,54553,548030
+lavish_erp.state_co_1005,RAGONVALIA,54599,base.state_co_18,base.co,54599,541057
+lavish_erp.state_co_1006,SALAZAR,54660,base.state_co_18,base.co,54660,544570
+lavish_erp.state_co_1007,SAN CALIXTO,54670,base.state_co_18,base.co,54670,547018
+lavish_erp.state_co_1008,SAN CAYETANO,54673,base.state_co_18,base.co,54673,545010
+lavish_erp.state_co_1009,SANTIAGO,54680,base.state_co_18,base.co,54680,545037
+lavish_erp.state_co_1010,SARDINATA,54720,base.state_co_18,base.co,54720,545537
+lavish_erp.state_co_1011,SILOS,54743,base.state_co_18,base.co,54743,544058
+lavish_erp.state_co_1012,TEORAMA,54800,base.state_co_18,base.co,54800,547037
+lavish_erp.state_co_1013,TIBÚ,54810,base.state_co_18,base.co,54810,548017
+lavish_erp.state_co_1014,TOLEDO,54820,base.state_co_18,base.co,54820,542037
+lavish_erp.state_co_1015,VILLA CARO,54871,base.state_co_18,base.co,54871,546010
+lavish_erp.state_co_1016,VILLA DEL ROSARIO,54874,base.state_co_18,base.co,54874,541030
+lavish_erp.state_co_1017,ARMENIA,63001,base.state_co_19,base.co,63001,630004
+lavish_erp.state_co_1018,BUENAVISTA,63111,base.state_co_19,base.co,63111,632040
+lavish_erp.state_co_1019,CALARCÁ,63130,base.state_co_19,base.co,63130,632008
+lavish_erp.state_co_1020,CIRCASIA,63190,base.state_co_19,base.co,63190,631001
+lavish_erp.state_co_1021,CÓRDOBA,63212,base.state_co_19,base.co,63212,632027
+lavish_erp.state_co_1022,FILANDIA,63272,base.state_co_19,base.co,63272,634001
+lavish_erp.state_co_1023,GÉNOVA,63302,base.state_co_19,base.co,63302,632080
+lavish_erp.state_co_1024,LA TEBAIDA,63401,base.state_co_19,base.co,63401,633027
+lavish_erp.state_co_1025,MONTENEGRO,63470,base.state_co_19,base.co,63470,633001
+lavish_erp.state_co_1026,PIJAO,63548,base.state_co_19,base.co,63548,632060
+lavish_erp.state_co_1027,QUIMBAYA,63594,base.state_co_19,base.co,63594,634027
+lavish_erp.state_co_1028,SALENTO,63690,base.state_co_19,base.co,63690,631028
+lavish_erp.state_co_1029,PEREIRA,66001,base.state_co_20,base.co,66001,660004
+lavish_erp.state_co_1030,APÍA,66045,base.state_co_20,base.co,66045,663037
+lavish_erp.state_co_1031,BALBOA,66075,base.state_co_20,base.co,66075,662017
+lavish_erp.state_co_1032,BELÉN DE UMBRÍA,66088,base.state_co_20,base.co,66088,664047
+lavish_erp.state_co_1033,DOSQUEBRADAS,66170,base.state_co_20,base.co,66170,661007
+lavish_erp.state_co_1034,GUÁTICA,66318,base.state_co_20,base.co,66318,664017
+lavish_erp.state_co_1035,LA CELIA,66383,base.state_co_20,base.co,66383,662030
+lavish_erp.state_co_1036,LA VIRGINIA,66400,base.state_co_20,base.co,66400,662007
+lavish_erp.state_co_1037,MARSELLA,66440,base.state_co_20,base.co,66440,661048
+lavish_erp.state_co_1038,MISTRATÓ,66456,base.state_co_20,base.co,66456,664020
+lavish_erp.state_co_1039,PUEBLO RICO,66572,base.state_co_20,base.co,66572,663017
+lavish_erp.state_co_1040,QUINCHÍA,66594,base.state_co_20,base.co,66594,664008
+lavish_erp.state_co_1041,SANTA ROSA DE CABAL,66682,base.state_co_20,base.co,66682,661027
+lavish_erp.state_co_1042,SANTUARIO,66687,base.state_co_20,base.co,66687,663007
+lavish_erp.state_co_1043,BUCARAMANGA,68001,base.state_co_21,base.co,68001,680001
+lavish_erp.state_co_1044,AGUADA,68013,base.state_co_21,base.co,68013,685527
+lavish_erp.state_co_1045,ALBANIA,68020,base.state_co_21,base.co,68020,684537
+lavish_erp.state_co_1046,ARATOCA,68051,base.state_co_21,base.co,68051,682051
+lavish_erp.state_co_1047,BARBOSA,68077,base.state_co_21,base.co,68077,684517
+lavish_erp.state_co_1048,BARICHARA,68079,base.state_co_21,base.co,68079,684041
+lavish_erp.state_co_1049,BARRANCABERMEJA,68081,base.state_co_21,base.co,68081,687038
+lavish_erp.state_co_1050,BETULIA,68092,base.state_co_21,base.co,68092,686508
+lavish_erp.state_co_1051,BOLÍVAR,68101,base.state_co_21,base.co,68101,685007
+lavish_erp.state_co_1052,CABRERA,68121,base.state_co_21,base.co,68121,683507
+lavish_erp.state_co_1053,CALIFORNIA,68132,base.state_co_21,base.co,68132,680517
+lavish_erp.state_co_1054,CAPITANEJO,68147,base.state_co_21,base.co,68147,681547
+lavish_erp.state_co_1055,CARCASÍ,68152,base.state_co_21,base.co,68152,681521
+lavish_erp.state_co_1056,CEPITÁ,68160,base.state_co_21,base.co,68160,682061
+lavish_erp.state_co_1057,CERRITO,68162,base.state_co_21,base.co,68162,681501
+lavish_erp.state_co_1058,CHARALÁ,68167,base.state_co_21,base.co,68167,682559
+lavish_erp.state_co_1059,CHARTA,68169,base.state_co_21,base.co,68169,680551
+lavish_erp.state_co_1060,CHIMA,68176,base.state_co_21,base.co,68176,683007
+lavish_erp.state_co_1061,CHIPATÁ,68179,base.state_co_21,base.co,68179,685551
+lavish_erp.state_co_1062,CIMITARRA,68190,base.state_co_21,base.co,68190,686058
+lavish_erp.state_co_1063,CONCEPCIÓN,68207,base.state_co_21,base.co,68207,681518
+lavish_erp.state_co_1064,CONFINES,68209,base.state_co_21,base.co,68209,683531
+lavish_erp.state_co_1065,CONTRATACIÓN,68211,base.state_co_21,base.co,68211,683077
+lavish_erp.state_co_1066,COROMORO,68217,base.state_co_21,base.co,68217,682538
+lavish_erp.state_co_1067,CURITÍ,68229,base.state_co_21,base.co,68229,682041
+lavish_erp.state_co_1068,EL CARMEN DE CHUCURÍ,68235,base.state_co_21,base.co,68235,686569
+lavish_erp.state_co_1069,EL GUACAMAYO,68245,base.state_co_21,base.co,68245,683061
+lavish_erp.state_co_1070,EL PEÑÓN,68250,base.state_co_21,base.co,68250,685021
+lavish_erp.state_co_1071,EL PLAYÓN,68255,base.state_co_21,base.co,68255,687509
+lavish_erp.state_co_1072,ENCINO,68264,base.state_co_21,base.co,68264,682548
+lavish_erp.state_co_1073,ENCISO,68266,base.state_co_21,base.co,68266,681561
+lavish_erp.state_co_1074,FLORIÁN,68271,base.state_co_21,base.co,68271,684541
+lavish_erp.state_co_1075,FLORIDABLANCA,68276,base.state_co_21,base.co,68276,681002
+lavish_erp.state_co_1076,GALÁN,68296,base.state_co_21,base.co,68296,684051
+lavish_erp.state_co_1077,GÁMBITA,68298,base.state_co_21,base.co,68298,683037
+lavish_erp.state_co_1078,GIRÓN,68307,base.state_co_21,base.co,68307,687557
+lavish_erp.state_co_1079,GUACA,68318,base.state_co_21,base.co,68318,681048
+lavish_erp.state_co_1080,GUADALUPE,68320,base.state_co_21,base.co,68320,683057
+lavish_erp.state_co_1081,GUAPOTÁ,68322,base.state_co_21,base.co,68322,683017
+lavish_erp.state_co_1082,GUAVATÁ,68324,base.state_co_21,base.co,68324,684507
+lavish_erp.state_co_1083,GÜEPSA,68327,base.state_co_21,base.co,68327,685541
+lavish_erp.state_co_1084,HATO,68344,base.state_co_21,base.co,68344,683571
+lavish_erp.state_co_1085,JESÚS MARÍA,68368,base.state_co_21,base.co,68368,684551
+lavish_erp.state_co_1086,JORDÁN,68370,base.state_co_21,base.co,68370,684017
+lavish_erp.state_co_1087,LA BELLEZA,68377,base.state_co_21,base.co,68377,685061
+lavish_erp.state_co_1088,LANDÁZURI,68385,base.state_co_21,base.co,68385,686029
+lavish_erp.state_co_1089,LA PAZ,68397,base.state_co_21,base.co,68397,685517
+lavish_erp.state_co_1090,LEBRIJA,68406,base.state_co_21,base.co,68406,687587
+lavish_erp.state_co_1091,LOS SANTOS,68418,base.state_co_21,base.co,68418,684007
+lavish_erp.state_co_1092,MACARAVITA,68425,base.state_co_21,base.co,68425,681531
+lavish_erp.state_co_1093,MÁLAGA,68432,base.state_co_21,base.co,68432,682017
+lavish_erp.state_co_1094,MATANZA,68444,base.state_co_21,base.co,68444,680567
+lavish_erp.state_co_1095,MOGOTES,68464,base.state_co_21,base.co,68464,682509
+lavish_erp.state_co_1096,MOLAGAVITA,68468,base.state_co_21,base.co,68468,682031
+lavish_erp.state_co_1097,OCAMONTE,68498,base.state_co_21,base.co,68498,682568
+lavish_erp.state_co_1098,OIBA,68500,base.state_co_21,base.co,68500,683019
+lavish_erp.state_co_1099,ONZAGA,68502,base.state_co_21,base.co,68502,682527
+lavish_erp.state_co_1100,PALMAR,68522,base.state_co_21,base.co,68522,683587
+lavish_erp.state_co_1101,PALMAS DEL SOCORRO,68524,base.state_co_21,base.co,68524,683541
+lavish_erp.state_co_1102,PÁRAMO,68533,base.state_co_21,base.co,68533,683528
+lavish_erp.state_co_1103,PIEDECUESTA,68547,base.state_co_21,base.co,68547,681027
+lavish_erp.state_co_1104,PINCHOTE,68549,base.state_co_21,base.co,68549,683517
+lavish_erp.state_co_1105,PUENTE NACIONAL,68572,base.state_co_21,base.co,68572,684527
+lavish_erp.state_co_1106,PUERTO PARRA,68573,base.state_co_21,base.co,68573,686007
+lavish_erp.state_co_1107,PUERTO WILCHES,68575,base.state_co_21,base.co,68575,687061
+lavish_erp.state_co_1108,RIONEGRO,68615,base.state_co_21,base.co,68615,687519
+lavish_erp.state_co_1109,SABANA DE TORRES,68655,base.state_co_21,base.co,68655,687001
+lavish_erp.state_co_1110,SAN ANDRÉS,68669,base.state_co_21,base.co,68669,682001
+lavish_erp.state_co_1111,SAN BENITO,68673,base.state_co_21,base.co,68673,685531
+lavish_erp.state_co_1112,SAN GIL,68679,base.state_co_21,base.co,68679,684037
+lavish_erp.state_co_1113,SAN JOAQUÍN,68682,base.state_co_21,base.co,68682,682517
+lavish_erp.state_co_1114,SAN JOSÉ DE MIRANDA,68684,base.state_co_21,base.co,68684,682021
+lavish_erp.state_co_1115,SAN MIGUEL,68686,base.state_co_21,base.co,68686,681557
+lavish_erp.state_co_1116,SAN VICENTE DE CHUCURÍ,68689,base.state_co_21,base.co,68689,686537
+lavish_erp.state_co_1117,SANTA BÁRBARA,68705,base.state_co_21,base.co,68705,681038
+lavish_erp.state_co_1118,SANTA HELENA DEL OPÓN,68720,base.state_co_21,base.co,68720,685501
+lavish_erp.state_co_1119,SIMACOTA,68745,base.state_co_21,base.co,68745,683568
+lavish_erp.state_co_1120,SOCORRO,68755,base.state_co_21,base.co,68755,683557
+lavish_erp.state_co_1121,SUAITA,68770,base.state_co_21,base.co,68770,683049
+lavish_erp.state_co_1122,SUCRE,68773,base.state_co_21,base.co,68773,685041
+lavish_erp.state_co_1123,SURATÁ,68780,base.state_co_21,base.co,68780,680507
+lavish_erp.state_co_1124,TONA,68820,base.state_co_21,base.co,68820,680547
+lavish_erp.state_co_1125,VALLE DE SAN JOSÉ,68855,base.state_co_21,base.co,68855,682578
+lavish_erp.state_co_1126,VÉLEZ,68861,base.state_co_21,base.co,68861,685561
+lavish_erp.state_co_1127,VETAS,68867,base.state_co_21,base.co,68867,680527
+lavish_erp.state_co_1128,VILLANUEVA,68872,base.state_co_21,base.co,68872,684021
+lavish_erp.state_co_1129,ZAPATOCA,68895,base.state_co_21,base.co,68895,684069
+lavish_erp.state_co_1130,SINCELEJO,70001,base.state_co_22,base.co,70001,700001
+lavish_erp.state_co_1131,BUENAVISTA,70110,base.state_co_22,base.co,70110,702037
+lavish_erp.state_co_1132,CAIMITO,70124,base.state_co_22,base.co,70124,704018
+lavish_erp.state_co_1133,COLOSÓ,70204,base.state_co_22,base.co,70204,707030
+lavish_erp.state_co_1134,COROZAL,70215,base.state_co_22,base.co,70215,705037
+lavish_erp.state_co_1135,COVEÑAS,70221,base.state_co_22,base.co,70221,706057
+lavish_erp.state_co_1136,CHALÁN,70230,base.state_co_22,base.co,70230,701017
+lavish_erp.state_co_1137,EL ROBLE,70233,base.state_co_22,base.co,70233,705050
+lavish_erp.state_co_1138,GALERAS,70235,base.state_co_22,base.co,70235,702057
+lavish_erp.state_co_1139,GUARANDA,70265,base.state_co_22,base.co,70265,703070
+lavish_erp.state_co_1140,LA UNIÓN,70400,base.state_co_22,base.co,70400,704050
+lavish_erp.state_co_1141,LOS PALMITOS,70418,base.state_co_22,base.co,70418,701057
+lavish_erp.state_co_1142,MAJAGUAL,70429,base.state_co_22,base.co,70429,703058
+lavish_erp.state_co_1143,MORROA,70473,base.state_co_22,base.co,70473,701077
+lavish_erp.state_co_1144,OVEJAS,70508,base.state_co_22,base.co,70508,701038
+lavish_erp.state_co_1145,PALMITO,70523,base.state_co_22,base.co,70523,706037
+lavish_erp.state_co_1146,SAMPUÉS,70670,base.state_co_22,base.co,70670,705070
+lavish_erp.state_co_1147,SAN BENITO ABAD,70678,base.state_co_22,base.co,70678,703018
+lavish_erp.state_co_1147,SAN BENITO ABAD,70678,base.state_co_22,base.co,70678,703018
+lavish_erp.state_co_1148,SAN JUAN DE BETULIA,70702,base.state_co_22,base.co,70702,705018
+lavish_erp.state_co_1149,SAN MARCOS,70708,base.state_co_22,base.co,70708,704030
+lavish_erp.state_co_1150,SAN ONOFRE,70713,base.state_co_22,base.co,70713,707010
+lavish_erp.state_co_1151,SAN PEDRO,70717,base.state_co_22,base.co,70717,702018
+lavish_erp.state_co_1152,SAN LUIS DE SINCÉ,70742,base.state_co_22,base.co,70742,702070
+lavish_erp.state_co_1153,SUCRE,70771,base.state_co_22,base.co,70771,703038
+lavish_erp.state_co_1154,SANTIAGO DE TOLÚ,70820,base.state_co_22,base.co,70820,706018
+lavish_erp.state_co_1155,TOLÚ VIEJO,70823,base.state_co_22,base.co,70823,707057
+lavish_erp.state_co_1156,IBAGUÉ,73001,base.state_co_23,base.co,73001,730002
+lavish_erp.state_co_1157,ALPUJARRA,73024,base.state_co_23,base.co,73024,734560
+lavish_erp.state_co_1158,ALVARADO,73026,base.state_co_23,base.co,73026,730520
+lavish_erp.state_co_1159,AMBALEMA,73030,base.state_co_23,base.co,73030,731001
+lavish_erp.state_co_1160,ANZOÁTEGUI,73043,base.state_co_23,base.co,73043,730548
+lavish_erp.state_co_1161,ARMERO,73055,base.state_co_23,base.co,73055,732060
+lavish_erp.state_co_1162,ATACO,73067,base.state_co_23,base.co,73067,735058
+lavish_erp.state_co_1163,CAJAMARCA,73124,base.state_co_23,base.co,73124,732508
+lavish_erp.state_co_1164,CARMEN DE APICALÁ,73148,base.state_co_23,base.co,73148,733597
+lavish_erp.state_co_1165,CASABIANCA,73152,base.state_co_23,base.co,73152,731528
+lavish_erp.state_co_1166,CHAPARRAL,73168,base.state_co_23,base.co,73168,735567
+lavish_erp.state_co_1167,COELLO,73200,base.state_co_23,base.co,73200,733508
+lavish_erp.state_co_1168,COYAIMA,73217,base.state_co_23,base.co,73217,735037
+lavish_erp.state_co_1169,CUNDAY,73226,base.state_co_23,base.co,73226,734040
+lavish_erp.state_co_1170,DOLORES,73236,base.state_co_23,base.co,73236,734540
+lavish_erp.state_co_1171,ESPINAL,73268,base.state_co_23,base.co,73268,733527
+lavish_erp.state_co_1172,FALAN,73270,base.state_co_23,base.co,73270,732001
+lavish_erp.state_co_1173,FLANDES,73275,base.state_co_23,base.co,73275,733517
+lavish_erp.state_co_1174,FRESNO,73283,base.state_co_23,base.co,73283,731568
+lavish_erp.state_co_1175,GUAMO,73319,base.state_co_23,base.co,73319,733558
+lavish_erp.state_co_1176,HERVEO,73347,base.state_co_23,base.co,73347,731540
+lavish_erp.state_co_1177,HONDA,73349,base.state_co_23,base.co,73349,732040
+lavish_erp.state_co_1178,ICONONZO,73352,base.state_co_23,base.co,73352,734020
+lavish_erp.state_co_1179,LÉRIDA,73408,base.state_co_23,base.co,73408,731027
+lavish_erp.state_co_1180,LÍBANO,73411,base.state_co_23,base.co,73411,731040
+lavish_erp.state_co_1181,SAN SEBASTIÁN DE MARIQUITA,73443,base.state_co_23,base.co,73443,732028
+lavish_erp.state_co_1182,MELGAR,73449,base.state_co_23,base.co,73449,734007
+lavish_erp.state_co_1183,MURILLO,73461,base.state_co_23,base.co,73461,731060
+lavish_erp.state_co_1184,NATAGAIMA,73483,base.state_co_23,base.co,73483,735007
+lavish_erp.state_co_1185,ORTEGA,73504,base.state_co_23,base.co,73504,735507
+lavish_erp.state_co_1186,PALOCABILDO,73520,base.state_co_23,base.co,73520,731580
+lavish_erp.state_co_1187,PIEDRAS,73547,base.state_co_23,base.co,73547,730501
+lavish_erp.state_co_1188,PLANADAS,73555,base.state_co_23,base.co,73555,735070
+lavish_erp.state_co_1189,PRADO,73563,base.state_co_23,base.co,73563,734528
+lavish_erp.state_co_1190,PURIFICACIÓN,73585,base.state_co_23,base.co,73585,734509
+lavish_erp.state_co_1191,RIOBLANCO,73616,base.state_co_23,base.co,73616,735588
+lavish_erp.state_co_1192,RONCESVALLES,73622,base.state_co_23,base.co,73622,735550
+lavish_erp.state_co_1193,ROVIRA,73624,base.state_co_23,base.co,73624,733048
+lavish_erp.state_co_1194,SALDAÑA,73671,base.state_co_23,base.co,73671,733578
+lavish_erp.state_co_1195,SAN ANTONIO,73675,base.state_co_23,base.co,73675,735538
+lavish_erp.state_co_1196,SAN LUIS,73678,base.state_co_23,base.co,73678,733001
+lavish_erp.state_co_1197,SANTA ISABEL,73686,base.state_co_23,base.co,73686,730568
+lavish_erp.state_co_1198,SUÁREZ,73770,base.state_co_23,base.co,73770,733587
+lavish_erp.state_co_1199,VALLE DE SAN JUAN,73854,base.state_co_23,base.co,73854,733020
+lavish_erp.state_co_1200,VENADILLO,73861,base.state_co_23,base.co,73861,730588
+lavish_erp.state_co_1201,VILLAHERMOSA,73870,base.state_co_23,base.co,73870,731501
+lavish_erp.state_co_1202,VILLARRICA,73873,base.state_co_23,base.co,73873,734060
+lavish_erp.state_co_1203,CALI,76001,base.state_co_24,base.co,76001,760036
+lavish_erp.state_co_1204,ALCALÁ,76020,base.state_co_24,base.co,76020,762047
+lavish_erp.state_co_1205,ANDALUCÍA,76036,base.state_co_24,base.co,76036,763010
+lavish_erp.state_co_1205,ANDALUCÍA,76036,base.state_co_24,base.co,76036,763010
+lavish_erp.state_co_1206,ANSERMANUEVO,76041,base.state_co_24,base.co,76041,762017
+lavish_erp.state_co_1207,ARGELIA,76054,base.state_co_24,base.co,76054,761517
+lavish_erp.state_co_1208,BOLÍVAR,76100,base.state_co_24,base.co,76100,761008
+lavish_erp.state_co_1209,BUENAVENTURA,76109,base.state_co_24,base.co,76109,764503
+lavish_erp.state_co_1210,GUADALAJARA DE BUGA,76111,base.state_co_24,base.co,76111,763049
+lavish_erp.state_co_1211,BUGALAGRANDE,76113,base.state_co_24,base.co,76113,763001
+lavish_erp.state_co_1212,CAICEDONIA,76122,base.state_co_24,base.co,76122,762548
+lavish_erp.state_co_1213,CALIMA,76126,base.state_co_24,base.co,76126,760538
+lavish_erp.state_co_1214,CANDELARIA,76130,base.state_co_24,base.co,76130,763578
+lavish_erp.state_co_1215,CARTAGO,76147,base.state_co_24,base.co,76147,762027
+lavish_erp.state_co_1216,DAGUA,76233,base.state_co_24,base.co,76233,760527
+lavish_erp.state_co_1217,EL ÁGUILA,76243,base.state_co_24,base.co,76243,762001
+lavish_erp.state_co_1218,EL CAIRO,76246,base.state_co_24,base.co,76246,761501
+lavish_erp.state_co_1219,EL CERRITO,76248,base.state_co_24,base.co,76248,763527
+lavish_erp.state_co_1220,EL DOVIO,76250,base.state_co_24,base.co,76250,761567
+lavish_erp.state_co_1221,FLORIDA,76275,base.state_co_24,base.co,76275,763567
+lavish_erp.state_co_1222,GINEBRA,76306,base.state_co_24,base.co,76306,763517
+lavish_erp.state_co_1223,GUACARÍ,76318,base.state_co_24,base.co,76318,763501
+lavish_erp.state_co_1224,JAMUNDÍ,76364,base.state_co_24,base.co,76364,764007
+lavish_erp.state_co_1224,JAMUNDÍ,76364,base.state_co_24,base.co,76364,764007
+lavish_erp.state_co_1225,LA CUMBRE,76377,base.state_co_24,base.co,76377,760518
+lavish_erp.state_co_1226,LA UNIÓN,76400,base.state_co_24,base.co,76400,761540
+lavish_erp.state_co_1227,LA VICTORIA,76403,base.state_co_24,base.co,76403,762517
+lavish_erp.state_co_1228,OBANDO,76497,base.state_co_24,base.co,76497,762501
+lavish_erp.state_co_1229,PALMIRA,76520,base.state_co_24,base.co,76520,763538
+lavish_erp.state_co_1230,PRADERA,76563,base.state_co_24,base.co,76563,763557
+lavish_erp.state_co_1231,RESTREPO,76606,base.state_co_24,base.co,76606,760547
+lavish_erp.state_co_1232,RIOFRÍO,76616,base.state_co_24,base.co,76616,761038
+lavish_erp.state_co_1233,ROLDANILLO,76622,base.state_co_24,base.co,76622,761558
+lavish_erp.state_co_1234,SAN PEDRO,76670,base.state_co_24,base.co,76670,763038
+lavish_erp.state_co_1235,SEVILLA,76736,base.state_co_24,base.co,76736,762530
+lavish_erp.state_co_1236,TORO,76823,base.state_co_24,base.co,76823,761528
+lavish_erp.state_co_1237,TRUJILLO,76828,base.state_co_24,base.co,76828,761028
+lavish_erp.state_co_1238,TULUÁ,76834,base.state_co_24,base.co,76834,763021
+lavish_erp.state_co_1239,ULLOA,76845,base.state_co_24,base.co,76845,762037
+lavish_erp.state_co_1240,VERSALLES,76863,base.state_co_24,base.co,76863,761530
+lavish_erp.state_co_1241,VIJES,76869,base.state_co_24,base.co,76869,760557
+lavish_erp.state_co_1242,YOTOCO,76890,base.state_co_24,base.co,76890,761047
+lavish_erp.state_co_1243,YUMBO,76892,base.state_co_24,base.co,76892,760507
+lavish_erp.state_co_1244,ZARZAL,76895,base.state_co_24,base.co,76895,762520
+lavish_erp.state_co_1245,ARAUCA,81001,base.state_co_25,base.co,81001,810009
+lavish_erp.state_co_1246,ARAUQUITA,81065,base.state_co_25,base.co,81065,816018
+lavish_erp.state_co_1247,CRAVO NORTE,81220,base.state_co_25,base.co,81220,812017
+lavish_erp.state_co_1248,FORTUL,81300,base.state_co_25,base.co,81300,814057
+lavish_erp.state_co_1249,PUERTO RONDÓN,81591,base.state_co_25,base.co,81591,813017
+lavish_erp.state_co_1250,SARAVENA,81736,base.state_co_25,base.co,81736,815017
+lavish_erp.state_co_1251,TAME,81794,base.state_co_25,base.co,81794,814017
+lavish_erp.state_co_1252,YOPAL,85001,base.state_co_26,base.co,85001,850001
+lavish_erp.state_co_1253,AGUAZUL,85010,base.state_co_26,base.co,85010,856017
+lavish_erp.state_co_1254,CHÁMEZA,85015,base.state_co_26,base.co,85015,856030
+lavish_erp.state_co_1255,HATO COROZAL,85125,base.state_co_26,base.co,85125,852019
+lavish_erp.state_co_1256,LA SALINA,85136,base.state_co_26,base.co,85136,851010
+lavish_erp.state_co_1257,MANÍ,85139,base.state_co_26,base.co,85139,854017
+lavish_erp.state_co_1258,MONTERREY,85162,base.state_co_26,base.co,85162,855010
+lavish_erp.state_co_1259,NUNCHÍA,85225,base.state_co_26,base.co,85225,851070
+lavish_erp.state_co_1260,OROCUÉ,85230,base.state_co_26,base.co,85230,853059
+lavish_erp.state_co_1261,PAZ DE ARIPORO,85250,base.state_co_26,base.co,85250,852039
+lavish_erp.state_co_1262,PORE,85263,base.state_co_26,base.co,85263,852058
+lavish_erp.state_co_1263,RECETOR,85279,base.state_co_26,base.co,85279,856050
+lavish_erp.state_co_1264,SABANALARGA,85300,base.state_co_26,base.co,85300,855050
+lavish_erp.state_co_1265,SÁCAMA,85315,base.state_co_26,base.co,85315,851030
+lavish_erp.state_co_1266,SAN LUIS DE PALENQUE,85325,base.state_co_26,base.co,85325,853038
+lavish_erp.state_co_1267,TÁMARA,85400,base.state_co_26,base.co,85400,851057
+lavish_erp.state_co_1268,TAURAMENA,85410,base.state_co_26,base.co,85410,854037
+lavish_erp.state_co_1269,TRINIDAD,85430,base.state_co_26,base.co,85430,853017
+lavish_erp.state_co_1270,VILLANUEVA,85440,base.state_co_26,base.co,85440,855030
+lavish_erp.state_co_1271,MOCOA,86001,base.state_co_27,base.co,86001,860001
+lavish_erp.state_co_1272,COLÓN,86219,base.state_co_27,base.co,86219,861040
+lavish_erp.state_co_1273,ORITO,86320,base.state_co_27,base.co,86320,862001
+lavish_erp.state_co_1274,PUERTO ASÍS,86568,base.state_co_27,base.co,86568,862069
+lavish_erp.state_co_1275,PUERTO CAICEDO,86569,base.state_co_27,base.co,86569,862080
+lavish_erp.state_co_1276,PUERTO GUZMÁN,86571,base.state_co_27,base.co,86571,863007
+lavish_erp.state_co_1277,PUERTO LEGUÍZAMO,86573,base.state_co_27,base.co,86573,864007
+lavish_erp.state_co_1278,SIBUNDOY,86749,base.state_co_27,base.co,86749,861027
+lavish_erp.state_co_1279,SAN FRANCISCO,86755,base.state_co_27,base.co,86755,861007
+lavish_erp.state_co_1280,SAN MIGUEL,86757,base.state_co_27,base.co,86757,862047
+lavish_erp.state_co_1281,SANTIAGO,86760,base.state_co_27,base.co,86760,861060
+lavish_erp.state_co_1282,VALLE DEL GUAMUEZ,86865,base.state_co_27,base.co,86865,862020
+lavish_erp.state_co_1283,VILLAGARZÓN,86885,base.state_co_27,base.co,86885,861088
+lavish_erp.state_co_1284,SAN ANDRÉS,88001,base.state_co_28,base.co,88001,880007
+lavish_erp.state_co_1285,PROVIDENCIA,88564,base.state_co_28,base.co,88564,880028
+lavish_erp.state_co_1286,LETICIA,91001,base.state_co_29,base.co,91001,910001
+lavish_erp.state_co_1287,EL ENCANTO,91263,base.state_co_29,base.co,91263,913017
+lavish_erp.state_co_1288,LA CHORRERA,91405,base.state_co_29,base.co,91405,914050
+lavish_erp.state_co_1289,LA PEDRERA,91407,base.state_co_29,base.co,91407,917010
+lavish_erp.state_co_1290,LA VICTORIA,91430,base.state_co_29,base.co,91430,916017
+lavish_erp.state_co_1291,MIRITÍ – PARANÁ,91460,base.state_co_29,base.co,91460,916057
+lavish_erp.state_co_1292,PUERTO ALEGRÍA,91530,base.state_co_29,base.co,91530,913057
+lavish_erp.state_co_1293,PUERTO ARICA,91536,base.state_co_29,base.co,91536,912010
+lavish_erp.state_co_1294,PUERTO NARIÑO,91540,base.state_co_29,base.co,91540,911018
+lavish_erp.state_co_1295,PUERTO SANTANDER,91669,base.state_co_29,base.co,91669,915010
+lavish_erp.state_co_1296,TARAPACÁ,91798,base.state_co_29,base.co,91798,911039
+lavish_erp.state_co_1297,INÍRIDA,94001,base.state_co_30,base.co,94001,940001
+lavish_erp.state_co_1298,BARRANCO MINAS,94343,base.state_co_30,base.co,94343,944018
+lavish_erp.state_co_1299,MAPIRIPANA,94663,base.state_co_30,base.co,94663,944058
+lavish_erp.state_co_1300,SAN FELIPE,94883,base.state_co_30,base.co,94883,942010
+lavish_erp.state_co_1301,PUERTO COLOMBIA,94884,base.state_co_30,base.co,94884,941038
+lavish_erp.state_co_1302,LA GUADALUPE,94885,base.state_co_30,base.co,94885,942057
+lavish_erp.state_co_1303,CACAHUAL,94886,base.state_co_30,base.co,94886,941017
+lavish_erp.state_co_1304,PANA PANA,94887,base.state_co_30,base.co,94887,943018
+lavish_erp.state_co_1305,MORICHAL,94888,base.state_co_30,base.co,94888,943067
+lavish_erp.state_co_1306,SAN JOSÉ DEL GUAVIARE,95001,base.state_co_31,base.co,95001,950001
+lavish_erp.state_co_1307,CALAMAR,95015,base.state_co_31,base.co,95015,953007
+lavish_erp.state_co_1308,EL RETORNO,95025,base.state_co_31,base.co,95025,951008
+lavish_erp.state_co_1309,MIRAFLORES,95200,base.state_co_31,base.co,95200,952001
+lavish_erp.state_co_1310,MITÚ,97001,base.state_co_32,base.co,97001,970009
+lavish_erp.state_co_1311,CARURÚ,97161,base.state_co_32,base.co,97161,973008
+lavish_erp.state_co_1312,PACOA,97511,base.state_co_32,base.co,97511,972007
+lavish_erp.state_co_1313,TARAIRA,97666,base.state_co_32,base.co,97666,972047
+lavish_erp.state_co_1314,PAPUNAHUA,97777,base.state_co_32,base.co,97777,973048
+lavish_erp.state_co_1315,YAVARATÉ,97889,base.state_co_32,base.co,97889,971007
+lavish_erp.state_co_1316,PUERTO CARREÑO,99001,base.state_co_33,base.co,99001,990001
+lavish_erp.state_co_1317,LA PRIMAVERA,99524,base.state_co_33,base.co,99524,992009
+lavish_erp.state_co_1318,SANTA ROSALÍA,99624,base.state_co_33,base.co,99624,995007
+lavish_erp.state_co_1319,CUMARIBO,99773,base.state_co_33,base.co,99773,991057

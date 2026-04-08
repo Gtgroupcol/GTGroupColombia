@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- CONTRACT ACTIONS AND MENUS -->
+
+        <!-- ================================================================== -->
+        <!-- MODIFICACIONES CONTRACTUALES - Views and Actions -->
+        <!-- ================================================================== -->
+        <record id="view_hr_contractual_modifications_tree" model="ir.ui.view">
+            <field name="name">hr.contractual.modifications.tree</field>
+            <field name="model">hr.contractual.modifications</field>
+            <field name="arch" type="xml">
+                <tree string="Modificaciones Contractuales">
+                    <field name="date"/>
+                    <field name="contract_id"/>
+                    <field name="description"/>
+                    <field name="prorroga" widget="boolean_toggle"/>
+                    <field name="sequence" optional="show"/>
+                    <field name="date_from" optional="show"/>
+                    <field name="date_to" optional="show"/>
+                    <field name="wage" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_contractual_modifications_form" model="ir.ui.view">
+            <field name="name">hr.contractual.modifications.form</field>
+            <field name="model">hr.contractual.modifications</field>
+            <field name="arch" type="xml">
+                <form string="Modificación Contractual">
+                    <sheet>
+                        <group>
+                            <group string="Información General">
+                                <field name="contract_id"/>
+                                <field name="date"/>
+                                <field name="description"/>
+                                <field name="attached"/>
+                            </group>
+                            <group string="Prórroga">
+                                <field name="prorroga" widget="boolean_toggle"/>
+                                <field name="sequence" invisible="not prorroga"/>
+                                <field name="date_from" invisible="not prorroga"/>
+                                <field name="date_to" invisible="not prorroga"/>
+                                <field name="wage"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_contractual_modifications_search" model="ir.ui.view">
+            <field name="name">hr.contractual.modifications.search</field>
+            <field name="model">hr.contractual.modifications</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Modificaciones">
+                    <field name="contract_id"/>
+                    <field name="description"/>
+                    <filter string="Prórrogas" name="prorrogas" domain="[('prorroga', '=', True)]"/>
+                    <group expand="0" string="Agrupar por">
+                        <filter string="Contrato" name="group_contract" context="{'group_by': 'contract_id'}"/>
+                        <filter string="Fecha" name="group_date" context="{'group_by': 'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_contractual_modifications" model="ir.actions.act_window">
+            <field name="name">Modificaciones Contractuales</field>
+            <field name="res_model">hr.contractual.modifications</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hr_contractual_modifications_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No hay modificaciones contractuales
+                </p>
+                <p>
+                    Registre prórrogas y otras modificaciones a los contratos.
+                </p>
+            </field>
+        </record>
+
+        <!-- ================================================================== -->
+
+        <record id="ir_seq_hr_contract" model="ir.sequence">
+                    <field name="name">RRHH Contratos Empleados</field>
+                    <field name="code">hr.contract.seq</field>
+                    <field name="prefix">CTO/</field>
+                    <field name="padding">6</field>
+                    <field name="number_increment">1</field>
+                    <field name="use_date_range">True</field>
+                    <field name="number_next_actual">1</field>
+                    <field name="implementation">standard</field>
+                </record>
+
+        <record id="lavish_menu_action_contract_concepts" model="ir.actions.act_window">
+                    <field name="name">Devengos y Deducciones por Contrato</field>
+                    <field name="res_model">hr.contract.concepts</field>
+                    <field name="view_mode">tree,form,search</field>
+                    <field name="context">{'search_default_active_concepts': 1}</field>
+                    <field name="help" type="html">
+                        <p class="o_view_nocontent_smiling_face">
+                            Crear un nuevo concepto de nómina
+                        </p>
+                        <p>
+                            Gestione los devengos y deducciones asociados a los contratos.
+                        </p>
+                    </field>
+                </record>
+
+        <!-- Search view for hr.cost.distribution.employee - must be before the action -->
+        <record id="view_hr_cost_distribution_employee_search" model="ir.ui.view">
+            <field name="name">hr.cost.distribution.employee.search</field>
+            <field name="model">hr.cost.distribution.employee</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Hr Cost Distribution Employee">
+                    <field name="display_name"/>
+                    <separator/>
+                    <filter string="Creados Hoy" name="created_today"
+                            domain="[('create_date', '>=', datetime.datetime.now().replace(hour=0, minute=0, second=0))]"/>
+                    <filter string="Modificados Hoy" name="modified_today"
+                            domain="[('write_date', '>=', datetime.datetime.now().replace(hour=0, minute=0, second=0))]"/>
+                    <separator/>
+                    <group expand="0" string="Agrupar Por">
+                        <filter string="Usuario Creación" name="group_create_uid"
+                                context="{'group_by': 'create_uid'}"/>
+                        <filter string="Fecha Creación" name="group_create_date"
+                                context="{'group_by': 'create_date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_cost_distribution_employee" model="ir.actions.act_window">
+                    <field name="name">Hr Cost Distribution Employee</field>
+                    <field name="res_model">hr.cost.distribution.employee</field>
+                    <field name="view_mode">tree,form</field>
+                    <field name="help" type="html">
+                        <p class="o_view_nocontent_smiling_face">
+                            Crear un nuevo registro de Hr Cost Distribution Employee
+                        </p>
+                        <p>
+                            Gestione los registros de Hr Cost Distribution Employee desde esta vista.
+                        </p>
+                    </field>
+                </record>
+
+        <menuitem id="menu_hr_cost_distribution_employee_root"
+                    name="Hr Cost Distribution Employee"
+                    parent="lavish_hr_employee.menu_root"
+                    sequence="50"/>
+
+        <menuitem id="menu_hr_cost_distribution_employee"
+                    name="Hr Cost Distribution Employee"
+                    parent="menu_hr_cost_distribution_employee_root"
+                    action="action_hr_cost_distribution_employee"
+                    sequence="10"/>
+
+    </data>
+</odoo>

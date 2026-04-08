@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Categoría Principal: Devengados -->
+        <record id="category_devengados" model="hr.accrued.rule">
+            <field name="name">Devengados</field>
+            <field name="code">DEV</field>
+            <field name="sequence">1</field>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Categoría: Básicos -->
+        <record id="category_basicos" model="hr.accrued.rule">
+            <field name="name">Básicos</field>
+            <field name="code">BASIC_CAT</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Salario Básico -->
+        <record id="rule_basic_salary" model="hr.accrued.rule">
+            <field name="name">Salario Básico</field>
+            <field name="code">BASIC</field>
+            <field name="sequence">11</field>
+            <field name="parent_id" ref="category_basicos"/>
+            <field name="rule_type">basic</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Basico</field>
+            <field name="xml_attributes">DiasTrabajados,SueldoTrabajado</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Categoría: Auxilios de Transporte -->
+        <record id="category_transport" model="hr.accrued.rule">
+            <field name="name">Auxilios de Transporte</field>
+            <field name="code">TRANS_CAT</field>
+            <field name="sequence">12</field>
+            <field name="parent_id" ref="category_basicos"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Auxilio de Transporte -->
+        <record id="rule_transport_basic" model="hr.accrued.rule">
+            <field name="name">Auxilio de Transporte</field>
+            <field name="code">TRANS_BASIC</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_transport"/>
+            <field name="rule_type">transport</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Transporte</field>
+            <field name="xml_attributes">AuxilioTransporte</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Viático Manutención y Alojamiento Salarial -->
+        <record id="rule_transport_viaticos_s" model="hr.accrued.rule">
+            <field name="name">Viático Manutención y Alojamiento Salarial</field>
+            <field name="code">TRANS_VIAT_S</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_transport"/>
+            <field name="rule_type">transport</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Transporte</field>
+            <field name="xml_attributes">ViaticoManuAlojS</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Viático Manutención y Alojamiento No Salarial -->
+        <record id="rule_transport_viaticos_ns" model="hr.accrued.rule">
+            <field name="name">Viático Manutención y Alojamiento No Salarial</field>
+            <field name="code">TRANS_VIAT_NS</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_transport"/>
+            <field name="rule_type">transport</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Transporte</field>
+            <field name="xml_attributes">ViaticoManuAlojNS</field>
+            <field name="has_ns_value">True</field>
+        </record>
+        <!-- Categoría: Horas Extras -->
+        <record id="category_horas_extras" model="hr.accrued.rule">
+            <field name="name">Horas Extras y Recargos</field>
+            <field name="code">HE_CAT</field>
+            <field name="sequence">13</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Hora Extra Diurna -->
+        <record id="rule_hora_extra_diurna" model="hr.accrued.rule">
+            <field name="name">Hora Extra Diurna</field>
+            <field name="code">HED</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">hed</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HEDs</field>
+            <field name="xml_child_tag">HED</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">25.00</field>
+        </record>
+
+        <!-- Regla: Hora Extra Nocturna -->
+        <record id="rule_hora_extra_nocturna" model="hr.accrued.rule">
+            <field name="name">Hora Extra Nocturna</field>
+            <field name="code">HEN</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">hen</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HENs</field>
+            <field name="xml_child_tag">HEN</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">75.00</field>
+        </record>
+
+        <!-- Regla: Recargo Nocturno -->
+        <record id="rule_recargo_nocturno" model="hr.accrued.rule">
+            <field name="name">Recargo Nocturno</field>
+            <field name="code">HRN</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">hrn</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HRNs</field>
+            <field name="xml_child_tag">HRN</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">35.00</field>
+        </record>
+
+        <!-- Regla: Hora Extra Diurna Dominical/Festivo -->
+        <record id="rule_hora_extra_diurna_df" model="hr.accrued.rule">
+            <field name="name">Hora Extra Diurna Dominical/Festivo</field>
+            <field name="code">HEDDF</field>
+            <field name="sequence">4</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">heddf</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HEDDFs</field>
+            <field name="xml_child_tag">HEDDF</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">100.00</field>
+        </record>
+
+        <!-- Regla: Hora Extra Nocturna Dominical/Festivo -->
+        <record id="rule_hora_extra_nocturna_df" model="hr.accrued.rule">
+            <field name="name">Hora Extra Nocturna Dominical/Festivo</field>
+            <field name="code">HENDF</field>
+            <field name="sequence">5</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">hendf</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HENDFs</field>
+            <field name="xml_child_tag">HENDF</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">150.00</field>
+        </record>
+
+        <!-- Regla: Recargo Diurno Dominical/Festivo -->
+        <record id="rule_recargo_diurno_df" model="hr.accrued.rule">
+            <field name="name">Recargo Diurno Dominical/Festivo</field>
+            <field name="code">HRDDF</field>
+            <field name="sequence">6</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">hrddf</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HRDDFs</field>
+            <field name="xml_child_tag">HRDDF</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">75.00</field>
+        </record>
+
+        <!-- Regla: Recargo Nocturno Dominical/Festivo -->
+        <record id="rule_recargo_nocturno_df" model="hr.accrued.rule">
+            <field name="name">Recargo Nocturno Dominical/Festivo</field>
+            <field name="code">HRNDF</field>
+            <field name="sequence">7</field>
+            <field name="parent_id" ref="category_horas_extras"/>
+            <field name="rule_type">hrndf</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HRNDFs</field>
+            <field name="xml_child_tag">HRNDF</field>
+            <field name="xml_attributes">HoraInicio,HoraFin,Cantidad,Porcentaje,Pago</field>
+            <field name="has_times">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="overtime_percentage">110.00</field>
+        </record>
+
+        <!-- Categoría: Vacaciones -->
+        <record id="category_vacaciones" model="hr.accrued.rule">
+            <field name="name">Vacaciones</field>
+            <field name="code">VAC_CAT</field>
+            <field name="sequence">14</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Vacaciones Comunes -->
+        <record id="rule_vacaciones_comunes" model="hr.accrued.rule">
+            <field name="name">Vacaciones Comunes</field>
+            <field name="code">VAC_COM</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_vacaciones"/>
+            <field name="rule_type">vacation_common</field>
+            <field name="xml_structure">parent</field>
+            <field name="xml_tag">Vacaciones</field>
+            <field name="xml_child_tag">VacacionesComunes</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad,Pago</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Vacaciones Compensadas -->
+        <record id="rule_vacaciones_compensadas" model="hr.accrued.rule">
+            <field name="name">Vacaciones Compensadas</field>
+            <field name="code">VAC_COMP</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_vacaciones"/>
+            <field name="rule_type">vacation_compensated</field>
+            <field name="xml_structure">parent</field>
+            <field name="xml_tag">Vacaciones</field>
+            <field name="xml_child_tag">VacacionesCompensadas</field>
+            <field name="xml_attributes">Cantidad,Pago</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+        </record>
+        <!-- Categoría: Primas -->
+        <record id="category_primas" model="hr.accrued.rule">
+            <field name="name">Primas</field>
+            <field name="code">PRIMA_CAT</field>
+            <field name="sequence">15</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Prima Salarial -->
+        <record id="rule_prima_salarial" model="hr.accrued.rule">
+            <field name="name">Prima Salarial</field>
+            <field name="code">PRIMA_S</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_primas"/>
+            <field name="rule_type">prima</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Primas</field>
+            <field name="xml_attributes">Cantidad,Pago</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Prima No Salarial -->
+        <record id="rule_prima_no_salarial" model="hr.accrued.rule">
+            <field name="name">Prima No Salarial</field>
+            <field name="code">PRIMA_NS</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_primas"/>
+            <field name="rule_type">prima</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Primas</field>
+            <field name="xml_attributes">PagoNS</field>
+            <field name="has_ns_value">True</field>
+        </record>
+
+        <!-- Categoría: Cesantías -->
+        <record id="category_cesantias" model="hr.accrued.rule">
+            <field name="name">Cesantías</field>
+            <field name="code">CES_CAT</field>
+            <field name="sequence">16</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Cesantías -->
+        <record id="rule_cesantias" model="hr.accrued.rule">
+            <field name="name">Cesantías</field>
+            <field name="code">CES</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_cesantias"/>
+            <field name="rule_type">cesantia</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Cesantias</field>
+            <field name="xml_attributes">Pago</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Intereses de Cesantías -->
+        <record id="rule_intereses_cesantias" model="hr.accrued.rule">
+            <field name="name">Intereses de Cesantías</field>
+            <field name="code">INT_CES</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_cesantias"/>
+            <field name="rule_type">cesantia_interest</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_tag">Cesantias</field>
+            <field name="xml_attributes">Porcentaje,PagoIntereses</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+        </record>
+        <!-- Categoría: Incapacidades -->
+        <record id="category_incapacidades" model="hr.accrued.rule">
+            <field name="name">Incapacidades</field>
+            <field name="code">INCAP_CAT</field>
+            <field name="sequence">17</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Incapacidad Común -->
+        <record id="rule_incapacidad_comun" model="hr.accrued.rule">
+            <field name="name">Incapacidad Común</field>
+            <field name="code">INCAP_COM</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_incapacidades"/>
+            <field name="rule_type">incapacity</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Incapacidades</field>
+            <field name="xml_child_tag">Incapacidad</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad,Tipo,Pago</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+            <field name="incapacity_type">1</field>
+        </record>
+
+        <!-- Regla: Incapacidad Profesional -->
+        <record id="rule_incapacidad_profesional" model="hr.accrued.rule">
+            <field name="name">Incapacidad Profesional</field>
+            <field name="code">INCAP_PROF</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_incapacidades"/>
+            <field name="rule_type">incapacity</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Incapacidades</field>
+            <field name="xml_child_tag">Incapacidad</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad,Tipo,Pago</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+            <field name="incapacity_type">2</field>
+        </record>
+
+        <!-- Regla: Incapacidad Laboral -->
+        <record id="rule_incapacidad_laboral" model="hr.accrued.rule">
+            <field name="name">Incapacidad Laboral</field>
+            <field name="code">INCAP_LAB</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_incapacidades"/>
+            <field name="rule_type">incapacity</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Incapacidades</field>
+            <field name="xml_child_tag">Incapacidad</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad,Tipo,Pago</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+            <field name="incapacity_type">3</field>
+        </record>
+        <!-- Categoría: Licencias -->
+        <record id="category_licencias" model="hr.accrued.rule">
+            <field name="name">Licencias</field>
+            <field name="code">LIC_CAT</field>
+            <field name="sequence">18</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Licencia Maternidad/Paternidad -->
+        <record id="rule_licencia_mp" model="hr.accrued.rule">
+            <field name="name">Licencia Maternidad/Paternidad</field>
+            <field name="code">LIC_MP</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_licencias"/>
+            <field name="rule_type">license_mp</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Licencias</field>
+            <field name="xml_child_tag">LicenciaMP</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad,Pago</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Licencia Remunerada -->
+        <record id="rule_licencia_remunerada" model="hr.accrued.rule">
+            <field name="name">Licencia Remunerada</field>
+            <field name="code">LIC_R</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_licencias"/>
+            <field name="rule_type">license_r</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Licencias</field>
+            <field name="xml_child_tag">LicenciaR</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad,Pago</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Licencia No Remunerada -->
+        <record id="rule_licencia_no_remunerada" model="hr.accrued.rule">
+            <field name="name">Licencia No Remunerada</field>
+            <field name="code">LIC_NR</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_licencias"/>
+            <field name="rule_type">license_nr</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Licencias</field>
+            <field name="xml_child_tag">LicenciaNR</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+        </record>
+        <!-- Categoría: Bonificaciones -->
+        <record id="category_bonificaciones" model="hr.accrued.rule">
+            <field name="name">Bonificaciones</field>
+            <field name="code">BONUS_CAT</field>
+            <field name="sequence">19</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Bonificación Salarial -->
+        <record id="rule_bonificacion_salarial" model="hr.accrued.rule">
+            <field name="name">Bonificación Salarial</field>
+            <field name="code">BONUS_S</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_bonificaciones"/>
+            <field name="rule_type">bonus</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Bonificaciones</field>
+            <field name="xml_child_tag">Bonificacion</field>
+            <field name="xml_attributes">BonificacionS</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Bonificación No Salarial -->
+        <record id="rule_bonificacion_no_salarial" model="hr.accrued.rule">
+            <field name="name">Bonificación No Salarial</field>
+            <field name="code">BONUS_NS</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_bonificaciones"/>
+            <field name="rule_type">bonus</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Bonificaciones</field>
+            <field name="xml_child_tag">Bonificacion</field>
+            <field name="xml_attributes">BonificacionNS</field>
+            <field name="has_ns_value">True</field>
+        </record>
+        <!-- Categoría: Auxilios -->
+        <record id="category_auxilios" model="hr.accrued.rule">
+            <field name="name">Auxilios</field>
+            <field name="code">AID_CAT</field>
+            <field name="sequence">20</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Auxilio Salarial -->
+        <record id="rule_auxilio_salarial" model="hr.accrued.rule">
+            <field name="name">Auxilio Salarial</field>
+            <field name="code">AID_S</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_auxilios"/>
+            <field name="rule_type">aid</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Auxilios</field>
+            <field name="xml_child_tag">Auxilio</field>
+            <field name="xml_attributes">AuxilioS</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Auxilio No Salarial -->
+        <record id="rule_auxilio_no_salarial" model="hr.accrued.rule">
+            <field name="name">Auxilio No Salarial</field>
+            <field name="code">AID_NS</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_auxilios"/>
+            <field name="rule_type">aid</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Auxilios</field>
+            <field name="xml_child_tag">Auxilio</field>
+            <field name="xml_attributes">AuxilioNS</field>
+            <field name="has_ns_value">True</field>
+        </record>
+        <!-- Categoría: Conceptos Especiales -->
+        <record id="category_conceptos_especiales" model="hr.accrued.rule">
+            <field name="name">Conceptos Especiales</field>
+            <field name="code">SPECIAL_CAT</field>
+            <field name="sequence">21</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+       <!-- Regla: Huelga Legal -->
+        <record id="rule_huelga_legal" model="hr.accrued.rule">
+            <field name="name">Huelga Legal</field>
+            <field name="code">LEGAL_STRIKE</field>
+            <field name="sequence">21</field>
+            <field name="parent_id" ref="category_conceptos_especiales"/>
+            <field name="rule_type">legal_strike</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">HuelgasLegales</field>
+            <field name="xml_child_tag">HuelgaLegal</field>
+            <field name="xml_attributes">FechaInicio,FechaFin,Cantidad</field>
+            <field name="has_dates">True</field>
+            <field name="has_quantity">True</field>
+        </record>
+        <!-- Categoría: Otros Conceptos -->
+        <record id="category_otros_conceptos" model="hr.accrued.rule">
+            <field name="name">Otros Conceptos</field>
+            <field name="code">OTHER_CAT</field>
+            <field name="sequence">22</field>
+            <field name="parent_id" ref="category_conceptos_especiales"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_tag">OtrosConceptos</field>
+        </record>
+
+        <!-- Regla: Otro Concepto Salarial -->
+        <record id="rule_otro_concepto_salarial" model="hr.accrued.rule">
+            <field name="name">Otro Concepto Salarial</field>
+            <field name="code">OTHER_S</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_otros_conceptos"/>
+            <field name="rule_type">other_concept</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">OtrosConceptos</field>
+            <field name="xml_child_tag">OtroConcepto</field>
+            <field name="xml_attributes">DescripcionConcepto,ConceptoS</field>
+            <field name="has_description">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Otro Concepto No Salarial -->
+        <record id="rule_otro_concepto_no_salarial" model="hr.accrued.rule">
+            <field name="name">Otro Concepto No Salarial</field>
+            <field name="code">OTHER_NS</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_otros_conceptos"/>
+            <field name="rule_type">other_concept</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">OtrosConceptos</field>
+            <field name="xml_child_tag">OtroConcepto</field>
+            <field name="xml_attributes">DescripcionConcepto,ConceptoNS</field>
+            <field name="has_description">True</field>
+            <field name="has_ns_value">True</field>
+        </record>
+        <record id="category_compensaciones" model="hr.accrued.rule">
+            <field name="name">Compensaciones</field>
+            <field name="code">COMP_CAT</field>
+            <field name="sequence">23</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Compensación Ordinaria -->
+        <record id="rule_compensacion_ordinaria" model="hr.accrued.rule">
+            <field name="name">Compensación Ordinaria</field>
+            <field name="code">COMP_O</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_compensaciones"/>
+            <field name="rule_type">compensation</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Compensaciones</field>
+            <field name="xml_child_tag">Compensacion</field>
+            <field name="xml_attributes">CompensacionO</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Compensación Extraordinaria -->
+        <record id="rule_compensacion_extraordinaria" model="hr.accrued.rule">
+            <field name="name">Compensación Extraordinaria</field>
+            <field name="code">COMP_E</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_compensaciones"/>
+            <field name="rule_type">compensation</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Compensaciones</field>
+            <field name="xml_child_tag">Compensacion</field>
+            <field name="xml_attributes">CompensacionE</field>
+            <field name="has_amount">True</field>
+            <field name="has_extra_values">True</field>
+        </record>
+
+
+         <record id="category_epctv" model="hr.accrued.rule">
+            <field name="name">Bonos EPCTV</field>
+            <field name="code">EPCTV_CAT</field>
+            <field name="sequence">24</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Bono EPCTV Salarial -->
+        <record id="rule_epctv_salarial" model="hr.accrued.rule">
+            <field name="name">Bono EPCTV Salarial</field>
+            <field name="code">EPCTV_S</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_epctv"/>
+            <field name="rule_type">bono_epctv</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">BonoEPCTVs</field>
+            <field name="xml_child_tag">BonoEPCTV</field>
+            <field name="xml_attributes">PagoS</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Bono EPCTV No Salarial -->
+        <record id="rule_epctv_no_salarial" model="hr.accrued.rule">
+            <field name="name">Bono EPCTV No Salarial</field>
+            <field name="code">EPCTV_NS</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_epctv"/>
+            <field name="rule_type">bono_epctv</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">BonoEPCTVs</field>
+            <field name="xml_child_tag">BonoEPCTV</field>
+            <field name="xml_attributes">PagoNS</field>
+            <field name="has_ns_value">True</field>
+        </record>
+
+        <!-- Regla: Bono EPCTV Alimentación Salarial -->
+        <record id="rule_epctv_alimentacion_s" model="hr.accrued.rule">
+            <field name="name">Bono EPCTV Alimentación Salarial</field>
+            <field name="code">EPCTV_ALIM_S</field>
+            <field name="sequence">3</field>
+            <field name="parent_id" ref="category_epctv"/>
+            <field name="rule_type">bono_epctv</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">BonoEPCTVs</field>
+            <field name="xml_child_tag">BonoEPCTV</field>
+            <field name="xml_attributes">PagoAlimentacionS</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Bono EPCTV Alimentación No Salarial -->
+        <record id="rule_epctv_alimentacion_ns" model="hr.accrued.rule">
+            <field name="name">Bono EPCTV Alimentación No Salarial</field>
+            <field name="code">EPCTV_ALIM_NS</field>
+            <field name="sequence">4</field>
+            <field name="parent_id" ref="category_epctv"/>
+            <field name="rule_type">bono_epctv</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">BonoEPCTVs</field>
+            <field name="xml_child_tag">BonoEPCTV</field>
+            <field name="xml_attributes">PagoAlimentacionNS</field>
+            <field name="has_ns_value">True</field>
+        </record>
+      <record id="category_otros_pagos" model="hr.accrued.rule">
+            <field name="name">Otros Pagos</field>
+            <field name="code">OTHER_PAY_CAT</field>
+            <field name="sequence">25</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Comisiones -->
+        <record id="rule_comisiones" model="hr.accrued.rule">
+            <field name="name">Comisiones</field>
+            <field name="code">COM</field>
+            <field name="sequence">26</field>
+            <field name="parent_id" ref="category_otros_pagos"/>
+            <field name="rule_type">commission</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Comisiones</field>
+            <field name="xml_child_tag">Comision</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Regla: Pago Terceros -->
+        <record id="rule_pago_terceros" model="hr.accrued.rule">
+            <field name="name">Pago Terceros</field>
+            <field name="code">THIRD_PAY</field>
+            <field name="sequence">27</field>
+            <field name="parent_id" ref="category_otros_pagos"/>
+            <field name="rule_type">third_party</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">PagosTerceros</field>
+            <field name="xml_child_tag">PagoTercero</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+        <record id="rule_anticipos" model="hr.accrued.rule">
+            <field name="name">Anticipo</field>
+            <field name="code">ADVANCE</field>
+            <field name="sequence">28</field>
+            <field name="parent_id" ref="category_conceptos_especiales"/>
+            <field name="rule_type">advance</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_tag">Anticipos</field>
+            <field name="xml_child_tag">Anticipo</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+        <record id="category_conceptos_simples" model="hr.accrued.rule">
+            <field name="name">Conceptos Simples</field>
+            <field name="code">SIMPLE_CAT</field>
+            <field name="sequence">29</field>
+            <field name="parent_id" ref="category_devengados"/>
+            <field name="xml_structure">parent</field>
+        </record>
+
+        <!-- Regla: Dotación -->
+        <record id="rule_dotacion" model="hr.accrued.rule">
+            <field name="name">Dotación</field>
+            <field name="code">ENDOW</field>
+            <field name="sequence">29</field>
+            <field name="parent_id" ref="category_conceptos_simples"/>
+            <field name="rule_type">endowment</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_tag">Dotacion</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Regla: Apoyo Sostenimiento -->
+        <record id="rule_apoyo_sostenimiento" model="hr.accrued.rule">
+            <field name="name">Apoyo Sostenimiento</field>
+            <field name="code">SUPPORT</field>
+            <field name="sequence">30</field>
+            <field name="parent_id" ref="category_conceptos_simples"/>
+            <field name="rule_type">support</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_tag">ApoyoSost</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Regla: Teletrabajo -->
+        <record id="rule_teletrabajo" model="hr.accrued.rule">
+            <field name="name">Teletrabajo</field>
+            <field name="code">TELEWORK</field>
+            <field name="sequence">31</field>
+            <field name="parent_id" ref="category_conceptos_simples"/>
+            <field name="rule_type">telework</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_tag">Teletrabajo</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Regla: Bonificación Retiro -->
+        <record id="rule_bonificacion_retiro" model="hr.accrued.rule">
+            <field name="name">Bonificación Retiro</field>
+            <field name="code">RET_BONUS</field>
+            <field name="sequence">32</field>
+            <field name="parent_id" ref="category_conceptos_simples"/>
+            <field name="rule_type">retirement_bonus</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_tag">BonifRetiro</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Regla: Indemnización -->
+        <record id="rule_indemnizacion" model="hr.accrued.rule">
+            <field name="name">Indemnización</field>
+            <field name="code">INDEMNITY</field>
+            <field name="sequence">33</field>
+            <field name="parent_id" ref="category_conceptos_simples"/>
+            <field name="rule_type">indemnity</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_tag">Indemnizacion</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Regla: Reintegro -->
+        <record id="rule_reintegros" model="hr.accrued.rule">
+            <field name="name">Reintegro</field>
+            <field name="code">REFUND</field>
+            <field name="sequence">34</field>
+            <field name="parent_id" ref="category_conceptos_simples"/>
+            <field name="rule_type">refund</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_tag">Reintegro</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <!-- Categoría Principal: Deducciones -->
+        <record id="category_deducciones" model="hr.deduct.rule">
+            <field name="name">Deducciones</field>
+            <field name="code">DED</field>
+            <field name="sequence">1</field>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+        </record>
+
+        <!-- Seguridad Social Básica (secuencia 10) -->
+        <record id="category_seguridad_social" model="hr.deduct.rule">
+            <field name="name">Seguridad Social</field>
+            <field name="code">SEG_SOC</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+        </record>
+
+        <!-- Salud -->
+        <record id="rule_salud" model="hr.deduct.rule">
+            <field name="name">Salud</field>
+            <field name="code">SALUD</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="category_seguridad_social"/>
+            <field name="deduction_type">salud</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">Salud</field>
+            <field name="xml_attributes">Porcentaje,Deduccion</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="base_percentage">4.00</field>
+        </record>
+
+        <!-- Pensión -->
+        <record id="rule_pension" model="hr.deduct.rule">
+            <field name="name">Pensión</field>
+            <field name="code">PENSION</field>
+            <field name="sequence">11</field>
+            <field name="parent_id" ref="category_seguridad_social"/>
+            <field name="deduction_type">pension</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">FondoPension</field>
+            <field name="xml_attributes">Porcentaje,Deduccion</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+            <field name="base_percentage">4.00</field>
+        </record>
+
+        <!-- Fondo de Solidaridad -->
+        <!-- Categoría: Fondo de Solidaridad Pensional -->
+        <record id="category_fondo_solidaridad" model="hr.deduct.rule">
+            <field name="name">Fondo de Solidaridad Pensional</field>
+            <field name="code">FSP_CAT</field>
+            <field name="sequence">12</field>
+            <field name="parent_id" ref="category_seguridad_social"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+        </record>
+
+        <!-- Regla: Fondo Solidaridad -->
+        <record id="rule_fondo_solidaridad" model="hr.deduct.rule">
+            <field name="name">Solidaridad Pensional</field>
+            <field name="code">FSP_SOL</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_fondo_solidaridad"/>
+            <field name="deduction_type">fondo_sp</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">FondoSP</field>
+            <field name="xml_attributes">Porcentaje,DeduccionSP</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Regla: Fondo Subsistencia -->
+        <record id="rule_fondo_subsistencia" model="hr.deduct.rule">
+            <field name="name">Subsistencia Pensional</field>
+            <field name="code">FSP_SUB</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_fondo_solidaridad"/>
+            <field name="deduction_type">fondo_sp</field>
+            <field name="xml_structure">attributes</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">FondoSP</field>
+            <field name="xml_attributes">PorcentajeSub,DeduccionSub</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Deducciones Sindicales (secuencia 20) -->
+        <record id="category_sindicatos" model="hr.deduct.rule">
+            <field name="name">Sindicatos</field>
+            <field name="code">SIND_CAT</field>
+            <field name="sequence">13</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+            <field name="xml_tag">Sindicatos</field>
+        </record>
+
+        <record id="rule_sindicato" model="hr.deduct.rule">
+            <field name="name">Sindicato</field>
+            <field name="code">SIND</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_sindicatos"/>
+            <field name="deduction_type">sindicato</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">Sindicatos</field>
+            <field name="xml_child_tag">Sindicato</field>
+            <field name="xml_attributes">Porcentaje,Deduccion</field>
+            <field name="has_rate">True</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Sanciones (secuencia 30) -->
+        <record id="category_sanciones" model="hr.deduct.rule">
+            <field name="name">Sanciones</field>
+            <field name="code">SANC_CAT</field>
+            <field name="sequence">14</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+            <field name="xml_tag">Sanciones</field>
+        </record>
+
+        <!-- Sanción Pública -->
+        <record id="rule_sancion_publica" model="hr.deduct.rule">
+            <field name="name">Sanción Pública</field>
+            <field name="code">SANC_PUB</field>
+            <field name="sequence">1</field>
+            <field name="parent_id" ref="category_sanciones"/>
+            <field name="deduction_type">sancion</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">Sanciones</field>
+            <field name="xml_child_tag">Sancion</field>
+            <field name="xml_attributes">SancionPublic</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Sanción Privada -->
+        <record id="rule_sancion_privada" model="hr.deduct.rule">
+            <field name="name">Sanción Privada</field>
+            <field name="code">SANC_PRIV</field>
+            <field name="sequence">2</field>
+            <field name="parent_id" ref="category_sanciones"/>
+            <field name="deduction_type">sancion</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">Sanciones</field>
+            <field name="xml_child_tag">Sancion</field>
+            <field name="xml_attributes">SancionPriv</field>
+            <field name="has_amount">True</field>
+        </record>
+
+        <!-- Libranzas (secuencia 40) -->
+        <record id="category_libranzas" model="hr.deduct.rule">
+            <field name="name">Libranzas</field>
+            <field name="code">LIB_CAT</field>
+            <field name="sequence">40</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+            <field name="xml_tag">Libranzas</field>
+        </record>
+
+        <record id="rule_libranza" model="hr.deduct.rule">
+            <field name="name">Libranza</field>
+            <field name="code">LIB</field>
+            <field name="sequence">40</field>
+            <field name="parent_id" ref="category_libranzas"/>
+            <field name="deduction_type">libranza</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">Libranzas</field>
+            <field name="xml_child_tag">Libranza</field>
+            <field name="xml_attributes">Descripcion,Deduccion</field>
+            <field name="has_description">True</field>
+            <field name="has_amount">True</field>
+            <field name="requires_description">True</field>
+        </record>
+
+        <!-- Pagos y Anticipos (secuencia 50) -->
+        <record id="category_pagos_anticipos" model="hr.deduct.rule">
+            <field name="name">Pagos y Anticipos</field>
+            <field name="code">PAY_ADV_CAT</field>
+            <field name="sequence">50</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+        </record>
+
+        <!-- Pagos a Terceros -->
+        <record id="rule_pago_tercero" model="hr.deduct.rule">
+            <field name="name">Pago a Tercero</field>
+            <field name="code">THIRD_PAY</field>
+            <field name="sequence">50</field>
+            <field name="parent_id" ref="category_pagos_anticipos"/>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">PagosTerceros</field>
+            <field name="xml_child_tag">PagoTercero</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Anticipos -->
+        <record id="rule_anticipo" model="hr.deduct.rule">
+            <field name="name">Anticipo</field>
+            <field name="code">ADVANCE</field>
+            <field name="sequence">50</field>
+            <field name="parent_id" ref="category_pagos_anticipos"/>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">Anticipos</field>
+            <field name="xml_child_tag">Anticipo</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Otras Deducciones (secuencia 60) -->
+        <record id="category_otras_deducciones" model="hr.deduct.rule">
+            <field name="name">Otras Deducciones</field>
+            <field name="code">OTHER_DED_CAT</field>
+            <field name="sequence">60</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+            <field name="xml_tag">OtrasDeducciones</field>
+        </record>
+
+        <record id="rule_otra_deduccion" model="hr.deduct.rule">
+            <field name="name">Otra Deducción</field>
+            <field name="code">OTHER_DED</field>
+            <field name="sequence">60</field>
+            <field name="parent_id" ref="category_otras_deducciones"/>
+            <field name="deduction_type">otra</field>
+            <field name="xml_structure">child</field>
+            <field name="xml_node_type">child</field>
+            <field name="xml_tag">OtrasDeducciones</field>
+            <field name="xml_child_tag">OtraDeduccion</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Deducciones Voluntarias (secuencia 70) -->
+        <record id="category_deducciones_voluntarias" model="hr.deduct.rule">
+            <field name="name">Deducciones Voluntarias</field>
+            <field name="code">VOL_DED_CAT</field>
+            <field name="sequence">70</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+        </record>
+
+        <!-- Pensión Voluntaria -->
+        <record id="rule_pension_voluntaria" model="hr.deduct.rule">
+            <field name="name">Pensión Voluntaria</field>
+            <field name="code">VOL_PENS</field>
+            <field name="sequence">70</field>
+            <field name="parent_id" ref="category_deducciones_voluntarias"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">PensionVoluntaria</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- AFC -->
+        <record id="rule_afc" model="hr.deduct.rule">
+            <field name="name">AFC</field>
+            <field name="code">AFC</field>
+            <field name="sequence">70</field>
+            <field name="parent_id" ref="category_deducciones_voluntarias"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">AFC</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Retención en la Fuente (secuencia 80) -->
+        <record id="rule_retencion_fuente" model="hr.deduct.rule">
+            <field name="name">Retención en la Fuente</field>
+            <field name="code">RET_FTE</field>
+            <field name="sequence">80</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">RetencionFuente</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+        <!-- Otras Deducciones Simples (secuencia 90) -->
+        <record id="category_deducciones_simples" model="hr.deduct.rule">
+            <field name="name">Deducciones Simples</field>
+            <field name="code">SIMPLE_DED_CAT</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones"/>
+            <field name="xml_structure">parent</field>
+            <field name="xml_node_type">parent</field>
+        </record>
+
+        <!-- Cooperativa -->
+        <record id="rule_cooperativa" model="hr.deduct.rule">
+            <field name="name">Cooperativa</field>
+            <field name="code">COOP</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones_simples"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">Cooperativa</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Embargo Fiscal -->
+        <record id="rule_embargo_fiscal" model="hr.deduct.rule">
+            <field name="name">Embargo Fiscal</field>
+            <field name="code">EMB_FISC</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones_simples"/>
+            <field name="deduction_type">embargo</field>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">EmbargoFiscal</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Plan Complementarios -->
+        <record id="rule_plan_complementarios" model="hr.deduct.rule">
+            <field name="name">Plan Complementarios</field>
+            <field name="code">PLAN_COMP</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones_simples"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">PlanComplementarios</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Educación -->
+        <record id="rule_educacion" model="hr.deduct.rule">
+            <field name="name">Educación</field>
+            <field name="code">EDUC</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones_simples"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">Educacion</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Reintegro -->
+        <record id="rule_reintegro" model="hr.deduct.rule">
+            <field name="name">Reintegro</field>
+            <field name="code">REINT</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones_simples"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">Reintegro</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+        <!-- Deuda -->
+        <record id="rule_deuda" model="hr.deduct.rule">
+            <field name="name">Deuda</field>
+            <field name="code">DEBT</field>
+            <field name="sequence">90</field>
+            <field name="parent_id" ref="category_deducciones_simples"/>
+            <field name="xml_structure">simple</field>
+            <field name="xml_node_type">single</field>
+            <field name="xml_tag">Deuda</field>
+            <field name="has_amount">True</field>
+            <field name="is_nodo_text">True</field>
+        </record>
+
+    </data>
+</odoo>

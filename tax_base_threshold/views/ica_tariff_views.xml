@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ica_tariff_tree" model="ir.ui.view">
+        <field name="name">ica.tariff.tree</field>
+        <field name="model">ica.tariff</field>
+        <field name="arch" type="xml">
+            <tree string="Tarifas de ICA" default_order="municipality_id, ciiu_id">
+                <field name="municipality_id"/>
+                <field name="state_id" optional="show"/>
+                <field name="ciiu_id"/>
+                <field name="ciiu_code"/>
+                <field name="activity_type" widget="badge"
+                       decoration-info="activity_type == 'industrial'"
+                       decoration-success="activity_type == 'commercial'"
+                       decoration-warning="activity_type == 'services'"
+                       decoration-danger="activity_type == 'financial'"/>
+                <field name="rate" string="Tarifa (‰)"/>
+                <field name="rate_percent" string="Tarifa (%)"/>
+                <field name="min_base_type" optional="show"/>
+                <field name="min_base_uvt" optional="hide"/>
+                <field name="min_base_fixed" optional="hide"/>
+                <field name="min_base_computed" string="Base Mín" optional="show"
+                       widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="date_from"/>
+                <field name="date_to" optional="hide"/>
+                <field name="fiscal_year" optional="show"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ica_tariff_form" model="ir.ui.view">
+        <field name="name">ica.tariff.form</field>
+        <field name="model">ica.tariff</field>
+        <field name="arch" type="xml">
+            <form string="Tarifa de ICA">
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="municipality_id"/>
+                        <h1>
+                            <field name="municipality_id" placeholder="Seleccione municipio..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Ubicación">
+                            <field name="state_id" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Actividad">
+                            <field name="ciiu_id"/>
+                            <field name="ciiu_code" readonly="1"/>
+                            <field name="activity_type" widget="radio"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Tarifa">
+                            <field name="rate" string="Tarifa (‰)"/>
+                            <field name="rate_percent" string="Tarifa (%)" readonly="1"/>
+                        </group>
+                        <group string="Vigencia">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="fiscal_year" readonly="1"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Umbral de Base Mínima">
+                            <field name="min_base_type" widget="radio"/>
+                            <field name="min_base_uvt" invisible="min_base_type != 'uvt'"/>
+                            <field name="min_base_fixed" invisible="min_base_type != 'fixed'"/>
+                            <field name="min_base_computed" readonly="1" invisible="min_base_type == 'none'"
+                                   widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <group string="Referencia">
+                            <field name="legal_reference" placeholder="Acuerdo Municipal..."/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notas adicionales..."/>
+
+                    <group class="alert alert-info" role="alert">
+                        <div>
+                            <p><strong>Tarifas de ICA en Colombia:</strong></p>
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Actividad</th>
+                                        <th>Rango Típico</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Industrial</td><td>2 - 7 ‰</td></tr>
+                                    <tr><td>Comercial</td><td>4 - 10 ‰</td></tr>
+                                    <tr><td>Servicios</td><td>4 - 10 ‰</td></tr>
+                                    <tr><td>Financiero</td><td>5 - 15 ‰</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="text-muted">Nota: Las tarifas varían según el municipio y deben consultarse en los acuerdos municipales.</p>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ica_tariff_search" model="ir.ui.view">
+        <field name="name">ica.tariff.search</field>
+        <field name="model">ica.tariff</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tarifas ICA">
+                <field name="municipality_id"/>
+                <field name="state_id"/>
+                <field name="ciiu_id"/>
+                <field name="ciiu_code"/>
+                <field name="activity_type"/>
+                <separator/>
+                <filter string="Industrial" name="industrial" domain="[('activity_type', '=', 'industrial')]"/>
+                <filter string="Comercial" name="commercial" domain="[('activity_type', '=', 'commercial')]"/>
+                <filter string="Servicios" name="services" domain="[('activity_type', '=', 'services')]"/>
+                <filter string="Financiero" name="financial" domain="[('activity_type', '=', 'financial')]"/>
+                <separator/>
+                <filter string="Vigente" name="current" domain="[('date_from', '&lt;=', context_today()), '|', ('date_to', '&gt;=', context_today()), ('date_to', '=', False)]"/>
+                <filter string="Activo" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Municipio" name="group_municipality" context="{'group_by': 'municipality_id'}"/>
+                    <filter string="Departamento" name="group_state" context="{'group_by': 'state_id'}"/>
+                    <filter string="CIIU" name="group_ciiu" context="{'group_by': 'ciiu_id'}"/>
+                    <filter string="Tipo Actividad" name="group_activity" context="{'group_by': 'activity_type'}"/>
+                    <filter string="Año" name="group_year" context="{'group_by': 'fiscal_year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_ica_tariff_pivot" model="ir.ui.view">
+        <field name="name">ica.tariff.pivot</field>
+        <field name="model">ica.tariff</field>
+        <field name="arch" type="xml">
+            <pivot string="Tarifas de ICA">
+                <field name="state_id" type="row"/>
+                <field name="municipality_id" type="row"/>
+                <field name="activity_type" type="col"/>
+                <field name="rate" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_ica_tariff" model="ir.actions.act_window">
+        <field name="name">Tarifas de ICA</field>
+        <field name="res_model">ica.tariff</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <field name="context">{'search_default_active': 1, 'search_default_current': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nueva tarifa de ICA
+            </p>
+            <p>
+                Configure las tarifas de ICA (Industria y Comercio) por municipio y actividad CIIU.
+                Las tarifas se expresan en "por mil" (‰).
+            </p>
+            <p>
+                <strong>Ejemplo:</strong> Una tarifa de 9.66‰ significa que el impuesto es 0.966% de la base.
+            </p>
+        </field>
+    </record>
+
+    <!-- Herencia vista formulario account.tax para ICA -->
+    <record id="view_tax_form_inherit_ica" model="ir.ui.view">
+        <field name="name">account.tax.form.inherit.ica</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="is_ica_dynamic"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="ICA Dinámico" name="ica_dynamic" invisible="not is_ica_dynamic">
+                    <group>
+                        <group string="Configuración ICA">
+                            <field name="ica_default_rate"/>
+                        </group>
+                    </group>
+                    <group class="alert alert-info" role="alert">
+                        <div>
+                            <p><strong>Cálculo Dinámico de ICA:</strong></p>
+                            <ul>
+                                <li>El impuesto se calcula automáticamente según el municipio y CIIU del tercero</li>
+                                <li>Si no se encuentra una tarifa específica, se usa la tarifa por defecto</li>
+                                <li>El tercero debe tener configurado: <b>city_id</b> (municipio) y <b>ciiu_id</b> (actividad CIIU)</li>
+                                <li>Asegúrese de que el campo <b>Aplicar ICA</b> esté activo en el tercero</li>
+                            </ul>
+                            <p><strong>Código Python para Impuesto (alternativo):</strong></p>
+                            <pre><code>
+# En un impuesto tipo "Código Python":
+result = 0.0
+if partner:
+    municipality = partner.city_id
+    ciiu = partner.ciiu_id
+    if municipality and ciiu:
+        tariff = env['ica.tariff'].get_tariff(
+            municipality_id=municipality.id,
+            ciiu_id=ciiu.id
+        )
+        if tariff:
+            result = price_unit * quantity * (tariff.rate / 1000.0)
+                            </code></pre>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

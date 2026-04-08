@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Herencia vista formulario purchase.order para información de retenciones -->
+    <record id="view_purchase_order_form_withholding" model="ir.ui.view">
+        <field name="name">purchase.order.form.withholding</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notes']" position="before">
+                <group string="Información de Retenciones" invisible="not withholding_info"
+                       class="oe_subtotal_footer_separator">
+                    <field name="withholding_info" readonly="1" nolabel="1"
+                           widget="text" class="text-muted"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="after">
+                <field name="withholding_status" optional="show" string="Ret."
+                       readonly="1" class="text-muted"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

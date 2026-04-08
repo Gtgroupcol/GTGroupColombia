@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_withholding_concept_tree" model="ir.ui.view">
+        <field name="name">withholding.concept.tree</field>
+        <field name="model">withholding.concept</field>
+        <field name="arch" type="xml">
+            <tree string="Conceptos de Retención" default_order="sequence, code">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="dian_concept_code" optional="show" string="Cód DIAN"/>
+                <field name="concept_type" widget="badge" decoration-info="concept_type == 'retefuente'" decoration-success="concept_type == 'reteiva'" decoration-warning="concept_type == 'reteica'"/>
+                <field name="person_type_applies" optional="show" string="Tipo Persona"/>
+                <field name="form_350_section" optional="hide"/>
+                <field name="calculation_type"/>
+                <field name="calculation_period" optional="show"/>
+                <field name="tax_application_mode" optional="hide"/>
+                <field name="requires_minimum_base" optional="hide"/>
+                <field name="base_type" optional="hide"/>
+                <field name="base_evaluation" optional="hide"/>
+                <field name="validate_base_enabled" widget="boolean_toggle" optional="hide"/>
+                <field name="apply_on_sale" widget="boolean_toggle" optional="hide"/>
+                <field name="apply_on_purchase" widget="boolean_toggle" optional="hide"/>
+                <field name="current_min_base" optional="show" string="Base Mín $"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_withholding_concept_form" model="ir.ui.view">
+        <field name="name">withholding.concept.form</field>
+        <field name="model">withholding.concept</field>
+        <field name="arch" type="xml">
+            <form string="Concepto de Retención">
+                <sheet>
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Ej: Retención Servicios"/>
+                        </h1>
+                        <h2>
+                            <field name="code" placeholder="Ej: SERVICIOS"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group string="Clasificación">
+                            <field name="concept_type" widget="radio"/>
+                            <field name="calculation_type" widget="radio"/>
+                            <field name="person_type_applies"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group string="Configuración de Base">
+                            <field name="requires_minimum_base"/>
+                            <field name="base_type" invisible="not requires_minimum_base"/>
+                            <field name="base_evaluation"/>
+                            <field name="validate_base_enabled"/>
+                            <field name="calculation_period"/>
+                            <field name="legal_reference"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Aplicación en Documentos">
+                            <field name="apply_on_sale"/>
+                            <field name="apply_on_purchase"/>
+                            <field name="tax_application_mode"/>
+                        </group>
+                        <group string="Valores Actuales (Informativo)">
+                            <field name="current_uvt_value" readonly="1"/>
+                            <field name="current_min_base" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <separator string="Configuración Formulario 350 DIAN"/>
+                    <group>
+                        <group string="Identificación DIAN">
+                            <field name="dian_concept_code"/>
+                            <field name="dian_concept_name"/>
+                            <field name="form_350_section"/>
+                        </group>
+                        <group string="Casillas Form. 350">
+                            <field name="base_field_pj" placeholder="Ej: 27"/>
+                            <field name="retention_field_pj" placeholder="Ej: 40"/>
+                            <field name="base_field_pn" placeholder="Ej: 53"/>
+                            <field name="retention_field_pn" placeholder="Ej: 66"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Tarifas por Período" name="rates" invisible="calculation_type == 'progressive'">
+                            <field name="rate_ids" context="{'default_concept_id': id}">
+                                <tree string="Tarifas" editable="bottom">
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="rate_percent" column_invisible="parent.calculation_type == 'by_contributor'"/>
+                                    <field name="rate_declarant" column_invisible="parent.calculation_type != 'by_contributor'"/>
+                                    <field name="rate_non_declarant" column_invisible="parent.calculation_type != 'by_contributor'"/>
+                                    <field name="min_base_uvt"/>
+                                    <field name="min_base_fixed" optional="hide"/>
+                                    <field name="min_base_computed" optional="show"/>
+                                    <field name="legal_reference" optional="hide"/>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </tree>
+                            </field>
+                            <group class="alert alert-info" role="alert">
+                                <div>
+                                    <p><strong>Tipos de Cálculo:</strong></p>
+                                    <ul>
+                                        <li><b>Tarifa Fija:</b> Una sola tarifa se aplica (ej: IVA 19%)</li>
+                                        <li><b>Por Tipo Contribuyente:</b> Tarifa diferente para declarantes y no declarantes</li>
+                                    </ul>
+                                    <p><strong>Ejemplo 2025 (Decreto 0572):</strong></p>
+                                    <ul>
+                                        <li>Compras Declarantes: 2.5% sobre base mayor o igual a 10 UVT ($497,990)</li>
+                                        <li>Compras No Declarantes: 3.5% sobre base mayor o igual a 10 UVT ($497,990)</li>
+                                        <li>Servicios: 4% sobre base mayor o igual a 2 UVT ($99,598)</li>
+                                    </ul>
+                                </div>
+                            </group>
+                        </page>
+
+                        <page string="Rangos Progresivos" name="brackets" invisible="calculation_type != 'progressive'">
+                            <field name="bracket_ids" context="{'default_concept_id': id}">
+                                <tree string="Rangos" editable="bottom">
+                                    <field name="date_from"/>
+                                    <field name="date_to" optional="hide"/>
+                                    <field name="bracket_number"/>
+                                    <field name="from_uvt"/>
+                                    <field name="to_uvt"/>
+                                    <field name="rate_percent"/>
+                                    <field name="subtract_uvt"/>
+                                    <field name="plus_uvt"/>
+                                    <field name="from_amount" optional="show"/>
+                                    <field name="to_amount" optional="show"/>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </tree>
+                            </field>
+                            <group class="alert alert-info" role="alert">
+                                <div>
+                                    <p><strong>Tabla Progresiva de Retención (Art. 383 E.T.)</strong></p>
+                                    <p>Fórmula: <code>(Base_UVT - Resta) x Tarifa% + Más UVT</code></p>
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Rango</th>
+                                                <th>Desde UVT</th>
+                                                <th>Hasta UVT</th>
+                                                <th>Tarifa</th>
+                                                <th>Resta</th>
+                                                <th>Más</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>1</td><td>0</td><td>95</td><td>0%</td><td>0</td><td>0</td></tr>
+                                            <tr><td>2</td><td>95</td><td>150</td><td>19%</td><td>95</td><td>0</td></tr>
+                                            <tr><td>3</td><td>150</td><td>360</td><td>28%</td><td>150</td><td>10</td></tr>
+                                            <tr><td>4</td><td>360</td><td>640</td><td>33%</td><td>360</td><td>69</td></tr>
+                                            <tr><td>5</td><td>640</td><td>945</td><td>35%</td><td>640</td><td>162</td></tr>
+                                            <tr><td>6</td><td>945</td><td>2300</td><td>37%</td><td>945</td><td>268</td></tr>
+                                            <tr><td>7</td><td>2300</td><td>Infinito</td><td>39%</td><td>2300</td><td>770</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </group>
+                        </page>
+
+                        <page string="Impuestos Relacionados" name="taxes">
+                            <field name="tax_ids" readonly="1">
+                                <tree string="Impuestos">
+                                    <field name="name"/>
+                                    <field name="type_tax_use"/>
+                                    <field name="amount"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Descripción" name="description">
+                            <field name="description" placeholder="Descripción detallada de este concepto de retención..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_withholding_concept_search" model="ir.ui.view">
+        <field name="name">withholding.concept.search</field>
+        <field name="model">withholding.concept</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Conceptos">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="concept_type"/>
+                <separator/>
+                <filter string="Retención Fuente" name="retefuente" domain="[('concept_type', '=', 'retefuente')]"/>
+                <filter string="ReteIVA" name="reteiva" domain="[('concept_type', '=', 'reteiva')]"/>
+                <filter string="ReteICA" name="reteica" domain="[('concept_type', '=', 'reteica')]"/>
+                <filter string="INC" name="inc" domain="[('concept_type', '=', 'inc')]"/>
+                <separator/>
+                <filter string="Tarifa Fija" name="fixed" domain="[('calculation_type', '=', 'fixed_rate')]"/>
+                <filter string="Progresivo" name="progressive" domain="[('calculation_type', '=', 'progressive')]"/>
+                <filter string="Por Contribuyente" name="by_contributor" domain="[('calculation_type', '=', 'by_contributor')]"/>
+                <separator/>
+                <filter string="Activo" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archivado" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Tipo" name="group_type" context="{'group_by': 'concept_type'}"/>
+                    <filter string="Cálculo" name="group_calc" context="{'group_by': 'calculation_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_withholding_concept" model="ir.actions.act_window">
+        <field name="name">Conceptos de Retención</field>
+        <field name="res_model">withholding.concept</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo concepto de retención
+            </p>
+            <p>
+                Defina los conceptos de retención colombiana con sus tarifas y bases mínimas.
+                Ejemplos: Retención Compras, Retención Servicios, Retención Honorarios, ReteIVA.
+            </p>
+        </field>
+    </record>
+</odoo>

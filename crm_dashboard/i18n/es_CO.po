@@ -1,0 +1,505 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-09 13:24+0000\n"
+"PO-Revision-Date: 2024-10-09 13:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid ",Team:"
+msgstr ",Equipo:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Achieved Won :"
+msgstr "Logrado Ganado:"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,help:crm_dashboard.field_crm_lead__achievement_amount
+msgid "Achievement for the month"
+msgstr "Logro del mes"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Activity:"
+msgstr "Actividad:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Annual Target :"
+msgstr "Objetivo anual:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Average Closing Time"
+msgstr "Tiempo promedio de cierre"
+
+#. module: crm_dashboard
+#: model:ir.actions.client,name:crm_dashboard.action_crm_lead_all_dashboard
+msgid "CRM"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "CRM Activity"
+msgstr "Actividad CRM"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "CRM Dashboard"
+msgstr "Tablero de CRM"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,field_description:crm_dashboard.field_crm_team__crm_lead_state_id
+msgid "CRM Lead"
+msgstr "CRM Lead"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,help:crm_dashboard.field_crm_team__crm_lead_state_id
+msgid "CRM Lead stage for leads associated with this sales team."
+msgstr "Etapa de CRM Lead para los leads asociados con este equipo de ventas."
+
+#. module: crm_dashboard
+#: model_terms:ir.ui.view,arch_db:crm_dashboard.view_users_form
+msgid "CRM dashboard"
+msgstr "Tablero de CRM"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Count"
+msgstr "Contar"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Country"
+msgstr "País"
+
+#. module: crm_dashboard
+#: model:ir.ui.menu,name:crm_dashboard.crm_dashboard_menu
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Difference :"
+msgstr "Diferencia:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/js/crm_dashboard.js:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Expected Revenue"
+msgstr "Ingresos esperados"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Funnel Chart"
+msgstr "Gráfico de embudo"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid ""
+"Last\n"
+"                                        Month"
+msgstr ""
+"Último\n"
+"                                        Mes"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Last 12 Months"
+msgstr "Últimos 12 meses"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Last 6 Months"
+msgstr "Últimos 6 meses"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,help:crm_dashboard.field_crm_lead__monthly_goal
+msgid "Lead monthly goal"
+msgstr "Objetivo mensual de leads"
+
+#. module: crm_dashboard
+#: model:ir.model,name:crm_dashboard.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Lead/oportunidad"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Leads by Month"
+msgstr "Leads por mes"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Leads group by Campaign"
+msgstr "Leads agrupados por campaña"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Leads group by Medium"
+msgstr "Leads agrupados por medio"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Leads group by Source"
+msgstr "Leads agrupados por fuente"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Lost Opportunity/Lead Graph"
+msgstr "Gráfico de oportunidades/leads perdidos"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,field_description:crm_dashboard.field_crm_lead__achievement_amount
+msgid "Monthly Achievement"
+msgstr "Logro mensual"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: model:ir.model.fields,field_description:crm_dashboard.field_crm_lead__monthly_goal
+#, python-format
+msgid "Monthly Goal"
+msgstr "Objetivo mensual"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/js/crm_dashboard.js:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "My Leads"
+msgstr "Mis leads"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "My Opportunities"
+msgstr "Mis oportunidades"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Name:"
+msgstr "Nombre:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/js/crm_dashboard.js:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Opportunity"
+msgstr "Oportunidad"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Opportunity Win Loss Ratio"
+msgstr "Ratio de ganancia y pérdida de oportunidades"
+
+#. module: crm_dashboard
+#: model_terms:ir.ui.view,arch_db:crm_dashboard.utm_campaign_view_form
+msgid "Ratio"
+msgstr "Ratio"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Recent Activities"
+msgstr "Actividades recientes"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/js/crm_dashboard.js:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Revenue"
+msgstr "Ingresos"
+
+#. module: crm_dashboard
+#: model:ir.model,name:crm_dashboard.model_sale_order
+msgid "Sales Order"
+msgstr "Orden de venta"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Sales Person:"
+msgstr "Vendedor:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Sales Rep.:"
+msgstr "Representante de ventas:"
+
+#. module: crm_dashboard
+#: model:ir.model,name:crm_dashboard.model_crm_team
+msgid "Sales Team"
+msgstr "Equipo de ventas"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Summary:"
+msgstr "Resumen:"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,field_description:crm_dashboard.field_hms_physician__sales
+#: model:ir.model.fields,field_description:crm_dashboard.field_res_users__sales
+msgid "Target"
+msgstr "Objetivo"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,help:crm_dashboard.field_hms_physician__sales
+#: model:ir.model.fields,help:crm_dashboard.field_res_users__sales
+msgid "The target value for the salesperson."
+msgstr "El valor objetivo para el vendedor."
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid ""
+"This\n"
+"                                        Quarter"
+msgstr ""
+"Este\n"
+"                                        Trimestre"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "This Month"
+msgstr "Este mes"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "This Week"
+msgstr "Esta semana"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "This Year"
+msgstr "Este año"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Top Country Wise Count"
+msgstr "Conteo por país"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Top Country Wise Revenue"
+msgstr "Ingresos por país"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Top Deals"
+msgstr "Mejores ofertas"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Top Sales Person by Invoice"
+msgstr "Mejor vendedor por factura"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Top Salesperson Revenue"
+msgstr "Ingresos del mejor vendedor"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,field_description:crm_dashboard.field_utm_campaign__total_ratio
+msgid "Total Ratio"
+msgstr "Ratio total"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Total Revenue by Salesperson"
+msgstr "Ingresos totales por vendedor"
+
+#. module: crm_dashboard
+#: model:ir.model.fields,help:crm_dashboard.field_utm_campaign__total_ratio
+msgid "Total lead ratio"
+msgstr "Ratio total de leads"
+
+#. module: crm_dashboard
+#: model:ir.model,name:crm_dashboard.model_utm_campaign
+msgid "UTM Campaign"
+msgstr "Campaña UTM "
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/js/crm_dashboard.js:0
+#, python-format
+msgid "Unassigned Leads"
+msgstr "Leads no asignados"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Unassigned Leads Count"
+msgstr "Conteo de leads no asignados"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Upcoming Activities"
+msgstr "Actividades próximas"
+
+#. module: crm_dashboard
+#: model:ir.model,name:crm_dashboard.model_res_users
+msgid "User"
+msgstr "Usuario"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Win Ratio"
+msgstr "Ratio de ganancia"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "Year to Date"
+msgstr "Año hasta la fecha"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "YtD Target :"
+msgstr "Obj. Año a la fecha:"
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "lost_last_12months"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "lost_last_6months"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "lost_last_month"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "this_month"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "this_quarter"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "this_week"
+msgstr ""
+
+#. module: crm_dashboard
+#. odoo-javascript
+#: code:addons/crm_dashboard/static/src/xml/dashboard_templates.xml:0
+#, python-format
+msgid "this_year"
+msgstr ""

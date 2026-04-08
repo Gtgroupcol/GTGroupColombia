@@ -1,0 +1,120 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "IZI Dashboard Bridge (Odoo 17)",
+    "summary": "Injects required assets for izi_dashboard on Odoo 17",
+    "version": "17.0.1.0.0",
+    "license": "LGPL-3",
+    "author": "Local",
+    "depends": [
+        "web",
+        "izi_dashboard",
+    ],
+    "data": [],
+    "assets": {
+        "web.assets_backend": [
+            # Web legacy core (required by izi_dashboard widgets)
+            "/web/static/src/legacy/js/core/class.js",
+            "/web/static/src/legacy/js/core/mixins.js",
+            "/web/static/src/legacy/js/core/service_mixins.js",
+            "/web/static/src/legacy/js/core/widget.js",
+            "/izi_dashboard/static/lib/moment/moment.js",
+
+            # QWeb / Owl templates
+            "/izi_dashboard/static/src/xml/**/*.xml",
+
+            # CSS - Library
+            "/izi_dashboard/static/lib/gridstack/gridstack.min.css",
+            "/izi_dashboard/static/lib/grid/mermaid.min.css",
+            "/izi_dashboard/static/lib/google/icon.css",
+            "/izi_dashboard/static/src/css/component/general/izi_bootstrap.min.css",
+            "/web/static/lib/select2/select2.css",
+            "/web/static/lib/select2-bootstrap-css/select2-bootstrap.css",
+            "/izi_dashboard/static/lib/bootstrap-datepicker/css/bootstrap-datepicker.css",
+
+            # CSS - General
+            "/izi_dashboard/static/src/css/font.css",
+            "/izi_dashboard/static/src/css/component/general/izi_layout.css",
+            "/izi_dashboard/static/src/css/component/general/izi_dialog.css",
+            "/izi_dashboard/static/src/css/component/general/izi_button.css",
+            "/izi_dashboard/static/src/css/component/general/izi_select.css",
+            "/izi_dashboard/static/src/css/component/general/izi_accordion.css",
+            "/izi_dashboard/static/src/css/component/general/izi_chart.css",
+            "/izi_dashboard/static/src/css/component/general/izi_replace.css",
+
+            # CSS - Component
+            "/izi_dashboard/static/src/css/component/main/izi_view.css",
+            "/izi_dashboard/static/src/css/component/main/izi_view_table.css",
+            "/izi_dashboard/static/src/css/component/main/izi_view_dashboard.css",
+            "/izi_dashboard/static/src/css/component/main/izi_config_analysis.css",
+            "/izi_dashboard/static/src/css/component/main/izi_config_dashboard.css",
+            "/izi_dashboard/static/src/css/component/main/izi_select_analysis.css",
+            "/izi_dashboard/static/src/css/component/main/izi_select_metric.css",
+            "/izi_dashboard/static/src/css/component/main/izi_select_dimension.css",
+            "/izi_dashboard/static/src/css/component/main/izi_select_sort.css",
+            "/izi_dashboard/static/src/css/component/main/izi_select_filter_temp.css",
+            "/izi_dashboard/static/src/css/component/main/izi_select_filter.css",
+            "/izi_dashboard/static/src/css/component/main/izi_description_page.css",
+            "/izi_dashboard/static/src/css/component/toggle-switchy.css",
+
+            # JS - Library
+            "/izi_dashboard/static/lib/ace-1.3.1/ace.js",
+            "/izi_dashboard/static/lib/ace-1.3.1/mode-javascript.js",
+            "/izi_dashboard/static/lib/ace-1.3.1/worker-javascript.js",
+            "/izi_dashboard/static/lib/ace-1.3.1/theme-chrome.js",
+            "/izi_dashboard/static/lib/amcharts/core.js",
+            "/izi_dashboard/static/lib/amcharts/charts.js",
+            "/izi_dashboard/static/lib/amcharts/maps.js",
+            "/izi_dashboard/static/lib/amcharts/regression.js",
+            "/izi_dashboard/static/lib/amcharts/geodata/indonesiaLow.js",
+            "/izi_dashboard/static/lib/amcharts/geodata/usaLow.js",
+            "/izi_dashboard/static/lib/amcharts/geodata/worldLow.js",
+            "/izi_dashboard/static/lib/amcharts/geodata/countries2.js",
+            "/izi_dashboard/static/lib/amcharts/themes/animated.js",
+            "/izi_dashboard/static/lib/amcharts/themes/frozen.js",
+            "/izi_dashboard/static/lib/gridstack/gridstack-h5.js",
+            "/izi_dashboard/static/lib/sweetalert/sweetalert.min.js",
+            "/izi_dashboard/static/lib/grid/gridjs.umd.js",
+            "/izi_dashboard/static/lib/jscolor/jscolor.min.js",
+            "/web/static/lib/select2/select2.js",
+            "/izi_dashboard/static/lib/bootstrap-datepicker/js/bootstrap-datepicker.js",
+            "/izi_dashboard/static/lib/bootstrap-datepicker/js/bootstrap-datepicker-conflict.js",
+
+            # JS - Component (@odoo-module only)
+            "/izi_dashboard/static/src/js/component/chart/amcharts_theme.js",
+            "/izi_dashboard/static/src/js/component/chart/amcharts_component_old.js",
+            "/izi_dashboard/static/src/js/component/chart/amcharts_component.js",
+            "/izi_dashboard/static/src/js/component/general/izi_autocomplete.js",
+            "/izi_dashboard/static/src/js/component/general/izi_tags.js",
+            "/izi_dashboard/static/src/js/component/general/izi_dialog.js",
+            "/izi_dashboard/static/src/js/component/general/izi_field_icon.js",
+            "/izi_dashboard/static/src/js/component/main/izi_view_dashboard.js",
+            "/izi_dashboard/static/src/js/component/main/izi_view_dashboard_block.js",
+            "/izi_dashboard/static/src/js/component/main/izi_view_analysis.js",
+            "/izi_dashboard/static/src/js/component/main/izi_view_table.js",
+            "/izi_dashboard/static/src/js/component/main/izi_view_visual.js",
+            "/izi_dashboard/static/src/js/component/main/izi_config_dashboard.js",
+            "/izi_dashboard/static/src/js/component/main/izi_config_analysis.js",
+            "/izi_dashboard/static/src/js/component/main/izi_add_analysis.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_analysis.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_dashboard.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_metric.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_dimension.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_sort.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_filter_temp.js",
+            "/izi_dashboard/static/src/js/component/main/izi_select_filter.js",
+
+            # JS - Export
+            "/izi_dashboard/static/lib/jspdf/html2canvas.min.js",
+            "/izi_dashboard/static/lib/jspdf/jspdf.umd.min.js",
+
+            # JS - Base (@odoo-module only)
+            "/izi_dashboard/static/src/js/izi_analysis_controller.js",
+            "/izi_dashboard/static/src/js/izi_analysis_view.js",
+            "/izi_dashboard/static/src/js/izi_dashboard_controller.js",
+            "/izi_dashboard/static/src/js/izi_dashboard_view.js",
+            "/izi_dashboard/static/src/js/izi_analysis_widget.js",
+        ],
+    },
+    "installable": True,
+    "application": False,
+}

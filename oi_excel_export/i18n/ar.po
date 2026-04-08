@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* oi_excel_export
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0-20190209\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-12 10:00+0000\n"
+"PO-Revision-Date: 2019-02-12 10:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__datas
+msgid "Datas"
+msgstr ""
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__filename
+msgid "Filename"
+msgstr "اسم الملف"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: oi_excel_export
+#: model:ir.model.fields,field_description:oi_excel_export.field_oi_excel_export__pdf
+msgid "Pdf"
+msgstr ""
+
+#. module: oi_excel_export
+#: model:ir.model,name:oi_excel_export.model_oi_excel_export
+msgid "oi_excel_export"
+msgstr ""
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+	<menuitem id="menu_tax_report_wizard" name="Tax Report" parent="account.account_reports_management_menu" action="act_tax_report_wizard" sequence="10" />
+
+</odoo>

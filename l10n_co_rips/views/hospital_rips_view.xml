@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_hospital_rips_form" model="ir.ui.view">
+        <field name="name">hospital.rips.form</field>
+        <field name="model">hospital.rips</field>
+        <field name="arch" type="xml">
+            <form string="RIPS Hospitalario">
+                <header>
+                    <button name="action_generate" string="Buscar Facturas" type="object" 
+                            class="btn-primary" invisible="state != 'draft'" icon="fa-search"/>
+                    <button name="action_confirm" string="Confirmar" type="object" 
+                            class="btn-primary" invisible="state != 'draft' or invoice_count == 0"/>
+                    <button name="action_generate_zip" string="Generar ZIP" type="object" 
+                            class="btn-primary" invisible="state != 'confirmed'" icon="fa-file-archive-o"/>
+                    <button name="action_done" string="Marcar como Procesado" type="object" 
+                            class="btn-success" invisible="state != 'confirmed' or not archive_zip"/>
+                    <button name="action_download_zip" string="Descargar ZIP" type="object" 
+                            class="btn-info" invisible="not archive_zip" icon="fa-download"/>
+                    <button name="action_cancel" string="Cancelar" type="object" 
+                            invisible="state in ('done', 'cancel')"/>
+                    <button name="action_draft" string="Volver a Borrador" type="object" 
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoices" type="object" class="oe_stat_button" 
+                                icon="fa-file-text-o" invisible="invoice_count == 0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="invoice_count"/>
+                                </span>
+                                <span class="o_stat_text">Facturas</span>
+                            </div>
+                        </button>
+              
+                    </div>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group string="Información General">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="partner_id" required="1"/>
+                            <field name="contract_id" required="1"/>
+                            <field name="tipo_afiliacion" required="1"/>
+                            <field name="rips_type"/>
+                            <field name="rips_directo"/>
+                        </group>
+                        <group string="Periodo y Fechas">
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                            <field name="ratication_date" readonly="1"/>
+                            <field name="cea_code" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Filtros Adicionales" col="4">
+                        <field name="invoice_type_filter"/>
+                        <field name="team_id"/>
+                        <field name="journal_id"/>
+                        <field name="rips_config_id"/>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Facturas" name="invoices">
+                            <field name="invoice_ids" readonly="state != 'draft'">
+                                <tree decoration-success="patient_id != False" 
+                                      decoration-warning="patient_id == False">
+                                    <field name="name"/>
+                                    <field name="invoice_date"/>
+                                    <field name="partner_id"/>
+                                    <field name="patient_id"/>
+                                    <field name="contract_id"/>
+                                    <field name="invoice_type"/>
+                                    <field name="amount_untaxed" widget="monetary"/>
+                                    <field name="amount_total" widget="monetary"/>
+                                    <field name="state" widget="badge"/>
+                                </tree>
+                            </field>
+                            <group>
+                                <group>
+                                    <field name="amount_total" widget="monetary"/>
+                                </group>
+                                <group>
+                                    <field name="amount_residual" widget="monetary"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <page string="Errores" name="errors" invisible="not errors_detail">
+                            <field name="errors_detail" readonly="1" nolabel="1"/>
+                        </page>
+                        
+                        <page string="Observaciones" name="observations">
+                            <field name="observations" readonly="1" nolabel="1"/>
+                        </page>
+                        
+                        <page string="Archivos" name="files" invisible="not archive_zip">
+                            <group>
+                                <field name="archive_zip_name" readonly="1"/>
+                                <field name="archive_zip" widget="binary" readonly="1" filename="archive_zip_name"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Tree -->
+    <record id="view_hospital_rips_tree" model="ir.ui.view">
+        <field name="name">hospital.rips.tree</field>
+        <field name="model">hospital.rips</field>
+        <field name="arch" type="xml">
+            <tree string="RIPS Hospitalarios" 
+                  decoration-info="state == 'draft'" 
+                  decoration-success="state == 'done'"
+                  decoration-warning="state == 'confirmed'">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contract_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="invoice_count"/>
+                <field name="patient_count"/>
+                <field name="amount_total" widget="monetary"/>
+                <field name="state" widget="badge"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Search -->
+    <record id="view_hospital_rips_search" model="ir.ui.view">
+        <field name="name">hospital.rips.search</field>
+        <field name="model">hospital.rips</field>
+        <field name="arch" type="xml">
+            <search string="Buscar RIPS">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contract_id"/>
+                
+                <filter name="draft" string="Borrador" domain="[('state', '=', 'draft')]"/>
+                <filter name="confirmed" string="Confirmado" domain="[('state', '=', 'confirmed')]"/>
+                <filter name="done" string="Procesado" domain="[('state', '=', 'done')]"/>
+                <separator/>
+                <filter name="this_month" string="Este Mes" 
+                        domain="[('date_from', '&gt;=', (context_today()).strftime('%Y-%m-01'))]"/>
+                <filter name="last_month" string="Mes Anterior" 
+                        domain="[('date_from', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%Y-%m-01')), 
+                                ('date_from', '&lt;', (context_today()).strftime('%Y-%m-01'))]"/>
+                
+                <group expand="0" string="Agrupar Por">
+                    <filter name="group_partner" string="Cliente" domain="[]" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_contract" string="Contrato" domain="[]" context="{'group_by': 'contract_id'}"/>
+                    <filter name="group_state" string="Estado" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter name="group_month" string="Mes" domain="[]" context="{'group_by': 'date_from:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_hospital_rips" model="ir.actions.act_window">
+        <field name="name">RIPS Hospitalarios</field>
+        <field name="res_model">hospital.rips</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo RIPS
+            </p>
+            <p>
+                Los RIPS (Registros Individuales de Prestación de Servicios) 
+                son archivos planos que contienen información de las atenciones 
+                prestadas a los usuarios del sistema de salud.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_hospital_rips"
+              name="RIPS Hospitalarios"
+              parent="account.menu_finance_receivables"
+              action="action_hospital_rips"
+              sequence="20"/>
+              
+    <!-- Secuencia -->
+    <record id="seq_hospital_rips" model="ir.sequence">
+        <field name="name">Hospital RIPS</field>
+        <field name="code">hospital.rips</field>
+        <field name="prefix">RIPS/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    
+    <record id="seq_rips_export" model="ir.sequence">
+        <field name="name">Secuencia de Exportación RIPS</field>
+        <field name="code">rips.export.sequence</field>
+        <field name="prefix">RIP</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    
+    <!-- Vista de formulario -->
+    <record id="view_rips_export_form_improved" model="ir.ui.view">
+        <field name="name">rips.export.form.improved</field>
+        <field name="model">rips.export</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form string="Exportación RIPS">
+                <header>
+                    <button name="action_generate_rips_batch" 
+                            string="Generar RIPS del Lote" 
+                            type="object" 
+                            class="btn-primary"
+                            invisible="state in ['closed'] or all_rips_validated == True"
+                            help="Genera y envía los RIPS de todas las facturas del lote"/>
+                    
+                    <button name="action_consult_and_send_missing_cuvs" 
+                            string="Consultar CUVs y Enviar Faltantes" 
+                            type="object" 
+                            class="btn-info"
+                            invisible="state in ['closed'] or all_rips_validated == True"
+                            help="Consulta los CUVs existentes y envía los que faltan"/>
+                    
+                    <button name="action_validate_all_cups" 
+                            string="Validar Todos los CUPS" 
+                            type="object" 
+                            invisible="state in ['closed', 'generated']"
+                            help="Valida todos los códigos CUPS de las facturas del lote"/>
+                    
+                    <button name="action_check_validation_status" 
+                            string="Actualizar Estado" 
+                            type="object" 
+                            invisible="state in ['draft', 'closed'] or not move_ids"
+                            help="Consulta el estado de validación de todos los RIPS"/>
+                    
+                    <button name="generate_zip" 
+                            string="Generar ZIP" 
+                            type="object" 
+                            class="btn-success"
+                            invisible="not move_ids or state == 'closed'"
+                            help="Genera el archivo ZIP con todos los documentos"/>
+                    
+                    <button name="action_download" 
+                            string="Descargar ZIP" 
+                            type="object" 
+                            invisible="not zip_file"
+                            help="Descarga el archivo ZIP generado"/>
+                    
+                    <button name="action_close_batch" 
+                            string="Cerrar Lote" 
+                            type="object" 
+                            class="btn-danger"
+                            invisible="state != 'generated'"
+                            confirm="¿Está seguro de cerrar este lote? Esta acción no se puede deshacer."/>
+                    
+                    <button name="action_filter_validated_invoices" 
+                            string="Ver Facturas Validadas Disponibles" 
+                            type="object"
+                            invisible="state == 'closed'"
+                            help="Muestra las facturas validadas que no están en otro lote"/>
+                    
+                    <field name="state" widget="statusbar" statusbar_visible="draft,rips_generated,validated,generated,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoices" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-file-text">
+                            <field name="rips_count" widget="statinfo" string="Facturas"/>
+                        </button>
+                        
+                        <button name="action_view_validated_invoices" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-check-circle"
+                                invisible="validation_success_count == 0">
+                            <field name="validation_success_count" widget="statinfo" string="Validadas"/>
+                        </button>
+                        
+                        <button name="action_view_pending_invoices" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-clock-o"
+                                invisible="not pending_move_ids">
+                            <field name="pending_count" widget="statinfo" string="Pendientes"/>
+                        </button>
+                        
+                        <button name="action_view_error_invoices" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-exclamation-triangle"
+                                invisible="validation_errors_count == 0">
+                            <field name="validation_errors_count" widget="statinfo" string="Con Errores"/>
+                        </button>
+                    </div>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="user_id"/>
+                            <field name="company_id"/>
+                            <field name="all_rips_validated" invisible="1"/>
+                            <field name="pending_count" invisible="1"/>
+                            <field name="validated_move_ids" invisible="1"/>
+                            <field name="pending_move_ids" invisible="1"/>
+                            <field name="error_move_ids" invisible="1"/>
+                            <field name="move_ids" invisible="1"/>
+                            <field name="zip_file" invisible="1"/>
+                            <field name="json_data" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="closed_date" invisible="state != 'closed'"/>
+                            <field name="closed_by" invisible="state != 'closed'"/>
+                            <field name="zip_filename" invisible="not zip_file"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Resumen de Validación" invisible="not move_ids">
+                        <field name="validation_summary" nolabel="1" readonly="1"/>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Facturas">
+                            <div class="oe_right mb-2" invisible="state in ['closed', 'generated'] or (not error_move_ids and not pending_move_ids)">
+                                <button name="action_exclude_rejected_invoices" 
+                                        string="Excluir Rechazadas/No Válidas" 
+                                        type="object" 
+                                        class="btn-warning btn-sm"
+                                        invisible="not error_move_ids and not pending_move_ids"
+                                        confirm="¿Está seguro de excluir todas las facturas rechazadas y no válidas?"/>
+                                <button name="action_exclude_closed_batch_invoices" 
+                                        string="Excluir Facturas en Lotes Cerrados" 
+                                        type="object" 
+                                        class="btn-warning btn-sm"
+                                        invisible="state != 'draft'"
+                                        confirm="¿Está seguro de excluir las facturas que ya están en lotes cerrados?"/>
+                            </div>
+                            <field name="move_ids">
+                                <tree decoration-success="rips_validation_status == 'validated'" 
+                                      decoration-danger="rips_validation_status == 'rejected'"
+                                      decoration-warning="rips_validation_status == 'sent'">
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="invoice_date"/>
+                                    <field name="amount_total"/>
+                                    <field name="rips_validation_status"/>
+                                    <field name="rips_cuv" optional="show"/>
+
+                                </tree>
+                            </field>
+                            <group invisible="not move_ids">
+                                <button name="action_view_invoices" 
+                                        string="Ver Todas las Facturas" 
+                                        type="object" 
+                                        class="btn-link"/>
+                            </group>
+                        </page>
+                        
+                        <page string="Archivo ZIP" invisible="not zip_file">
+                            <group>
+                                <field name="zip_filename"/>
+                                <field name="zip_file" filename="zip_filename" widget="binary"/>
+                            </group>
+                        </page>
+                        
+                        <page string="Datos JSON" invisible="not json_data">
+                            <field name="json_data" widget="ace" options="{'mode': 'json'}"/>
+                        </page>
+                        
+                        <page string="Facturas por Estado" invisible="not move_ids">
+                            <group string="Facturas Validadas" invisible="not validated_move_ids">
+                                <field name="validated_move_ids" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="rips_cuv"/>
+                                        <field name="rips_validation_date"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            
+                            <group string="Facturas Pendientes" invisible="not pending_move_ids">
+                                <field name="pending_move_ids" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="rips_generated"/>
+                                        <field name="create_date"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            
+                            <group string="Facturas con Errores" invisible="not error_move_ids">
+                                <field name="error_move_ids" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="rips_cuv"/>
+                                        <field name="rips_validation_status"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    
+    <!-- Vista Tree de RIPS Export -->
+    <record id="view_rips_export_tree" model="ir.ui.view">
+        <field name="name">rips.export.tree</field>
+        <field name="model">rips.export</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="rips_count"/>
+                <field name="zip_file" column_invisible="1"/>
+                <field name="validation_success_count"/>
+                <field name="validation_errors_count"/>
+                <field name="state" widget="badge" 
+                       decoration-success="state == 'validated'"
+                       decoration-info="state == 'generated'"
+                       decoration-muted="state == 'closed'"/>
+                <button name="action_download" 
+                        string="Descargar" 
+                        type="object" 
+                        icon="fa-download"
+                        invisible="not zip_file"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Vista Search -->
+    <record id="view_rips_export_search" model="ir.ui.view">
+        <field name="name">rips.export.search</field>
+        <field name="model">rips.export</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <separator/>
+                <filter string="Borrador" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="RIPS Generados" name="rips_generated" domain="[('state', '=', 'rips_generated')]"/>
+                <filter string="Validado" name="validated" domain="[('state', '=', 'validated')]"/>
+                <filter string="ZIP Generado" name="generated" domain="[('state', '=', 'generated')]"/>
+                <filter string="Cerrado" name="closed" domain="[('state', '=', 'closed')]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Estado" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Usuario" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Fecha" name="group_date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- Acción para abrir vista -->
+    <record id="action_rips_export" model="ir.actions.act_window">
+        <field name="name">Exportación RIPS</field>
+        <field name="res_model">rips.export</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Cree una nueva exportación de RIPS
+            </p>
+            <p>
+                Las exportaciones de RIPS le permiten generar y descargar los archivos JSON
+                de RIPS empaquetados en un archivo ZIP para su envío a entidades.
+            </p>
+        </field>
+    </record>
+    
+      
+
+</odoo>

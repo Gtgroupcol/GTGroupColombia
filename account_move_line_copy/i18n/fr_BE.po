@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_move_line_copy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-10 12:59+0000\n"
+"PO-Revision-Date: 2024-09-10 15:01+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: account_move_line_copy
+#: model_terms:ir.ui.view,arch_db:account_move_line_copy.account_move_form_view_duplicate_line
+msgid "Duplicate line"
+msgstr "Dupliquer une ligne"
+
+#. module: account_move_line_copy
+#: model:ir.model,name:account_move_line_copy.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: account_move_line_copy
+#. odoo-python
+#: code:addons/account_move_line_copy/models/account_move_line.py:0
+#, python-format
+msgid ""
+"You can only duplicate lines for customer or vendor invoices/credit notes "
+"that are in the 'draft' state."
+msgstr ""
+"Vous ne pouvez dupliquer que les lignes des factures/notes de crédit "
+"clients ou fournisseurs qui sont dans l'état de « brouillon »."

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_account_move_tree" model="ir.ui.view">
+        <field name="name">view_account_move_tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_date_due']" position="after">
+                <field name="payment_days" optional="show"/>
+                <field name="due_days" optional="show"/>
+                <field name="city_id" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_residual_signed']" position="after">
+                <field name="amount_residual_company_currency" />
+                <field name="amount_residual" string="Owed in currency" optional="show" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_form" model="ir.ui.view">
+        <field name="name">view.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="priority" eval="99" />
+        <field name="arch" type="xml">
+            <!--<xpath expr="//button[@name='action_post'][2]" position="replace">
+                <button name="action_post" string="Confirm" class="oe_highlight" type="object" groups="account.group_account_invoice" data-hotkey="v" attrs="{'invisible': ['|', '|', '|', '|', ('state', '!=', 'draft'), ('auto_post', '=', True), ('move_type', '=', 'entry'), ('display_inactive_currency_warning','=',True), ('show_credit_limit','=',True)]}" />
+                <button name="action_post" string="Confirm" class="oe_highlight" type="object" groups="account.group_account_invoice" data-hotkey="v" attrs="{'invisible': ['|', '|', '|', '|', ('state', '!=', 'draft'), ('auto_post', '=', True), ('move_type', '=', 'entry'), ('display_inactive_currency_warning','=',True), ('show_credit_limit','=',False)]}" />
+            </xpath>-->
+            <div class="oe_button_box" position="inside">
+                <button type="object" class="oe_stat_button" name="action_view_credit_notes" icon="fa-minus" invisible="credit_note_count ==  0">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value"><field name="credit_note_count"/></span>
+                        <span class="o_stat_text">Credit Notes</span>
+                    </div>
+                </button>
+            </div>
+            <xpath expr="//field[@name='tax_cash_basis_created_move_ids']" position="after">
+                <field name="show_credit_limit" invisible="True" />
+            </xpath>
+            <xpath expr="//group[@id='header_left_group']" position="inside">
+                <field name="payment_policy" invisible="move_type not in ('out_invoice','out_refund','in_invoice','in_refund')" />
+            </xpath>
+            <!-- <xpath expr="//group[@id='header_left_group']/field[@name='partner_id']" position="after">
+                <field name="city_id" options="{'no_create': True}" groups="account.group_account_user" invisible="move_type not in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt')" readonly="state in ('posted','cancel')" />
+            </xpath> -->
+            <xpath expr="//group[@id='header_right_group']" position="inside">
+                <field name="multi_currency" invisible="move_type not in ('out_invoice','out_refund','in_invoice','in_refund')"  readonly="state != 'draft'" />
+                <field name="current_exchange_rate" invisible="move_type not in ('out_invoice','out_refund','in_invoice','in_refund')"  readonly="state != 'draft'" />
+                <field name="manual_currency_rate_active" invisible="move_type not in ('out_invoice','out_refund','in_invoice','in_refund')"  readonly="state != 'draft'" />
+                <field name="manual_currency_rate" invisible="move_type not in ('out_invoice','out_refund','in_invoice','in_refund')" />
+                <field name="date_aux" invisible="1" />
+                <field name="category_id_related" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" readonly="1" />
+                <field name="credit_limit" readonly="1" />
+            </xpath>
+            <xpath expr="//notebook/page[@id='invoice_tab']/field[@name='invoice_line_ids']/tree/field[@name='partner_id']" position="before">
+                <field name="line_partner_id" string="Tercero Contracto"  optional="hide" />
+                <field name="multi_currency_id" string="Currency" optional="hide" column_invisible="parent.multi_currency != True" />
+                <field name="multi_price_unit" string="Price" optional="hide" column_invisible="parent.multi_currency != True" />
+            </xpath>
+            <xpath expr="//notebook/page[@id='aml_tab']/field[@name='line_ids']/tree/field[@name='partner_id']" position="after">
+                <field name="line_partner_id" string="Tercero Contracto" optional="hide" />
+                <field name="multi_currency_id" column_invisible="1"/>
+                <field name="multi_price_unit" column_invisible="1" />
+            </xpath>
+            <xpath expr="//notebook/page[@id='invoice_tab']/field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="attributes">
+                <attribute name="column_invisible">parent.multi_currency != False</attribute>
+                <attribute name="string">Invoice Price</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@id='invoice_tab']/field[@name='invoice_line_ids']/form/sheet/group[1]/field[@name='price_unit']" position="after">
+                <field name="multi_currency_id" string="Currency" column_invisible="parent.multi_currency != True" />
+                <field name="multi_price_unit" string="Price" column_invisible="parent.multi_currency != True" />
+            </xpath>
+            <xpath expr="//notebook/page[@id='invoice_tab']/field[@name='invoice_line_ids']/form/sheet/group[1]/field[@name='price_unit']" position="attributes">
+                <attribute name="invisible">multi_currency_id != False</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@id='invoice_tab']/field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+                <field name="partner_id" optional="hide" domain="['|', ('parent_id', '=', False), ('is_company', '=', True)]" />
+            </xpath>
+            <xpath expr="//notebook/page[@id='aml_tab']/field[@name='line_ids']/tree/field[@name='partner_id']" position="attributes">
+                <attribute name="column_invisible">0</attribute>
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page name="page_payment" string="Payments">
+                    <group>
+                        <field name="last_payment_line_id" />
+                        <field name="last_payment_date" />
+                        <field name="last_nc_line_id" />
+                        <field name="last_nc_date" />
+                    </group>
+                    <field name="move_line_payment_ids" />
+                    <field name="move_line_payment_ids" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_pivot" model="ir.ui.view">
+        <field name="name">view.account.move.pivot</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <pivot string="Invoices Analysis" sample="True">
+                <field name="invoice_term_due" type="col" />
+                <field name="amount_residual_signed" type="measure" invisible="1" />
+                <!-- <field name="amount_residual_company_currency" type="measure"/> -->
+            </pivot>
+        </field>
+    </record>
+
+    <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,form,pivot</field>
+    </record>
+
+    <record id="account.action_move_in_invoice_type" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,form,pivot</field>
+    </record>
+</odoo>

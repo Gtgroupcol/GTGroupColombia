@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="provider_form_combopay" model="ir.ui.view">
+            <field name="name">provider.form.combopay</field>
+            <field name="model">payment.provider</field>
+            <field name="inherit_id" ref="payment.payment_provider_form"/>
+            <field name="arch" type="xml">
+                <group name="provider_credentials" position='inside'>
+                    <group   invisible="code != 'wompicol'" >
+                        <group>
+
+                            <field name="wompicol_public_key"
+                                   invisible="code != 'wompicol' or state != 'enabled'"
+                                   required="code == 'wompicol' and state == 'enabled'" />
+                            <field name="wompicol_private_key"
+                                   invisible="code != 'wompicol' or state != 'enabled'"
+                                   required="code == 'wompicol' and state == 'enabled'" />
+                            <field name="wompicol_integrity_key"
+                                   invisible="code != 'wompicol' or state != 'enabled'"
+                                   required="code == 'wompicol' and state == 'enabled'" />
+                            <field name="wompicol_event_url"
+                                   invisible="code != 'wompicol' or state != 'enabled'"
+                                   required="code == 'wompicol' and state == 'enabled'" />
+
+
+                            <field name="wompicol_test_public_key"
+                                   invisible="code != 'wompicol' or state != 'test'"
+                                   required="code == 'wompicol' and state == 'test'" />
+                            <field name="wompicol_test_private_key"
+                                   invisible="code != 'wompicol' or state != 'test'"
+                                   required="code == 'wompicol' and state == 'test'"
+                            />
+                            <field name="wompicol_test_integrity_key"
+                                   invisible="code != 'wompicol' or state != 'test'"
+                                   required="code == 'wompicol' and state == 'test'"
+                            />
+                            <field name="wompicol_test_event_url"
+                                   invisible="code != 'wompicol' or state != 'test'"
+                                   required="code == 'wompicol' and state == 'test'"
+                            />
+
+
+                        </group>
+
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

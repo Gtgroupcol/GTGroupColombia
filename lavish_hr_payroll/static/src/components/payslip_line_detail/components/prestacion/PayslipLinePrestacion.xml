@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="lavish_hr_payroll.PayslipLinePrestacion">
+        <div class="pld-widget-section pld-prestacion-view">
+            <!-- Header con tipo y base legal -->
+            <div class="pld-section-header pld-section-header-steps">
+                <div class="pld-header-left">
+                    <i t-att-class="'fa ' + props.ruleConfig.icon" t-att-style="'color: ' + props.ruleConfig.color + ';'"/>
+                    <span class="pld-header-title-dark"><t t-esc="data.tipoPrestacion"/></span>
+                    <span t-if="data.esLiquidacion" class="pld-badge pld-badge-warning">LIQUIDACIÓN</span>
+                </div>
+                <div class="pld-header-right">
+                    <a t-if="props.getLeyUrl(data.baseLegal)" t-att-href="props.getLeyUrl(data.baseLegal)" target="_blank" class="pld-legal-link" t-on-click.stop="">
+                        <t t-esc="data.baseLegal"/> <i class="fa fa-external-link"/>
+                    </a>
+                    <span t-else="" class="pld-badge pld-badge-legal"><t t-esc="data.baseLegal"/></span>
+                </div>
+            </div>
+
+            <div class="pld-section-content">
+                <!-- Explicación -->
+                <t t-if="data.explicacion">
+                    <div class="pld-paso-explicacion">
+                        <i class="fa fa-info-circle"/> <t t-esc="data.explicacion"/>
+                    </div>
+                </t>
+
+                <!-- Indicadores del backend -->
+                <t t-if="hasIndicadores">
+                    <div class="pld-indicadores-row">
+                        <t t-foreach="data.indicadores" t-as="ind" t-key="ind_index">
+                            <div t-att-class="'pld-indicador pld-indicador-' + (ind.color || 'primary')">
+                                <i t-att-class="'fa ' + (ind.icono || 'fa-info-circle')"/>
+                                <span class="pld-ind-texto"><t t-esc="ind.texto"/></span>
+                                <span class="pld-ind-desc"><t t-esc="ind.descripcion"/></span>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- Composición de la Base -->
+                <div class="pld-prestacion-base">
+                    <div class="pld-subtabla-header">
+                        <i class="fa fa-money"/> Composición de la Base
+                    </div>
+                    <table class="pld-paso-tabla">
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Fórmula</th>
+                                <th class="text-right">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Salario Base -->
+                            <tr>
+                                <td>
+                                    <i class="fa fa-money"/> Salario Base
+                                    <t t-if="data.cambios_salario and data.cambios_salario.tiene_cambios">
+                                        <sup class="pld-nota-ref">*</sup>
+                                    </t>
+                                </td>
+                                <td class="pld-formula-cell">
+                                    <t t-if="data.cambios_salario and data.cambios_salario.tiene_cambios">
+                                        <code class="pld-formula-code"><t t-esc="data.cambios_salario.formula_ponderacion"/></code>
+                                    </t>
+                                    <t t-else="">
+                                        <span class="pld-texto-sm">Salario actual del contrato</span>
+                                    </t>
+                                </td>
+                                <td class="text-right"><t t-esc="props.formatCurrency(data.salarioBase)"/></td>
+                            </tr>
+                            <!-- Variable Total -->
+                            <t t-if="data.variableTotal > 0">
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-plus-circle pld-icon-ok"/> Variable Total<sup class="pld-nota-ref">**</sup>
+                                        <span class="pld-texto-sm">(promedio <t t-esc="data.mesesPeriodo"/> meses)</span>
+                                    </td>
+                                    <td class="pld-formula-cell">
+                                        <t t-if="data.desglose_variables_ordenado">
+                                            <t t-foreach="data.desglose_variables_ordenado.variables" t-as="comp" t-key="comp_index">
+                                                <t t-if="comp.tipo === 'variable' and comp.formula">
+                                                    <code class="pld-formula-code"><t t-esc="comp.formula"/></code>
+                                                </t>
+                                            </t>
+                                        </t>
+                                        <t t-elif="data.cambios_auxilio and data.cambios_auxilio.en_variable">
+                                            <code class="pld-formula-code">
+                                                (<t t-esc="data.cambios_auxilio.total_en_variable_fmt || data.cambios_auxilio.suma_historial_fmt"/> / <t t-esc="data.cambios_auxilio.total_dias || (data.mesesPeriodo * 30)"/> días) × 30
+                                            </code>
+                                        </t>
+                                    </td>
+                                    <td class="text-right pld-valor-suma">+ <t t-esc="props.formatCurrency(data.variableTotal)"/></td>
+                                </tr>
+                            </t>
+                            <!-- Auxilio de Transporte (no en variable) -->
+                            <t t-if="data.aplicaAuxilio and data.auxilioTransporte > 0">
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-bus"/> Auxilio de Transporte
+                                        <t t-if="data.cambios_auxilio and data.cambios_auxilio.cantidad > 1">
+                                            <sup class="pld-nota-ref">***</sup>
+                                        </t>
+                                    </td>
+                                    <td class="pld-formula-cell">
+                                        <t t-if="data.cambios_auxilio and data.cambios_auxilio.metodo_calculo === 'promedio_variable'">
+                                            <span class="pld-badge pld-badge-info pld-badge-sm">Ya en variable</span>
+                                        </t>
+                                        <t t-elif="data.cambios_auxilio and data.cambios_auxilio.cantidad > 1">
+                                            <code class="pld-formula-code">
+                                                <t t-esc="data.cambios_auxilio.suma_historial_fmt"/> / <t t-esc="data.cambios_auxilio.total_dias || data.cambios_auxilio.cantidad * 30"/> días × 30
+                                            </code>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="pld-texto-sm">Auxilio vigente del periodo</span>
+                                        </t>
+                                    </td>
+                                    <td class="text-right pld-valor-suma">+ <t t-esc="props.formatCurrency(data.auxilioTransporte)"/></td>
+                                </tr>
+                            </t>
+                            <!-- Auxilio en Variable (mostrar info) -->
+                            <t t-if="data.cambios_auxilio and data.cambios_auxilio.en_variable and data.auxilioTransporte == 0">
+                                <tr class="pld-row-info">
+                                    <td><i class="fa fa-bus pld-icon-variable"/> Auxilio de Transporte<sup class="pld-nota-ref">***</sup></td>
+                                    <td class="pld-formula-cell">
+                                        <code class="pld-formula-code">
+                                            <t t-esc="data.cambios_auxilio.suma_historial_fmt"/> / <t t-esc="data.cambios_auxilio.total_dias || (data.mesesPeriodo * 30)"/> días × 30 = <t t-esc="data.cambios_auxilio.auxilio_aplicado_fmt"/>
+                                        </code>
+                                        <span class="pld-badge pld-badge-warning pld-badge-sm">Incluido en variable</span>
+                                    </td>
+                                    <td class="text-right pld-texto-sm">(ya sumado arriba)</td>
+                                </tr>
+                            </t>
+                            <!-- Conceptos Adicionales -->
+                            <t t-if="data.conceptosNeto != 0">
+                                <tr t-att-class="data.conceptosNeto >= 0 ? '' : 'pld-row-resta'">
+                                    <td>
+                                        <i t-att-class="data.conceptosNeto >= 0 ? 'fa fa-plus-circle pld-icon-ok' : 'fa fa-minus-circle pld-icon-resta'"/>
+                                        Conceptos Adicionales
+                                    </td>
+                                    <td class="pld-formula-cell">
+                                        <span class="pld-texto-sm">Suma de otros conceptos</span>
+                                    </td>
+                                    <td t-att-class="'text-right ' + (data.conceptosNeto >= 0 ? 'pld-valor-suma' : 'pld-valor-resta')">
+                                        <t t-esc="data.conceptosNeto >= 0 ? '+' : ''"/><t t-esc="props.formatCurrency(data.conceptosNeto)"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr class="pld-tabla-total">
+                                <td><strong>BASE TOTAL MENSUAL</strong></td>
+                                <td class="pld-formula-cell">
+                                    <code class="pld-formula-code pld-formula-total">
+                                        <t t-esc="props.formatCurrency(data.salarioBase)"/>
+                                        <t t-if="data.variableTotal > 0"> + <t t-esc="props.formatCurrency(data.variableTotal)"/></t>
+                                        <t t-if="data.auxilioTransporte > 0"> + <t t-esc="props.formatCurrency(data.auxilioTransporte)"/></t>
+                                    </code>
+                                </td>
+                                <td class="text-right"><strong><t t-esc="props.formatCurrency(data.baseTotal)"/></strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <!-- Notas explicativas (simplificadas) -->
+                    <t t-if="(data.cambios_salario and data.cambios_salario.tiene_cambios) or data.variableTotal > 0 or (data.cambios_auxilio and data.cambios_auxilio.en_variable)">
+                        <div class="pld-notas-explicativas pld-notas-compactas">
+                            <t t-if="data.cambios_salario and data.cambios_salario.tiene_cambios">
+                                <span class="pld-nota-inline"><sup>*</sup>Salario promediado (<t t-esc="data.cambios_salario.cantidad"/> cambios)</span>
+                            </t>
+                            <t t-if="data.variableTotal > 0 and data.cambios_auxilio and data.cambios_auxilio.en_variable">
+                                <span class="pld-nota-inline"><sup>**</sup>Variable: (<t t-esc="data.cambios_auxilio.suma_historial_fmt"/> / <t t-esc="data.cambios_auxilio.total_dias"/> días) × 30</span>
+                            </t>
+                            <t t-if="data.cambios_auxilio and data.cambios_auxilio.en_variable">
+                                <span class="pld-nota-inline"><sup>***</sup>Auxilio incluido en variable</span>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- NOTA: La sección de Variables se movió después del Auxilio para mantener consistencia visual -->
+
+                <!-- ═══════════════════════════════════════════════════════════════════ -->
+                <!-- NUEVAS SECCIONES: Días, Salario, Auxilio, Variable -->
+                <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+                <!-- TABLA: Resumen de Días - Siempre visible, antes de sueldo -->
+                <t t-if="data.resumen_dias">
+                    <div class="pld-subtabla-container pld-resumen-dias">
+                        <div class="pld-subtabla-header">
+                            <i class="fa fa-calendar"/> Días del Periodo
+                            <t t-if="data.resumen_dias.tiene_descuentos">
+                                <span class="pld-badge pld-badge-warning">
+                                    -<t t-esc="data.resumen_dias.total_descuentos"/> días
+                                </span>
+                            </t>
+                            <span class="pld-badge pld-badge-primary" style="margin-left: 8px;">
+                                <t t-esc="data.resumen_dias.dias_total"/> días usados
+                            </span>
+                        </div>
+                        <table class="pld-paso-tabla pld-tabla-sm pld-tabla-dias">
+                            <tbody>
+                                <t t-foreach="data.resumen_dias.lineas" t-as="linea" t-key="linea.orden">
+                                    <tr t-att-class="linea.tipo === 'total' ? 'pld-tabla-total' : (linea.tipo === 'descuento' ? 'pld-row-descuento' : '')">
+                                        <td style="width: 30px;">
+                                            <i t-att-class="'fa ' + linea.icono" t-att-style="'color: var(--pld-' + linea.color + ', #6B7280);'"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="linea.concepto"/>
+                                            <t t-if="linea.detalle_agrupado and linea.detalle_agrupado.length > 0">
+                                                <div class="pld-texto-sm" style="color: #6B7280; margin-top: 2px;">
+                                                    <t t-foreach="linea.detalle_agrupado" t-as="det" t-key="det.tipo">
+                                                        <span style="margin-right: 8px;">
+                                                            <t t-esc="det.tipo"/>: <t t-esc="det.dias"/> días
+                                                        </span>
+                                                    </t>
+                                                </div>
+                                            </t>
+                                        </td>
+                                        <td class="text-right" style="width: 100px;">
+                                            <strong t-if="linea.tipo === 'total'">
+                                                <t t-esc="linea.dias"/> días
+                                            </strong>
+                                            <span t-else="">
+                                                <t t-esc="linea.signo"/><t t-esc="linea.dias"/> días
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+
+                <!-- TABLA: Cambios de Salario - Siempre visible -->
+                <t t-if="data.cambios_salario and data.cambios_salario.cantidad > 0">
+                    <div class="pld-subtabla-container pld-cambios-salario">
+                        <div class="pld-subtabla-header pld-clickable" t-on-click="toggleCambiosSalario">
+                            <i class="fa fa-line-chart"/> Historial de Salario
+                            <t t-if="data.cambios_salario.tiene_cambios">
+                                <span class="pld-badge pld-badge-warning"><t t-esc="data.cambios_salario.cantidad"/> cambio(s)</span>
+                            </t>
+                            <t t-else="">
+                                <span class="pld-badge pld-badge-success">Sin cambios</span>
+                            </t>
+                            <i t-att-class="'fa fa-chevron-' + (state.showCambiosSalario ? 'up' : 'down')" style="float:right;"/>
+                        </div>
+                        <t t-if="state.showCambiosSalario">
+                            <table class="pld-paso-tabla pld-tabla-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Desde</th>
+                                        <th>Hasta</th>
+                                        <th class="text-right">Salario</th>
+                                        <th class="text-right">Días</th>
+                                        <th class="text-right">Pond. %</th>
+                                        <th class="text-right">Salario Pond.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="data.cambios_salario.historial" t-as="cambio" t-key="cambio_index">
+                                        <tr>
+                                            <td class="pld-texto-sm"><t t-esc="cambio.fecha_inicio"/></td>
+                                            <td class="pld-texto-sm"><t t-esc="cambio.fecha_fin"/></td>
+                                            <td class="text-right"><t t-esc="cambio.salario_monto_fmt"/></td>
+                                            <td class="text-right"><t t-esc="cambio.dias_vigencia"/></td>
+                                            <td class="text-right pld-texto-sm"><t t-esc="cambio.ponderacion_fmt"/></td>
+                                            <td class="text-right"><t t-esc="cambio.salario_ponderado_fmt"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="pld-tabla-total">
+                                        <td colspan="2"><strong>PROMEDIO PONDERADO</strong></td>
+                                        <td class="text-right"><strong><t t-esc="data.cambios_salario.salario_promediado_fmt"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="data.cambios_salario.dias_totales"/> días</strong></td>
+                                        <td class="text-right"><strong>100%</strong></td>
+                                        <td class="text-right"><strong><t t-esc="data.cambios_salario.salario_promediado_fmt"/></strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="pld-formula-detalle">
+                                <code><t t-esc="data.cambios_salario.formula_ponderacion"/></code>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- TABLA: Cambios de Auxilio - Siempre visible -->
+                <t t-if="data.cambios_auxilio">
+                    <div class="pld-subtabla-container pld-cambios-auxilio">
+                        <div class="pld-subtabla-header pld-clickable" t-on-click="toggleCambiosAuxilio">
+                            <i class="fa fa-bus"/> Auxilio de Transporte
+                            <t t-if="data.cambios_auxilio.aplicabilidad and data.cambios_auxilio.aplicabilidad.aplica">
+                                <span class="pld-badge pld-badge-success">APLICA</span>
+                            </t>
+                            <t t-else="">
+                                <span class="pld-badge pld-badge-danger">NO APLICA</span>
+                            </t>
+                            <t t-if="data.cambios_auxilio.cantidad > 1">
+                                <span class="pld-badge pld-badge-info"><t t-esc="data.cambios_auxilio.cantidad"/> periodos</span>
+                            </t>
+                            <i t-att-class="'fa fa-chevron-' + (state.showCambiosAuxilio ? 'up' : 'down')" style="float:right;"/>
+                        </div>
+                        <t t-if="state.showCambiosAuxilio">
+                            <div class="pld-info-auxilio">
+                                <div class="pld-info-row">
+                                    <span>Salario Base:</span>
+                                    <strong><t t-esc="data.cambios_auxilio.aplicabilidad.salario_base_fmt"/></strong>
+                                </div>
+                                <div class="pld-info-row">
+                                    <span>Tope (<t t-esc="data.cambios_auxilio.aplicabilidad.tope_smmlv"/> SMMLV):</span>
+                                    <strong><t t-esc="data.cambios_auxilio.aplicabilidad.tope_moneda_fmt"/></strong>
+                                </div>
+                                <div class="pld-info-row">
+                                    <span>Auxilio Aplicado:</span>
+                                    <strong><t t-esc="data.cambios_auxilio.auxilio_aplicado_fmt"/></strong>
+                                </div>
+                                <div class="pld-info-row pld-texto-sm">
+                                    <span>Método:</span>
+                                    <span><t t-esc="data.cambios_auxilio.metodo_calculo"/></span>
+                                    <t t-if="data.cambios_auxilio.en_variable">
+                                        <span class="pld-badge pld-badge-warning">En Variable</span>
+                                    </t>
+                                </div>
+                            </div>
+                            <t t-if="data.cambios_auxilio.historial and data.cambios_auxilio.historial.length > 0">
+                                <table class="pld-paso-tabla pld-tabla-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Nómina</th>
+                                            <th>Periodo</th>
+                                            <th>Código</th>
+                                            <th>Concepto</th>
+                                            <th class="text-right">Días</th>
+                                            <th class="text-right">Monto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="data.cambios_auxilio.historial" t-as="aux" t-key="aux_index">
+                                            <tr t-att-class="aux.es_actual ? 'pld-row-actual' : ''">
+                                                <td>
+                                                    <a t-if="aux.payslip_id" t-att-href="'/web#id=' + aux.payslip_id + '&amp;model=hr.payslip&amp;view_type=form'" target="_blank" class="pld-link-nomina">
+                                                        <i class="fa fa-file-text-o"/> <t t-esc="aux.payslip_number || 'Ver'"/>
+                                                    </a>
+                                                    <span t-else="" class="pld-texto-sm">-</span>
+                                                </td>
+                                                <td class="pld-texto-sm">
+                                                    <t t-esc="aux.periodo"/>
+                                                    <t t-if="aux.es_actual">
+                                                        <span class="pld-badge pld-badge-success pld-badge-sm">Actual</span>
+                                                    </t>
+                                                </td>
+                                                <td><span class="pld-badge-codigo"><t t-esc="aux.codigo"/></span></td>
+                                                <td><t t-esc="aux.nombre"/></td>
+                                                <td class="text-right pld-texto-sm"><t t-esc="aux.dias || aux.quantity || 30"/></td>
+                                                <td class="text-right"><t t-esc="aux.monto_fmt"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                    <tfoot>
+                                        <!-- Subtotal cuando hay multiple historial -->
+                                        <t t-if="data.cambios_auxilio.cantidad > 1">
+                                            <tr class="pld-tabla-subtotal">
+                                                <td colspan="4">
+                                                    <strong>SUBTOTAL (<t t-esc="data.cambios_auxilio.cantidad"/> periodos)</strong>
+                                                </td>
+                                                <td class="text-right">
+                                                    <strong><t t-esc="data.cambios_auxilio.total_dias"/> días</strong>
+                                                    <t t-if="data.cambios_auxilio.total_dias_historial and data.cambios_auxilio.total_dias != data.cambios_auxilio.total_dias_historial">
+                                                        <span class="pld-texto-sm pld-nota-dias">(finales)</span>
+                                                    </t>
+                                                </td>
+                                                <td class="text-right"><strong><t t-esc="data.cambios_auxilio.suma_historial_fmt || data.cambios_auxilio.total_en_variable_fmt"/></strong></td>
+                                            </tr>
+                                        </t>
+                                        <tr class="pld-tabla-total">
+                                            <td colspan="5">
+                                                <strong>PROMEDIO A USAR</strong>
+                                                <span class="pld-texto-sm">(<t t-esc="data.cambios_auxilio.suma_historial_fmt"/> / <t t-esc="data.cambios_auxilio.total_dias"/> días × 30)</span>
+                                            </td>
+                                            <td class="text-right"><strong><t t-esc="data.cambios_auxilio.auxilio_aplicado_fmt"/></strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+
+
+                <!-- TABLA: Variable - Siempre visible -->
+                <div class="pld-subtabla-container pld-cambios-variable">
+                    <div class="pld-subtabla-header pld-clickable" t-on-click="toggleVariableDetail">
+                        <i class="fa fa-plus-circle"/> Componentes Variables
+                        <t t-if="hasLineasVariable and data.variableTotal > 0">
+                            <span class="pld-badge pld-badge-primary"><t t-esc="data.lineasVariable.length"/> conceptos</span>
+                        </t>
+                        <t t-else="">
+                            <span class="pld-badge pld-badge-secondary">Sin variable</span>
+                        </t>
+                        <i t-att-class="'fa fa-chevron-' + (state.showVariableDetail ? 'up' : 'down')" style="float:right;"/>
+                    </div>
+                    <t t-if="state.showVariableDetail">
+                        <!-- Si hay variable, mostrar tabla -->
+                        <t t-if="hasLineasVariable and data.variableTotal > 0">
+                            <table class="pld-paso-tabla pld-tabla-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Nómina</th>
+                                        <th>Periodo</th>
+                                        <th>Código</th>
+                                        <th>Concepto</th>
+                                        <th class="text-right">Cantidad</th>
+                                        <th class="text-right">Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="data.lineasVariable" t-as="linea" t-key="'var_' + linea_index">
+                                        <tr>
+                                            <td>
+                                                <a t-if="linea.payslipId" t-att-href="'/web#id=' + linea.payslipId + '&amp;model=hr.payslip&amp;view_type=form'" target="_blank" class="pld-link-nomina">
+                                                    <i class="fa fa-file-text-o"/> <t t-esc="linea.slipNumber || 'Ver'"/>
+                                                </a>
+                                                <span t-else="" class="pld-texto-sm">-</span>
+                                            </td>
+                                            <td class="pld-texto-sm"><t t-esc="linea.fecha || linea.periodo || '-'"/></td>
+                                            <td><span class="pld-badge-codigo"><t t-esc="linea.codigo"/></span></td>
+                                            <td><t t-esc="linea.nombre"/></td>
+                                            <td class="text-right pld-texto-sm"><t t-esc="linea.quantity || linea.dias || '-'"/></td>
+                                            <td class="text-right"><t t-esc="props.formatCurrency(linea.valorUsado || linea.total)"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                                <tfoot>
+                                    <t t-if="data.lineasVariable.length > 1">
+                                        <tr class="pld-tabla-subtotal">
+                                            <td colspan="4">
+                                                <strong>SUBTOTAL (<t t-esc="data.lineasVariable.length"/> periodos)</strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <strong><t t-esc="data.diasTrabajados || (data.mesesPeriodo * 30)"/> días</strong>
+                                            </td>
+                                            <td class="text-right"><strong><t t-esc="props.formatCurrency(totalLineasVariable)"/></strong></td>
+                                        </tr>
+                                    </t>
+                                    <tr class="pld-tabla-total">
+                                        <td colspan="5">
+                                            <strong>PROMEDIO A USAR</strong>
+                                            <span class="pld-texto-sm">(<t t-esc="props.formatCurrency(totalLineasVariable)"/> / <t t-esc="data.diasTrabajados || (data.mesesPeriodo * 30)"/> días × 30)</span>
+                                        </td>
+                                        <td class="text-right"><strong><t t-esc="props.formatCurrency(data.variableTotal)"/></strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </t>
+                        <!-- Si NO hay variable, mostrar mensaje informativo -->
+                        <t t-else="">
+                            <div class="pld-info-auxilio pld-sin-datos">
+                                <div class="pld-info-row">
+                                    <i class="fa fa-info-circle"/>
+                                    <span>No hay componentes variables en este periodo.</span>
+                                </div>
+                                <div class="pld-info-row pld-texto-sm">
+                                    <span>Los componentes variables incluyen: bonificaciones, comisiones, horas extras y otros devengos promediables con flag <code>base_prima=True</code>.</span>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+
+                <!-- Pasos del Cálculo -->
+                <div class="pld-prestacion-pasos">
+                    <div class="pld-subtabla-header">
+                        <i class="fa fa-calculator"/> Pasos del Cálculo
+                    </div>
+                    <div class="pld-formula-steps">
+                        <t t-foreach="data.formulaPasos" t-as="paso" t-key="paso_index">
+                            <div t-att-class="'pld-formula-step ' + (paso.tipo === 'resultado' ? 'pld-step-subtotal' : '')">
+                                <span class="pld-step-num" t-att-style="'background: ' + getStepColor(paso_index) + ';'">
+                                    <t t-esc="paso.paso"/>
+                                </span>
+                                <span class="pld-step-desc"><t t-esc="paso.concepto"/></span>
+                                <span class="pld-step-formula" t-if="paso.formulaTexto">
+                                    <t t-esc="paso.formulaTexto"/>
+                                </span>
+                                <span class="pld-step-val">
+                                    <t t-esc="props.formatValue(paso.resultado, paso.formato)"/>
+                                </span>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- Resultado -->
+                <div class="pld-prestacion-resultado">
+                    <div class="pld-resultado-main">
+                        <span class="pld-resultado-label">
+                            <i class="fa fa-check-circle"/> <t t-esc="data.tipoPrestacion"/>
+                        </span>
+                        <span class="pld-resultado-valor" t-att-style="'color: ' + props.ruleConfig.color + ';'">
+                            <t t-esc="props.formatCurrency(data.valorFinal)"/>
+                        </span>
+                    </div>
+                    <div t-if="data.formulaResumen" class="pld-resultado-formula">
+                        <t t-esc="data.formulaResumen"/>
+                    </div>
+                </div>
+
+                <!-- Comparativa si hay datos anteriores -->
+                <t t-if="data.valorAnterior > 0">
+                    <div class="pld-comparativa-box">
+                        <div class="pld-subtabla-header">
+                            <i class="fa fa-exchange"/> Comparativa
+                        </div>
+                        <div class="pld-comparativa-grid">
+                            <div class="pld-comp-item">
+                                <span class="pld-comp-label">Anterior</span>
+                                <span class="pld-comp-valor"><t t-esc="props.formatCurrency(data.valorAnterior)"/></span>
+                            </div>
+                            <div class="pld-comp-item">
+                                <span class="pld-comp-label">Actual</span>
+                                <span class="pld-comp-valor"><t t-esc="props.formatCurrency(data.valorFinal)"/></span>
+                            </div>
+                            <div t-att-class="'pld-comp-item ' + ((data.valorFinal - data.valorAnterior) >= 0 ? 'pld-comp-up' : 'pld-comp-down')">
+                                <span class="pld-comp-label">Diferencia</span>
+                                <span class="pld-comp-valor">
+                                    <i t-att-class="(data.valorFinal - data.valorAnterior) >= 0 ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"/>
+                                    <t t-esc="props.formatCurrency(Math.abs(data.valorFinal - data.valorAnterior))"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>

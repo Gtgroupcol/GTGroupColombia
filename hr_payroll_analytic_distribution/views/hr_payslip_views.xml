@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Extensión del formulario de nómina para agregar distribución analítica -->
+        <record id="view_hr_payslip_form_analytic_distribution" model="ir.ui.view">
+            <field name="name">hr.payslip.form.analytic.distribution</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="before">
+                    <field name="analytic_distribution" 
+                           widget="analytic_distribution" 
+                           string="Distribución Analítica"
+                           help="Distribuir los costos de esta nómina entre múltiples cuentas analíticas. La suma debe ser 100%."/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

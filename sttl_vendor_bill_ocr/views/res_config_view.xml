@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherited_qwen" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40" />
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='default_taxes_setting_container']" position="after">
+                <h2>Qwen API</h2>
+                <div class="row mt16 o_settings_container" name="ocr_bill_config">
+                    <div class="col-12 col-lg-6 o_setting_box" id="qwen_api_key">
+                        <label for="qwen_api_key" />
+                        <field name="qwen_api_key" class="ms-3"/>
+                        <div class="text-muted">
+                            Enter Your API key of the Together.ai.
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="allow_po_creation_from_bill">
+                        <label for="allow_po_creation_from_bill" />
+                        <field name="allow_po_creation_from_bill" class="ms-3" />
+                        <div class="text-muted">
+                            Allow creating purchase order when validating Bill created from OCR.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

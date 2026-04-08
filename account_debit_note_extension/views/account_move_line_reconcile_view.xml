@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Vista de árbol personalizada para el wizard de selección -->
+    <record id="view_move_line_reconcile_tree" model="ir.ui.view">
+      <field name="name">account.move.line.reconcile.tree</field>
+      <field name="model">account.move.line</field>
+      <field name="arch" type="xml">
+        <tree string="Seleccionar línea para conciliar">
+          <field name="company_id" invisible="1"/>
+          <field name="move_id"/>
+          <field name="move_name"/>
+          <field name="date"/>
+          <field name="account_id"/>
+          <field name="account_id" string="Código Cuenta" widget="account_code"/>
+          <field name="name"/>
+          <field name="amount_residual"/>
+          <field name="amount_residual_currency"/>
+          <button name="action_reconcile_with_line" string="Conciliar" type="object" class="oe_highlight"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>

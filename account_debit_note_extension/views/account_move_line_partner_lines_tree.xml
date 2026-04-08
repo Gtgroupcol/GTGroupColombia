@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_account_move_line_partner_lines_tree" model="ir.ui.view">
+      <field name="name">account.move.line.partner.lines.tree</field>
+      <field name="model">account.move.line</field>
+      <field name="arch" type="xml">
+        <tree string="Apuntes relacionados con el Partner" multi_edit="1">
+          <field name="company_id" invisible="1"/>
+          <field name="move_id"/>
+          <field name="move_name"/>
+          <field name="date"/>
+          <field name="account_id"/>
+          <field name="account_id" string="Código Cuenta" widget="account_code"/>
+          <field name="name"/>
+          <field name="debit" invisible="1"/>
+          <field name="credit" invisible="1"/>
+          <field name="amount_residual"/>
+          <field name="amount_residual_currency"/>
+          <field name="reconciled" invisible="1"/>
+          <!-- Botón personalizado de Cruzar -->
+          <button name="action_reconcile_13_22" 
+                  type="object" 
+                  string="Cruzar Cobros/Pagos"
+                  icon="fa-exchange"
+                  invisible="reconciled or amount_residual == 0"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>
+
+

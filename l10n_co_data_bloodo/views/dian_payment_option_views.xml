@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="dian_payment_option_view_tree" model="ir.ui.view">
+            <field name="model">dian.payment.option</field>
+            <field name="arch" type="xml">
+                <tree string="Payment options">
+                    <field name="dian_code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="dian_payment_option_view_form" model="ir.ui.view">
+            <field name="model">dian.payment.option</field>
+            <field name="arch" type="xml">
+                <form string="Payment options">
+                    <group>
+                        <group>
+                            <field name='name' required='1'/>
+                            <field name='dian_code' required='1'/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="dian_payment_option_view_search" model="ir.ui.view">
+            <field name="model">dian.payment.option</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="[('name','ilike',self)]"/>
+                    <field name="dian_code" filter_domain="[('dian_code','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_dian_payment_option" model="ir.actions.act_window">
+            <field name="name">Payment options</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dian.payment.option</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="dian_payment_option_view_tree"/>
+        </record>
+
+    </data>
+</odoo>

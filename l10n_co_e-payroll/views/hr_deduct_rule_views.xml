@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Tree -->
+    <record id="l10n_co_e-payroll.hr_deduct_rule_view_tree" model="ir.ui.view">
+        <field name="name">hr.deduct.rule.tree</field>
+        <field name="model">hr.deduct.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="display_name"/>
+                <field name="parent_id"/>
+                <field name="xml_structure"/>
+                <field name="xml_node_type"/>
+                <field name="is_nodo_text"/>
+                <field name="deduction_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="hr_deduct_rule_view_form" model="ir.ui.view">
+        <field name="name">hr.deduct.rule.form</field>
+        <field name="model">hr.deduct.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Nombre de la regla"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="parent_id"/>
+                            <field name="deduction_type"/>
+                            <field name="parent_rule_id"/>
+                        </group>
+                        <group>
+                            <field name="display_name"/>
+                            <field name="complete_name" invisible="1"/>
+                            <field name="accumulates_lines"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Estructura XML" name="xml_structure">
+                            <group>
+                                <group string="Configuración XML">
+                                    <field name="xml_structure"/>
+                                    <field name="xml_node_type"/>
+                                    <field name="xml_tag"/>
+                                    <field name="xml_child_tag"/>
+                                    <field name="xml_attributes"/>
+                                    <field name="is_nodo_text"/>
+                                </group>
+                                <group string="Características del Nodo">
+                                    <field name="has_quantity"/>
+                                    <field name="has_dates"/>
+                                    <field name="has_times"/>
+                                    <field name="has_rate"/>
+                                    <field name="has_amount"/>
+                                    <field name="has_ns_value"/>
+                                    <field name="has_description"/>
+                                    <field name="has_extra_values"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Configuración Adicional" name="additional_config">
+                            <group>
+                                <group string="Porcentajes y Valores">
+                                    <field name="base_percentage"/>
+                                    <field name="requires_third_party"/>
+                                    <field name="requires_description"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search -->
+    <record id="hr_deduct_rule_view_search" model="ir.ui.view">
+        <field name="name">hr.deduct.rule.search</field>
+        <field name="model">hr.deduct.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="parent_id"/>
+                <field name="deduction_type"/>
+                <separator/>
+                <filter string="Con Nodo Texto" name="nodo_texto" domain="[('is_nodo_text', '=', True)]"/>
+                <filter string="Con Porcentaje" name="con_porcentaje" domain="[('has_rate', '=', True)]"/>
+                <filter string="Con Terceros" name="con_terceros" domain="[('requires_third_party', '=', True)]"/>
+                <filter string="Con Descripción" name="con_descripcion" domain="[('requires_description', '=', True)]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Categoría Principal" name="parent" domain="[]" context="{'group_by': 'parent_id'}"/>
+                    <filter string="Tipo de Deducción" name="type" domain="[]" context="{'group_by': 'deduction_type'}"/>
+                    <filter string="Estructura XML" name="xml_structure" domain="[]" context="{'group_by': 'xml_structure'}"/>
+                    <filter string="Tipo de Nodo" name="node_type" domain="[]" context="{'group_by': 'xml_node_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="l10n_co_e-payroll.hr_deduct_rule_action" model="ir.actions.act_window">
+        <field name="name">Tipos Deducciones</field>
+        <field name="res_model">hr.deduct.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Cree un nuevo tipo de deducción
+            </p>
+            <p>
+                Los tipos de deducción definen las reglas para la nómina electrónica DIAN.
+            </p>
+        </field>
+    </record>
+</odoo>

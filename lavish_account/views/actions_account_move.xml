@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+	<!-- Crear record rule para filtrar las compañias-->
+        <record id="rule_annual_accounting_closing_security_company" model="ir.rule">
+            <field name="name">Permisos compañia cierre contable anual</field>
+            <field name="model_id" ref="model_annual_accounting_closing"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_annual_accounting_closing">
+            <field name="name">Cierre contable</field>
+            <field name="res_model">annual.accounting.closing</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="annual_accounting_closing_list">
+            <field name="name">annual accounting closing list</field>
+            <field name="model">annual.accounting.closing</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="closing_year"/>
+                    <field name="balance"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="annual_accounting_closing_form">
+            <field name="name">annual accounting closing form</field>
+            <field name="model">annual.accounting.closing</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="call_up_closing_wizard" type="object" string="Generar cierre"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_right oe_button_box" name="buttons">
+                            <button name="return_action_to_open"
+                                class="oe_inline oe_stat_button" style="width: 200px !important;"
+                                icon="fa-list"
+                                invisible="counter_contab == 0"
+                                type="object">
+                                <field name="counter_contab" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="closing_year"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group string="Datos de Cierre">
+                            <field name="journal_id"/>
+                            <field name="counterparty_account" />
+                            <field name="closing_by_partner"/>
+                            <field name="filter_account_ids" widget="many2many_tags" />
+                            <field name="partner_id" invisible="closing_by_partner ==  False"/>
+                        </group>
+                        <group string="Saldo de cierre">
+                            <h3><field name="balance" nolabel="1"/></h3>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

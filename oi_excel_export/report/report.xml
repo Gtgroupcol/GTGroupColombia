@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="act_report_oi_excel_export" model="ir.actions.report">
+        <field name="name">Excel (Qweb)</field>
+        <field name="model">oi_excel_export</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">oi_excel_export.report_oi_excel_export</field>
+        <field name="report_file">oi_excel_export.report_oi_excel_export</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_tax_configuration_root"
+        name="Retenciones Colombianas"
+        parent="account.menu_finance_configuration"
+        sequence="50"
+        groups="account.group_account_manager"/>
+
+    <menuitem
+        id="menu_tax_general_parameters"
+        name="Parámetros Tributarios (UVT/SMMLV)"
+        parent="menu_tax_configuration_root"
+        action="action_tax_general_parameter"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_withholding_concept"
+        name="Conceptos de Retención"
+        parent="menu_tax_configuration_root"
+        action="action_withholding_concept"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_withholding_rate"
+        name="Tarifas de Retención"
+        parent="menu_tax_configuration_root"
+        action="action_withholding_rate"
+        sequence="30"/>
+
+    <menuitem
+        id="menu_withholding_bracket"
+        name="Rangos Progresivos"
+        parent="menu_tax_configuration_root"
+        action="action_withholding_bracket"
+        sequence="40"/>
+
+    <menuitem
+        id="menu_tax_base_thresholds"
+        name="Umbrales de Base (Legado)"
+        parent="menu_tax_configuration_root"
+        action="action_tax_base_threshold"
+        sequence="90"/>
+
+    <menuitem
+        id="menu_ica_tariff"
+        name="Tarifas de ICA"
+        parent="menu_tax_configuration_root"
+        action="action_ica_tariff"
+        sequence="60"/>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+	<record id="payment_combopay_transaction_form_inherit" model="ir.ui.view">
+        <field name="name">payment.combopay.transaction.form.inherit</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.payment_transaction_form"/>
+        <field name="arch" type="xml">
+            <field name="provider_reference" position="after">
+                <field name="checkout_code_onvopay" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

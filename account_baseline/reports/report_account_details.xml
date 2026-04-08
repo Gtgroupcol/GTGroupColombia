@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_account_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="account_baseline.report_account_details_document" t-lang="doc.user_id.lang" />
+            </t>
+        </t>
+    </template>
+
+    <template id="report_account_details_document">
+        <t t-set="company" t-value="env.company" />
+        <t t-call="web.internal_layout">
+            <div class="page">
+                <div class="text-center">
+                    <h2>Invoices Details</h2>
+                    <strong>
+                        <span t-field="doc.date_start" t-options="{'widget': 'date'}" />
+                        -
+                        <span t-field="doc.date_end" t-options="{'widget': 'date'}" />
+                    </strong>
+                </div><!---->
+                <div class="row">
+                        <div class="col-12">
+                            <hr />
+                            <table class="table-condensed tabla">
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <b>
+                                                NOMBRE:
+                                            </b>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <span t-field="company.name"/> 
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <b>
+                                                NIT: 
+                                            </b>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <span t-field="company.vat"/>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <b>
+                                                FECHA:
+                                            </b>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <span t-field="doc.date_start"/>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                <h3>Facturas</h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Factura</th>
+                            <th>Antes de Impuesto</th>
+                            <th>Impuestos</th>
+                            <th>Valor total</th>
+                            <th>Total Facturas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="price_subtotal" t-value="0" />
+                        <tr t-foreach="doc.moves_ids" t-as="move">
+                            <t t-set="price_subtotal" t-value="price_subtotal + move.amount_total" />
+                            
+                            <td>
+                                <!-- <span t-field="line.product_id" /> -->
+                                <span t-field="move.name" />
+                            </td>
+                            <td>
+                                <span t-field="move.amount_untaxed"/>
+                            </td>
+                            <td>
+                                <t t-set="total_taxes" t-value="0"/>
+                                <t t-foreach="move.invoice_line_ids" t-as="line"> 
+                                    <t t-foreach="line.tax_ids" t-as="tax">
+                                        <t t-if="tax.codigo_dian == '01'">
+                                            <t t-set="total_taxes" t-value="total_taxes + ((line.price_subtotal * tax.amount)/100)"/>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-esc="total_taxes" t-options="{'widget': 'monetary', 'display_currency': company.currency_id}"/>
+                            </td>
+                            <td>
+                                <span t-field="move.amount_total" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td>
+                                <t t-esc="price_subtotal" t-options="{'widget': 'monetary', 'display_currency': company.currency_id}" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h3>Payments</h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="amount" t-value="0" />
+                        <t t-foreach="doc.moves_ids" t-as="move">
+                            <t t-set="payments" t-value="doc.invoice_payments_widget(move)" />
+                            <tr t-foreach="payments" t-as="payment">
+                                <t t-set="amount" t-value="amount + payment.get('amount')" />
+                                <td>
+                                    <t t-esc="payment.get('ref')" />
+                                </td>
+                                <td>
+                                    <t t-esc="payment.get('amount')" t-options="{'widget': 'monetary', 'display_currency': move.currency_id}" />
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td/>
+                            <td>
+                                <t t-esc="amount" t-options="{'widget': 'monetary', 'display_currency': company.currency_id}" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h3>Taxes</h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Base Amount</th>
+                            <th>Tax Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="tax_group_amount" t-value="0" />
+                        <t t-foreach="doc.moves_ids" t-as="move">
+                            <t t-set="taxes" t-value="doc.tax_totals_json(move)" />
+                            <tr t-foreach='taxes' t-as='tax'>
+                                <t t-set="tax_group_amount" t-value="tax_group_amount + tax.get('tax_group_amount')" />
+                                <td>
+                                    <t t-esc="tax.get('tax_group_name')" />
+                                </td>
+                                <td>
+                                    <t t-esc="tax.get('tax_group_base_amount')" t-options="{'widget': 'monetary', 'display_currency': move.currency_id}" />
+                                </td>
+                                <td>
+                                    <t t-esc="tax.get('tax_group_amount')" t-options="{'widget': 'monetary', 'display_currency': move.currency_id}" />
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td/>
+                            <td/>
+                            <td>
+                                <t t-esc="tax_group_amount" t-options="{'widget': 'monetary', 'display_currency': company.currency_id}" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,72 @@
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CONFIGURACIÓN DE CUENTAS ANALÍTICAS          │
+└─────────────────────────────────────────────────────────────────┘
+
+📋 PASO 1: CREAR CUENTAS ANALÍTICAS
+┌─────────────────────────────────────────────────────────────────┐
+│ Facturación → Configuración → Contabilidad Analítica → Cuentas  │
+│                                                                 │
+│ ✅ Crear cuentas como:                                          │
+│    • Departamento Administrativo (ADMIN)                       │
+│    • Departamento Operativo (OPER)                             │
+│    • Departamento Ventas (VENTAS)                              │
+│    • Proyecto A (PROJ_A)                                       │
+│    • Proyecto B (PROJ_B)                                       │
+└─────────────────────────────────────────────────────────────────┘
+
+🎯 PASO 2: CONFIGURAR EN NÓMINA
+┌─────────────────────────────────────────────────────────────────┐
+│ Nómina → Recibos de Nómina → [Crear/Editar Recibo]             │
+│                                                                 │
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │ 👤 Empleado: Juan Pérez                                    │ │
+│ │ 📅 Período: Enero 2025                                     │ │
+│ │ 💼 Contrato: Contrato Principal                            │ │
+│ │                                                           │ │
+│ │ 🎯 DISTRIBUCIÓN ANALÍTICA: [Widget Multicuenta] ⬅️ AQUÍ   │ │
+│ │    ┌─────────────────────────────────────────────────────┐ │ │
+│ │    │ 🏢 Administración    │ 40% │ [🔍]                  │ │ │
+│ │    │ ⚙️  Operaciones      │ 35% │ [🔍]                  │ │ │
+│ │    │ 📈 Ventas           │ 25% │ [🔍]                  │ │ │
+│ │    │                    Total: 100% ✅                   │ │ │
+│ │    └─────────────────────────────────────────────────────┘ │ │
+│ │                                                           │ │
+│ │ 📊 Diario: Nómina Empleados                               │ │
+│ │ 💰 Estado: Borrador                                       │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+
+⚡ RESULTADO AUTOMÁTICO
+┌─────────────────────────────────────────────────────────────────┐
+│ 📊 Asientos Contables Generados:                               │
+│                                                                 │
+│ Concepto: Salario Básico ($1,000,000)                          │
+│ ├── Administración (40%): $400,000                             │
+│ ├── Operaciones (35%):    $350,000                             │
+│ └── Ventas (25%):         $250,000                             │
+│                                                                 │
+│ Concepto: Prestaciones Sociales ($200,000)                     │
+│ ├── Administración (40%): $80,000                              │
+│ ├── Operaciones (35%):    $70,000                              │
+│ └── Ventas (25%):         $50,000                              │
+└─────────────────────────────────────────────────────────────────┘
+
+🎛️ WIDGET MULTICUENTA - CARACTERÍSTICAS
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│ 🔍 [Buscar cuenta analítica...]                                │
+│                                                                 │
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │ ✅ Departamento Administrativo    │ 40.00% │ [❌]           │ │
+│ │ ✅ Departamento Operativo         │ 35.00% │ [❌]           │ │
+│ │ ✅ Departamento Ventas            │ 25.00% │ [❌]           │ │
+│ │                                                             │ │
+│ │ + Agregar otra cuenta                                       │ │
+│ │                                                             │ │
+│ │                          Total: 100.00% ✅                  │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│ [💾 Guardar]  [❌ Cancelar]                                     │
+└─────────────────────────────────────────────────────────────────┘
+```
